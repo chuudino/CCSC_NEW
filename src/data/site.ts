@@ -62,7 +62,7 @@ export const groups: Group[] = [
     name: '台北分會',
     shortName: '台北',
     location: '台北',
-    description: '透過月會、避靜、文化活動與社區關懷，在城市生活中同行。',
+    description: '透過月會、避靜、文化活動與社區關懷，在城市生活中偕行。',
     rhythm: '月會、避靜、藝文與關懷服務',
     accent: 'teal',
   },
@@ -105,7 +105,7 @@ export const groups: Group[] = [
 ]
 
 export const events: Event[] = [
-  { id: 'tp-0920', date: '2026-09-20', title: '雷公與賴神父周年追思', group: 'taipei', location: '台北', speaker: '總會戎巧復', description: '在感恩與祈禱中紀念同行者，回望他們留給小會的生命見證。' },
+  { id: 'tp-0920', date: '2026-09-20', title: '雷公與賴神父周年追思', group: 'taipei', location: '台北', speaker: '總會戎巧復', description: '在感恩與祈禱中紀念偕行者，回望他們留給小會的生命見證。' },
   { id: 'tc-0920', date: '2026-09-20', title: '讀書分享：生活中的神聖', group: 'taichung', location: '雙十堂', speaker: '傅美華' },
   { id: 'camp-1023', date: '2026-10-23', endDate: '2026-10-25', title: '小會共融營', group: 'headquarters', location: '彰化靜山', description: '三日共融、祈禱與生命交流，讓各地會員重新相遇。' },
   { id: 'tp-1115', date: '2026-11-15', title: '依納爵神操', group: 'taipei', location: '台北', speaker: '尹美琪修女' },
@@ -137,7 +137,7 @@ export const notices: Notice[] = [
     date: '2026-08-29',
     title: '115年4月南港藝文生態Go!',
     group: '台北分會',
-    excerpt: '走進南港的藝文與生態地景，在同行中感受受造界的美好。',
+    excerpt: '走進南港的藝文與生態地景，在偕行中感受受造界的美好。',
     content: ['台北分會四月活動走出室內，以藝文、生態與信仰交織出共融的一日。', '沿途以觀察、分享與祈禱，讓城市成為一間開放的靈修教室。'],
   },
   {
@@ -153,7 +153,7 @@ export const notices: Notice[] = [
     date: '2026-08-07',
     title: '115年7月青年福傳講座',
     group: '青年組',
-    excerpt: '與青年同行，在當代語境裡練習聆聽、陪伴與分享信仰。',
+    excerpt: '與青年偕行，在當代語境裡練習聆聽、陪伴與分享信仰。',
     content: ['青年福傳不是單向傳遞，而是一起尋找生命問題中的光。', '講座從青年文化與陪伴經驗出發，探索信仰如何成為真實生活的力量。'],
   },
 ]
@@ -172,7 +172,7 @@ export const articles: Article[] = [
     author: '神修默觀祈禱小組',
     date: '2023-07',
     excerpt: '把願望讓天主看見；即使能力微弱，仍以宏大的愛回應祂。',
-    content: ['「禰是葡萄樹，我們是枝條，離開禰，我們什麼也不能做。」（若 15:5）', '祈禱不只關於已經完成的事，也關於我們願意成為怎樣的人。把心中的聖善願望帶到天主面前，讓愛比能力更早一步抵達。', '小組邀請每位同行者每天以十分鐘讀經、十五分鐘歸心祈禱或耶穌禱文，安靜地回到生命的中心。'],
+    content: ['「禰是葡萄樹，我們是枝條，離開禰，我們什麼也不能做。」（若 15:5）', '祈禱不只關於已經完成的事，也關於我們願意成為怎樣的人。把心中的聖善願望帶到天主面前，讓愛比能力更早一步抵達。', '小組邀請每位偕行者每天以十分鐘讀經、十五分鐘歸心祈禱或耶穌禱文，安靜地回到生命的中心。'],
   },
   {
     slug: 'twilight-full-sky',
@@ -208,7 +208,7 @@ export const timeline = [
 ] as const
 
 export const principles = [
-  { title: '愛', text: '以基督的聖愛為根本，在日常關係中練習接納、同行與給予。' },
+  { title: '愛', text: '以基督的聖愛為根本，在日常關係中練習接納、偕行與給予。' },
   { title: '自由', text: '以超脫的心面對得失，在祈禱與分辨中回應真正的召叫。' },
   { title: '喜樂', text: '從與主結合而來的深層喜樂，成為服務與盼望的泉源。' },
 ]

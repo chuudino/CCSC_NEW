@@ -227,7 +227,7 @@ function HomePage() {
           <div className="hero__copy">
             <span className="eyebrow"><Sparkles size={15} /> 一個在愛內彼此扶持的家</span>
             <h1>在基督的愛內，<br /><em>共同成長。</em></h1>
-            <p>我們是一群在日常生活中尋找天主的人。以中華文化的深度、福音的喜樂，彼此同行，也走向世界。</p>
+            <p>我們是一群在日常生活中尋找天主的人。以中華文化的深度、福音的喜樂，彼此偕行，也走向世界。</p>
             <div className="button-row">
               <Link className="button button--primary" to="/about">認識小會 <ArrowRight size={18} /></Link>
               <Link className="button button--ghost" to="/calendar">查看近期活動</Link>
@@ -250,7 +250,7 @@ function HomePage() {
 
       <section className="section section--paper">
         <div className="shell">
-          <SectionHeading eyebrow="近期同行" title="在相遇中，讓信仰成為生活" text="從共融、祈禱到文化與服務，找到一個與你同行的入口。" action={<Link className="text-link" to="/calendar">完整行事曆 <ArrowRight size={16} /></Link>} />
+          <SectionHeading eyebrow="近期偕行" title="在相遇中，讓信仰成為生活" text="從共融、祈禱到文化與服務，找到一個與你偕行的入口。" action={<Link className="text-link" to="/calendar">完整行事曆 <ArrowRight size={16} /></Link>} />
           <div className="event-feature-grid">
             {events.slice(0, 3).map((event, index) => (
               <article className={index === 0 ? 'event-feature event-feature--primary' : 'event-feature'} key={event.id}>
@@ -385,7 +385,7 @@ function ActivitiesPage() {
         </div>
       </section>
       <section className="section section--mist">
-        <div className="shell"><SectionHeading eyebrow="各地分會" title="找到一個與你同行的團體" />
+        <div className="shell"><SectionHeading eyebrow="各地分會" title="找到一個與你偕行的團體" />
           <div className="group-card-grid">
             {groups.map((group) => <Link className={`group-card group-card--${group.accent}`} to={`/groups/${group.slug}`} key={group.slug}><span>{group.shortName}</span><div><h3>{group.name}</h3><p>{group.description}</p><small><MapPin size={14} /> {group.location}</small></div><ArrowUpRight /></Link>)}
           </div>
@@ -435,7 +435,7 @@ function PublicationsPage() {
     <>
       <PageHero eyebrow="Publications" title="心泉與芥子" text="保存團體的共同記憶，也讓靈修經驗、神學思想與文化省思持續流動。" icon={<BookOpen />} />
       <section className="section section--paper"><div className="shell">
-        <div className="publication-intro"><div><span className="eyebrow">閱讀室</span><h2>一篇文章，一段同行的路</h2></div><p>《心泉》是小會的生命記錄與靈修分享；《芥子》由北美分會持續耕耘，讓微小的信仰種子在文化中生長。</p></div>
+        <div className="publication-intro"><div><span className="eyebrow">閱讀室</span><h2>一篇文章，一段偕行的路</h2></div><p>《心泉》是小會的生命記錄與靈修分享；《芥子》由北美分會持續耕耘，讓微小的信仰種子在文化中生長。</p></div>
         <div className="library-grid">
           {publications.map((publication) => <article key={publication.slug} className={`library-item library-item--${publication.accent}`}><div className="book-cover"><span>CCSC</span><strong>{publication.series}</strong><i /><small>{publication.issue}</small></div><div><span className="tag">{publication.series}</span><h2>{publication.issue}</h2><time>{publication.date}</time><p>{publication.description}</p><button className="text-link" type="button">本期目錄整理中 <ArrowRight size={15} /></button></div></article>)}
         </div>
