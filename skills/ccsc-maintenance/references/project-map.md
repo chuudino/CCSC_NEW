@@ -21,3 +21,11 @@
 路由包括 `/`、`/about`、`/activities`、`/groups/:slug`、`/calendar`、`/publications`、`/culture`、`/prayer`、`/search` 和 `/article/:slug`。刊物「本期目錄整理中」及部分歷史資料仍為現有待辦，不因一次品牌維護而自動新增下載、資料匯入或後端功能。
 
 本機可能位於 iCloud 目錄；先用 `git rev-parse --absolute-git-dir` 找到實際 Git 資料位置。同步衝突曾造成 `index 2` 與 `refs/heads/main 2` 副本，不要在未檢查內容前把衝突副本當成新版本或刪除任何歷史。
+
+## 此 Windows 環境的發布備註
+
+優先使用目前 Sites 技能的 helper。只有出現以下相同錯誤時，才使用已驗證的局部替代方式：
+
+- Sites build helper 的 npm shim 若找不到 `npm-prefix.js` 或 `npm-cli.js`，可在 helper 的 ordered commands 中依序執行 `node node_modules/typescript/bin/tsc -b`、`node node_modules/vite/bin/vite.js build` 和 `node scripts/verify-build.mjs`；這与既有 build script 的型別檢查和建置相同，不改網站依賴。
+- 使用已安裝的 Git Bash 封裝時，GNU tar 可能把 Windows 磁碟代號當成遠端主機。只在該次 helper 進程設定 `TAR_OPTIONS=--force-local`，並使用 `C:/...` 格式的絕對 archive 路徑；不要全域修改 shell 設定。
+- 若跨命令後忽略的 `dist/` 產物遺失，在同一個 Sites helper 進程內建置、執行 `verify-build` 與封裝。先前的型別檢查在原始碼未變時可重用，但封裝需要可讀取的實際產物。
