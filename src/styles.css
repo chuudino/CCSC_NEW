@@ -58,20 +58,17 @@ button { cursor: pointer; }
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(251,248,241,.94); border-bottom: 1px solid rgba(31,62,57,.09); backdrop-filter: blur(14px); }
 .site-header__inner { height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
 .brand { display: flex; align-items: center; gap: 12px; min-width: 276px; color: var(--teal); }
-.brand > span { display: flex; flex-direction: column; line-height: 1.25; }
+.brand > span { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
 .brand strong { font-family: var(--serif); font-size: 1.04rem; letter-spacing: .04em; }
 .brand small { margin-top: 4px; color: #63706c; font-family: ui-serif, Georgia, serif; font-size: .62rem; letter-spacing: .06em; }
-.sacred-mark { width: min(100%, 410px); color: var(--gold-light); fill: none; stroke: currentColor; stroke-width: 2.25; }
-.sacred-mark__cross { stroke: var(--paper); stroke-width: 3; stroke-linecap: round; }
-.sacred-mark__orbit { opacity: .28; stroke-width: 1; stroke-dasharray: 3 5; }
-.sacred-mark--compact { width: 47px; flex: 0 0 47px; color: var(--gold); }
-.sacred-mark--compact .sacred-mark__cross { stroke: var(--teal); }
+.sacred-mark { display: block; width: min(100%, 410px); height: auto; aspect-ratio: 133 / 124; border-radius: 26px; background: white; object-fit: contain; box-shadow: 0 14px 34px rgba(15,48,44,.16); }
+.sacred-mark--compact { width: 52px; flex: 0 0 52px; border-radius: 10px; box-shadow: 0 5px 16px rgba(15,48,44,.12); }
 .desktop-nav { display: flex; align-items: center; justify-content: center; gap: clamp(14px, 1.7vw, 26px); }
 .desktop-nav a { position: relative; color: #475450; font-size: .82rem; font-weight: 600; white-space: nowrap; }
 .desktop-nav a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -12px; height: 2px; background: var(--gold); transition: right .25s ease; }
 .desktop-nav a:hover, .desktop-nav a.active { color: var(--teal); }
 .desktop-nav a:hover::after, .desktop-nav a.active::after { right: 0; }
-.header-actions { display: flex; align-items: center; gap: 7px; }
+.header-actions { display: flex; flex-shrink: 0; align-items: center; gap: 7px; }
 .icon-button, .menu-button { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--teal); }
 .menu-button { display: none; }
 .mobile-panel { border-top: 1px solid var(--line); background: var(--paper); padding: 18px 0 28px; }
@@ -99,7 +96,7 @@ button { cursor: pointer; }
 .hero-art__halo::before { width: 9px; height: 9px; top: 38px; left: 92px; }
 .hero-art__halo::after { width: 6px; height: 6px; right: 33px; bottom: 126px; }
 @keyframes slow-spin { to { transform: rotate(360deg); } }
-.hero-art > .sacred-mark { position: relative; z-index: 1; width: 315px; filter: drop-shadow(0 12px 26px rgba(0,0,0,.12)); }
+.hero-art > .sacred-mark { position: relative; z-index: 1; width: 315px; border-radius: 34px; box-shadow: 0 18px 44px rgba(0,0,0,.2); }
 .hero-art blockquote { position: absolute; z-index: 2; left: -34px; bottom: 18px; width: 270px; margin: 0; padding: 22px 24px; border-radius: 18px; background: rgba(255,253,248,.96); box-shadow: 0 18px 45px rgba(43,52,49,.16); }
 .hero-art blockquote svg { color: var(--gold); }
 .hero-art blockquote p { margin: 8px 0 4px; color: var(--teal); font-family: var(--serif); font-size: .96rem; font-weight: 600; line-height: 1.75; }
@@ -346,8 +343,7 @@ button { cursor: pointer; }
 .footer { background: #102f2c; color: rgba(255,255,255,.72); }
 .footer__grid { display: grid; grid-template-columns: 1.45fr 1.25fr .75fr .75fr; gap: 55px; padding-block: 70px 54px; }
 .footer__brand { display: flex; align-items: start; gap: 14px; color: white; }
-.footer__brand .sacred-mark { color: var(--gold-light); }
-.footer__brand .sacred-mark__cross { stroke: white; }
+.footer__brand .sacred-mark { border: 1px solid rgba(255,255,255,.22); box-shadow: none; }
 .footer__brand strong { font-family: var(--serif); font-size: 1.15rem; }
 .footer__brand p { margin: 5px 0; color: var(--gold-light); font-size: .75rem; }
 .footer h2 { margin: 0 0 16px; color: white; font-size: .76rem; letter-spacing: .12em; }
@@ -419,6 +415,8 @@ button { cursor: pointer; }
 
 @media (max-width: 560px) {
   .utility-bar a:last-child { display: none; }
+  .site-header__inner { gap: 12px; }
+  .brand { gap: 10px; }
   .brand strong { max-width: 160px; line-height: 1.25; }
   .icon-button { display: none; }
   .hero__copy h1 { font-size: 3.15rem; }

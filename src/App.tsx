@@ -66,13 +66,13 @@ function formatDate(date: string, withYear = true) {
 
 function SacredMark({ compact = false }: { compact?: boolean }) {
   return (
-    <svg className={compact ? 'sacred-mark sacred-mark--compact' : 'sacred-mark'} viewBox="0 0 120 120" aria-hidden="true">
-      <circle cx="45" cy="47" r="31" />
-      <circle cx="75" cy="47" r="31" />
-      <circle cx="60" cy="74" r="31" />
-      <path d="M60 13v22M49 24h22" className="sacred-mark__cross" />
-      <circle cx="60" cy="60" r="53" className="sacred-mark__orbit" />
-    </svg>
+    <img
+      className={compact ? 'sacred-mark sacred-mark--compact' : 'sacred-mark'}
+      src="/ccsc-mark.png"
+      width={133}
+      height={124}
+      alt={compact ? '' : '小會識別標誌'}
+    />
   )
 }
 
@@ -129,9 +129,9 @@ function Header() {
       </div>
       <header className="site-header">
         <div className="shell site-header__inner">
-          <Link className="brand" to="/" aria-label="中華基督神修小會首頁">
+          <Link className="brand" to="/" aria-label="天主教中華基督神修小會首頁">
             <SacredMark compact />
-            <span><strong>中華基督神修小會</strong><small>Chinese Christian Spirit Community</small></span>
+            <span><strong>天主教中華基督神修小會</strong><small>Chinese Christian Spirit Community</small></span>
           </Link>
           <nav className="desktop-nav" aria-label="主要導覽">
             {navItems.map((item) => (
@@ -168,7 +168,7 @@ function Footer() {
       <div className="shell footer__grid">
         <div className="footer__brand">
           <SacredMark compact />
-          <div><strong>中華基督神修小會</strong><p>在基督的愛內，共同成長</p></div>
+          <div><strong>天主教中華基督神修小會</strong><p>在基督的愛內，共同成長</p></div>
         </div>
         <div>
           <h2>聯絡我們</h2>
@@ -188,7 +188,7 @@ function Footer() {
         </div>
       </div>
       <div className="shell footer__bottom">
-        <span>© 2026 中華基督神修小會</span>
+        <span>© 2026 天主教中華基督神修小會</span>
         <a href="https://ccsc.org.tw/" target="_blank" rel="noreferrer">舊版官網 <ExternalLink size={13} /></a>
       </div>
     </footer>
@@ -326,7 +326,7 @@ function HomePage() {
 function AboutPage() {
   return (
     <>
-      <PageHero eyebrow="About CCSC" title="一個以基督愛為中心的大家庭" text="在中華文化中尋求靈修成長，彼此扶持，並在各自的生活崗位上成為愛的見證。" icon={<HeartHandshake />} />
+      <PageHero eyebrow="關於小會" title="一個以基督愛為中心的大家庭" text="在中華文化中尋求靈修成長，彼此扶持，並在各自的生活崗位上成為愛的見證。" icon={<HeartHandshake />} />
       <section className="section section--paper">
         <div className="shell readable-grid">
           <aside><span className="eyebrow">小會是什麼？</span><h2>不是離開生活，<br />而是更深地進入生活。</h2></aside>
@@ -437,7 +437,7 @@ function PublicationsPage() {
       <section className="section section--paper"><div className="shell">
         <div className="publication-intro"><div><span className="eyebrow">閱讀室</span><h2>一篇文章，一段偕行的路</h2></div><p>《心泉》是小會的生命記錄與靈修分享；《芥子》由北美分會持續耕耘，讓微小的信仰種子在文化中生長。</p></div>
         <div className="library-grid">
-          {publications.map((publication) => <article key={publication.slug} className={`library-item library-item--${publication.accent}`}><div className="book-cover"><span>CCSC</span><strong>{publication.series}</strong><i /><small>{publication.issue}</small></div><div><span className="tag">{publication.series}</span><h2>{publication.issue}</h2><time>{publication.date}</time><p>{publication.description}</p><button className="text-link" type="button">本期目錄整理中 <ArrowRight size={15} /></button></div></article>)}
+          {publications.map((publication) => <article key={publication.slug} className={`library-item library-item--${publication.accent}`}><div className="book-cover"><span>小會</span><strong>{publication.series}</strong><i /><small>{publication.issue}</small></div><div><span className="tag">{publication.series}</span><h2>{publication.issue}</h2><time>{publication.date}</time><p>{publication.description}</p><button className="text-link" type="button">本期目錄整理中 <ArrowRight size={15} /></button></div></article>)}
         </div>
       </div></section>
     </>
@@ -507,7 +507,7 @@ function ArticlePage() {
   const { slug } = useParams()
   const notice = notices.find((item) => item.slug === slug)
   const article = articles.find((item) => item.slug === slug)
-  const item = notice ? { title: notice.title, date: notice.date, category: notice.group, author: '中華基督神修小會', content: notice.content } : article
+  const item = notice ? { title: notice.title, date: notice.date, category: notice.group, author: '天主教中華基督神修小會', content: notice.content } : article
   if (!item) return <NotFound />
   return (
     <article className="article-page">

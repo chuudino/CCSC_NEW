@@ -1,0 +1,4 @@
+interface:
+  display_name: "小會網站維護"
+  short_description: "審核小會網站協作修改、整理專案並同步 GitHub 與 Sites 正式發布"
+  default_prompt: "使用 $ccsc-maintenance 審核目前的小會網站修改，整理專案狀態並依我的要求同步 GitHub 與 Sites。"

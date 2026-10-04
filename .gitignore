@@ -1,5 +1,9 @@
 node_modules/
 dist/
+.maintenance/
+.sites-runtime/
+.sites-checkout/
+.sites-checkout-*/
 .DS_Store
 *.local
 *.log
