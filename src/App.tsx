@@ -34,7 +34,10 @@ import {
 } from 'react-router-dom'
 import {
   articles,
+  aboutContent,
+  contentSource,
   events,
+  recurringEvents,
   groups,
   notices,
   principles,
@@ -52,6 +55,14 @@ const navItems = [
 ]
 
 const groupName = (slug: string) => groups.find((group) => group.slug === slug)?.name ?? slug
+
+const taipeiToday = () => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Taipei' }).format(new Date())
+const eventInGroup = (event: typeof events[number], group: string) => event.group === group || event.relatedGroups?.includes(group)
+const upcomingEvents = () => events.filter((event) => (event.endDate ?? event.date) >= taipeiToday()).sort((a, b) => a.date.localeCompare(b.date))
+
+function OfficialSource({ url, label = '閱讀原官網完整內容' }: { url?: string; label?: string }) {
+  return url ? <a className="text-link official-source" href={url} target="_blank" rel="noreferrer">{label} <ExternalLink size={15} /></a> : null
+}
 
 function formatDate(date: string, withYear = true) {
   const parsed = new Date(`${date}T12:00:00`)
@@ -220,6 +231,7 @@ function PageHero({ eyebrow, title, text, icon }: { eyebrow: string; title: stri
 }
 
 function HomePage() {
+  const upcoming = upcomingEvents().slice(0, 3)
   return (
     <>
       <section className="hero">
@@ -252,7 +264,7 @@ function HomePage() {
         <div className="shell">
           <SectionHeading eyebrow="近期偕行" title="在相遇中，讓信仰成為生活" text="從共融、祈禱到文化與服務，找到一個與你偕行的入口。" action={<Link className="text-link" to="/calendar">完整行事曆 <ArrowRight size={16} /></Link>} />
           <div className="event-feature-grid">
-            {events.slice(0, 3).map((event, index) => (
+              {upcoming.map((event, index) => (
               <article className={index === 0 ? 'event-feature event-feature--primary' : 'event-feature'} key={event.id}>
                 <div className="date-tile"><strong>{new Date(`${event.date}T12:00:00`).getDate()}</strong><span>{new Intl.DateTimeFormat('zh-TW', { month: 'short' }).format(new Date(`${event.date}T12:00:00`))}</span></div>
                 <div><span className="tag">{groupName(event.group)}</span><h3>{event.title}</h3><p><MapPin size={15} /> {event.location}{event.speaker ? `・${event.speaker}` : ''}</p></div>
@@ -341,22 +353,18 @@ function AboutPage() {
       <section className="section values-section">
         <div className="shell">
           <SectionHeading eyebrow="宗旨與精神" title="繼續基督對中華的使命" text="在生活中成全自己，在教會內團結，以完成共同使命。" />
-          <div className="purpose-grid">
-            {[
-              ['01', '尋求真理', '與現代人攜手，在一切真理中辨認基督之光。'],
-              ['02', '建設文化', '在福音光照下，保存傳統的優長，吸取現代文化的養分。'],
-              ['03', '促成公義', '關心社會、服務人群，為更公義和諧的世界持續悔改與行動。'],
-              ['04', '活出成全', '藉祈禱、聖體與研讀聖經，讓生命與基督保持連結。'],
-            ].map(([number, title, text]) => <article key={number}><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
-          </div>
+            <div className="purpose-grid">{aboutContent.mission.map((mission, index) => <article key={mission}><span>{String(index + 1).padStart(2, '0')}</span><h3>{mission}</h3></article>)}</div>
+            <p className="source-note">我們的精神是基督的精神——愛；生活態度是{aboutContent.attitudes.join('、')}。</p>
+            <OfficialSource url="https://ccsc.org.tw/?page_id=50002" label="閱讀宗旨精神原文" />
         </div>
       </section>
       <section className="section section--paper">
         <div className="shell">
           <SectionHeading eyebrow="歷史沿革" title="六十多年，一條持續展開的路" text="從五位教友的神修小組，走向跨地域、跨世代的信仰家庭。" />
           <div className="timeline">
-            {timeline.map(([year, item]) => <div key={year}><time>{year}</time><i /><p>{item}</p></div>)}
+              {timeline.map(([year, item], index) => <div key={`${year}-${index}`}><time>{year}</time><i /><p>{item}</p></div>)}
           </div>
+            <div className="source-links">{aboutContent.sources.map((source) => <OfficialSource key={source.url} url={source.url} label={`閱讀${source.label}原文`} />)}</div>
         </div>
       </section>
     </>
@@ -364,6 +372,7 @@ function AboutPage() {
 }
 
 function ActivitiesPage() {
+  const nextEvent = upcomingEvents()[0]
   return (
     <>
       <PageHero eyebrow="Community & Events" title="相遇、共融，然後一起行動" text="瀏覽近期消息，也認識各地分會如何在祈禱、文化與服務中活出小會精神。" icon={<Users />} />
@@ -380,7 +389,7 @@ function ActivitiesPage() {
                 </article>
               ))}
             </div>
-            <aside className="sidebar-card"><CalendarDays /><h2>下一場相聚</h2><strong>{events[0].title}</strong><p>{formatDate(events[0].date)}・{events[0].location}</p><Link to="/calendar">查看行事曆 <ArrowRight size={15} /></Link></aside>
+              <aside className="sidebar-card"><CalendarDays /><h2>下一場相聚</h2>{nextEvent ? <><strong>{nextEvent.title}</strong><p>{formatDate(nextEvent.date)}・{nextEvent.location}</p></> : <p>近期安排請洽各分會。</p>}<Link to="/calendar">查看行事曆 <ArrowRight size={15} /></Link><OfficialSource url="https://ccsc.org.tw/?post_type=notice" label="原官網公告" /></aside>
           </div>
         </div>
       </section>
@@ -399,7 +408,8 @@ function GroupPage() {
   const { slug } = useParams()
   const group = groups.find((item) => item.slug === slug)
   if (!group) return <NotFound />
-  const groupEvents = events.filter((event) => event.group === group.slug || (group.slug === 'headquarters' && event.group === 'headquarters'))
+  const groupEvents = upcomingEvents().filter((event) => eventInGroup(event, group.slug))
+  const groupNotices = notices.filter((notice) => notice.groupSlug === group.slug || notice.group === group.name)
   return (
     <>
       <PageHero eyebrow="Local Community" title={group.name} text={group.description} icon={<Globe2 />} />
@@ -407,23 +417,31 @@ function GroupPage() {
         <div><span className="eyebrow">團體節奏</span><h2>{group.rhythm}</h2><p className="large-copy">我們在固定相聚中祈禱、學習與分享生命，也透過服務與文化活動，將信仰帶進真實世界。</p><div className="contact-strip"><MapPin /><span><strong>聚會地區</strong>{group.location}</span></div></div>
         <div className="upcoming-panel"><h2>近期安排</h2>{groupEvents.length ? groupEvents.map((event) => <div key={event.id}><time>{formatDate(event.date, false)}</time><strong>{event.title}</strong><span>{event.location}</span></div>) : <p>最新聚會資訊整理中，歡迎聯絡總會。</p>}<Link className="button button--primary" to="/calendar">完整行事曆 <ArrowRight size={17} /></Link></div>
       </div></section>
+      <section className="section section--mist"><div className="shell"><SectionHeading eyebrow={group.name} title="公告與活動紀錄" /><OfficialSource url={group.sourceUrl} label="瀏覽原官網分會資訊" /><div className="article-list">{groupNotices.map((notice) => <article key={notice.slug}><time>{formatDate(notice.date)}</time><div><h2>{notice.title}</h2><p>{notice.excerpt}</p></div><Link to={`/article/${notice.slug}`} aria-label={`閱讀${notice.title}`}><ArrowRight /></Link></article>)}{group.slug === 'contemplation' && <Link className="text-link" to="/prayer">閱讀最新默觀月訊 <ArrowRight size={15} /></Link>}</div></div></section>
     </>
   )
 }
 
 function CalendarPage() {
   const [filter, setFilter] = useState('all')
-  const visibleEvents = filter === 'all' ? events : events.filter((event) => event.group === filter)
+  const [period, setPeriod] = useState('upcoming')
+  const today = taipeiToday()
+  const visibleEvents = events.filter((event) => (filter === 'all' || eventInGroup(event, filter)) && (period === 'all' || (period === 'upcoming' ? (event.endDate ?? event.date) >= today : (event.endDate ?? event.date) < today)))
+  const visibleRecurring = recurringEvents.filter((event) => filter === 'all' || event.group === filter)
   return (
     <>
-      <PageHero eyebrow="Calendar" title="2026 行事曆" text="把相聚留在日曆上，也把彼此放在祈禱中。活動資訊以各分會公告為準。" icon={<CalendarDays />} />
+      <PageHero eyebrow="Calendar" title={`${contentSource.calendarYear} 行事曆`} text="把相聚留在日曆上，也把彼此放在祈禱中。活動資訊以各分會公告為準。" icon={<CalendarDays />} />
       <section className="section section--paper"><div className="shell">
         <div className="filter-row" role="group" aria-label="依分會篩選">
           <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>全部</button>
           {groups.slice(0, 5).map((group) => <button key={group.slug} className={filter === group.slug ? 'active' : ''} onClick={() => setFilter(group.slug)}>{group.shortName}</button>)}
         </div>
+        <div className="filter-row" role="group" aria-label="依活動時間篩選">{[['upcoming', '即將到來'], ['all', '全年安排'], ['past', '活動回顧']].map(([value, label]) => <button key={value} className={period === value ? 'active' : ''} onClick={() => setPeriod(value)}>{label}</button>)}</div>
+        <OfficialSource url="https://ccsc.org.tw/?page_id=65000" label="核對原官網行事曆" />
+        {visibleRecurring.map((event) => <aside className="recurring-card" key={event.id}><span className="tag">{groupName(event.group)}・固定祈禱</span><h2>{event.title}</h2><p>{event.schedule}</p><p>{event.hosts.join('；')}</p></aside>)}
         <div className="calendar-list">
-          {visibleEvents.map((event) => <article key={event.id}><div className="calendar-list__date"><strong>{new Date(`${event.date}T12:00:00`).getDate()}</strong><span>{new Intl.DateTimeFormat('zh-TW', { month: 'short' }).format(new Date(`${event.date}T12:00:00`))}</span></div><div><span className="tag">{groupName(event.group)}</span><h2>{event.title}</h2>{event.description && <p>{event.description}</p>}<small><Clock3 size={14} /> {formatDate(event.date)}{event.endDate ? `－${formatDate(event.endDate)}` : ''}<MapPin size={14} /> {event.location}{event.speaker ? `・${event.speaker}` : ''}</small></div></article>)}
+          {visibleEvents.map((event) => <article key={event.id}><div className="calendar-list__date"><strong>{new Date(`${event.date}T12:00:00`).getDate()}</strong><span>{new Intl.DateTimeFormat('zh-TW', { month: 'short' }).format(new Date(`${event.date}T12:00:00`))}</span></div><div><span className="tag">{groupName(event.group)}</span><h2>{event.title}</h2>{event.description && <p>{event.description}</p>}<small><Clock3 size={14} /> {formatDate(event.date)}{event.endDate ? `－${formatDate(event.endDate)}` : ''}<MapPin size={14} /> {event.location}{event.speaker ? `・主講：${event.speaker}` : ''}{event.host ? `・主持：${event.host}` : ''}</small>{event.note && <p className="calendar-note">{event.note}</p>}</div></article>)}
+          {!visibleEvents.length && <p>此篩選範圍尚無已確認的活動，歡迎查閱全年安排或聯絡分會。</p>}
         </div>
       </div></section>
     </>
@@ -446,11 +464,12 @@ function PublicationsPage() {
 
 function CulturePage() {
   const culture = articles.filter((article) => article.category === '文化福傳')
+  const featured = culture.find((article) => article.sourceUrl) ?? culture[0]
   return (
     <>
       <PageHero eyebrow="Faith & Culture" title="讓福音與文化相遇" text="透過文字、影像、詩歌與生命故事，在當代生活中展開更寬廣的信仰對話。" icon={<Feather />} />
       <section className="section section--paper"><div className="shell">
-        <div className="featured-story"><div className="featured-story__art"><PlayCircle /><span>影音專題</span></div><div><span className="eyebrow">文化福傳專題</span><h2>晚霞滿天</h2><p>分享朝聖路上的心靈故事與見證。當腳步慢下來，我們重新聽見內在的聲音，也在沿途風景中練習交託。</p><Link className="button button--primary" to="/article/twilight-full-sky">閱讀專題 <ArrowRight size={17} /></Link></div></div>
+        <div className="featured-story"><div className="featured-story__art">{featured.sourceKind === 'video' ? <PlayCircle /> : <BookOpen />}<span>文化專題</span></div><div><span className="eyebrow">文化福傳專題</span><h2>{featured.title}</h2><p>{featured.excerpt}</p><Link className="button button--primary" to={`/article/${featured.slug}`}>閱讀專題 <ArrowRight size={17} /></Link></div></div>
         <SectionHeading eyebrow="選讀文章" title="在美與思想之間停留" />
         <div className="story-grid">{culture.map((article) => <article key={article.slug}><div><span>{article.category}</span><Feather /></div><time>{article.date}</time><h2>{article.title}</h2><p>{article.excerpt}</p><Link to={`/article/${article.slug}`}>繼續閱讀 <ArrowRight size={15} /></Link></article>)}</div>
       </div></section>
@@ -459,7 +478,8 @@ function CulturePage() {
 }
 
 function PrayerPage() {
-  const article = articles.find((item) => item.category === '默觀月訊')!
+  const prayer = articles.filter((item) => item.category === '默觀月訊')
+  const article = prayer[0]
   return (
     <>
       <PageHero eyebrow="Contemplative Prayer" title="相逢寧靜中" text="整裝待發，隨時儆醒；在安靜、讀經與祈禱中，陪伴彼此成為天主眼中完整的自己。" icon={<Sparkles />} />
@@ -467,7 +487,7 @@ function PrayerPage() {
         <div className="prayer-quote"><SacredMark /><blockquote>禰是葡萄樹，我們是枝條，離開禰，我們什麼也不能做。<cite>若望福音 15:5</cite></blockquote></div>
         <div><span className="eyebrow">每日操練</span><h2>在規律裡，為心保留一片安靜。</h2><div className="practice-list"><div><strong>10</strong><span>分鐘讀聖經</span></div><div><strong>15</strong><span>分鐘歸心祈禱</span></div><div><strong>1</strong><span>句耶穌禱文</span></div></div><p>「耶穌基督天主子，求禰可憐我。」讓一句簡單的祈禱，陪伴呼吸，也陪伴一天的生活。</p></div>
       </div></section>
-      <section className="section section--paper"><div className="shell"><SectionHeading eyebrow="默觀月訊" title="本月選讀" /><article className="reading-feature"><div><span className="tag">{article.category}</span><h2>{article.title}</h2><p>{article.excerpt}</p><Link className="text-link" to={`/article/${article.slug}`}>閱讀全文 <ArrowRight size={16} /></Link></div><div><Quote /><p>把心中的聖善願望帶到天主面前，讓愛比能力更早一步抵達。</p></div></article></div></section>
+      <section className="section section--paper"><div className="shell"><SectionHeading eyebrow="默觀月訊" title="最新月訊選讀" /><article className="reading-feature"><div><span className="tag">{article.category}</span><h2>{article.title}</h2><p>{article.excerpt}</p><Link className="text-link" to={`/article/${article.slug}`}>閱讀月訊 <ArrowRight size={16} /></Link></div><div><Quote /><p>{article.excerpt}</p></div></article><SectionHeading eyebrow="持續偕行" title="歷期選讀" /><div className="story-grid">{prayer.slice(1).map((item) => <article key={item.slug}><time>{item.date}</time><h2>{item.title}</h2><p>{item.excerpt}</p><Link to={`/article/${item.slug}`}>閱讀月訊 <ArrowRight size={15} /></Link></article>)}</div></div></section>
     </>
   )
 }
@@ -507,12 +527,12 @@ function ArticlePage() {
   const { slug } = useParams()
   const notice = notices.find((item) => item.slug === slug)
   const article = articles.find((item) => item.slug === slug)
-  const item = notice ? { title: notice.title, date: notice.date, category: notice.group, author: '天主教中華基督神修小會', content: notice.content } : article
+  const item = notice ? { ...notice, category: notice.group, author: '天主教中華基督神修小會' } : article
   if (!item) return <NotFound />
   return (
     <article className="article-page">
       <header><div className="shell article-header"><Link to={notice ? '/activities' : '/culture'}>← 返回{notice ? '活動消息' : '文章列表'}</Link><span className="tag">{item.category}</span><h1>{item.title}</h1><div><time>{item.date}</time><span>{item.author}</span></div></div></header>
-      <div className="shell article-body"><aside><SacredMark compact /><span>在基督的愛內<br />共同成長</span></aside><div className="prose">{item.content.map((paragraph, index) => index === 0 && article?.category === '默觀月訊' ? <blockquote key={paragraph}>{paragraph}</blockquote> : <p key={paragraph}>{paragraph}</p>)}<hr /><p className="source-note">本頁為舊官網公開內容的新版摘要。歷史資料與活動細節以小會正式公告為準。</p></div></div>
+      <div className="shell article-body"><aside><SacredMark compact /><span>在基督的愛內<br />共同成長</span></aside><div className="prose"><p className="source-note">發布日期：{formatDate(item.date)}；活動日期請依內文與行事曆查閱。</p>{item.content.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{item.links?.map((link) => <p key={link.url}><OfficialSource url={link.url} label={link.label} /></p>)}<hr /><p className="source-note">本頁為原官網公開內容的新版摘要。歷史資料、活動細節及完整影像以小會正式公告為準。</p><OfficialSource url={item.sourceUrl} /></div></div>
     </article>
   )
 }
