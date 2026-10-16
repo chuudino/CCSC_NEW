@@ -14,6 +14,7 @@
 | Sites 身分與靜態輸出設定 | `.openai/hosting.json` |
 | 原始內容疑點 | `CONTENT_NOTES.md` |
 | 審核及本機整理紀錄 | `docs/MAINTENANCE.md` |
+| Worktree 分工、rebase、衝突整合與發布競爭 | `skills/ccsc-maintenance/references/worktree-collaboration.md` |
 
 程式碼儲存庫為 `https://github.com/chuudino/CCSC_NEW`，一般發布分支為 `main`。正式網址為 `https://ccsc.chuudino.chatgpt.site`；以 Sites 成功部署回傳的網址為本次發布依據。
 
