@@ -7,7 +7,8 @@
 | 色彩、字型、標誌與響應式版面 | `src/styles.css` |
 | React 入口與 BrowserRouter | `src/main.tsx` |
 | 全站標題、description 及 favicon | `index.html` |
-| 既有識別圖片（133 × 124 PNG） | `public/ccsc-mark.png` |
+| 正式透明向量標誌及 favicon | `public/ccsc-mark.svg`（108 × 108 viewBox） |
+| 原始識別圖片參照（133 × 124 PNG） | `public/ccsc-mark.png` |
 | npm scripts 與鎖定依賴 | `package.json`、`package-lock.json` |
 | 正式建置產物核對 | `scripts/verify-build.mjs`、`npm run verify:build` |
 | Sites 身分與靜態輸出設定 | `.openai/hosting.json` |
@@ -26,6 +27,6 @@
 
 優先使用目前 Sites 技能的 helper。只有出現以下相同錯誤時，才使用已驗證的局部替代方式：
 
-- Sites build helper 的 npm shim 若找不到 `npm-prefix.js` 或 `npm-cli.js`，可在 helper 的 ordered commands 中依序執行 `node node_modules/typescript/bin/tsc -b`、`node node_modules/vite/bin/vite.js build` 和 `node scripts/verify-build.mjs`；這与既有 build script 的型別檢查和建置相同，不改網站依賴。
+- Sites build helper 的 npm shim 若找不到 `npm-prefix.js` 或 `npm-cli.js`，可在 helper 的 ordered commands 中依序執行 `node node_modules/typescript/bin/tsc -b`、`node node_modules/vite/bin/vite.js build` 和 `node scripts/verify-build.mjs`；這與既有 build script 的型別檢查和建置相同，不改網站依賴。
 - 使用已安裝的 Git Bash 封裝時，GNU tar 可能把 Windows 磁碟代號當成遠端主機。只在該次 helper 進程設定 `TAR_OPTIONS=--force-local`，並使用 `C:/...` 格式的絕對 archive 路徑；不要全域修改 shell 設定。
 - 若跨命令後忽略的 `dist/` 產物遺失，在同一個 Sites helper 進程內建置、執行 `verify-build` 與封裝。先前的型別檢查在原始碼未變時可重用，但封裝需要可讀取的實際產物。

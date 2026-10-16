@@ -18,7 +18,7 @@ description: 維護與審核 CCSC_NEW「天主教中華基督神修小會」網�
 
 - 全名為「天主教中華基督神修小會」，簡稱「小會」；英文名稱為 `Chinese Christian Spirit Community`。共同成長的既有用語是「偕行」。
 - 史料、引用、外站名稱及來源原文不隨品牌文字做全面取代。快照疑點維持 `CONTENT_NOTES.md` 的待審狀態，除非使用者或可信來源提供更正依據。
-- `public/ccsc-mark.png` 是既有識別素材。更新標誌時一併檢查 `SacredMark`、CSS 比例與 `index.html` 圖示，不另外生成替代標誌。
+- `public/ccsc-mark.svg` 是依既有標誌重繪的透明向量原檔，供 `SacredMark` 與 favicon 共用；`public/ccsc-mark.png` 保留為原始參照。更新時保留既有輪廓及紅、深藍、金色，維持 SVG 的 viewBox 比例，不在圖檔內加入不透明底色。首頁的半透明霧面效果由 `.hero-art__mark` 的 CSS 處理；頁首、頁尾標誌保持去背。
 
 ## 驗證與同步
 

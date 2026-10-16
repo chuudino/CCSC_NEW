@@ -61,8 +61,8 @@ button { cursor: pointer; }
 .brand > span { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
 .brand strong { font-family: var(--serif); font-size: 1.04rem; letter-spacing: .04em; }
 .brand small { margin-top: 4px; color: #63706c; font-family: ui-serif, Georgia, serif; font-size: .62rem; letter-spacing: .06em; }
-.sacred-mark { display: block; width: min(100%, 410px); height: auto; aspect-ratio: 133 / 124; border-radius: 26px; background: white; object-fit: contain; box-shadow: 0 14px 34px rgba(15,48,44,.16); }
-.sacred-mark--compact { width: 52px; flex: 0 0 52px; border-radius: 10px; box-shadow: 0 5px 16px rgba(15,48,44,.12); }
+.sacred-mark { display: block; width: min(100%, 410px); height: auto; aspect-ratio: 1; background: transparent; object-fit: contain; }
+.sacred-mark--compact { width: 52px; flex: 0 0 52px; }
 .desktop-nav { display: flex; align-items: center; justify-content: center; gap: clamp(14px, 1.7vw, 26px); }
 .desktop-nav a { position: relative; color: #475450; font-size: .82rem; font-weight: 600; white-space: nowrap; }
 .desktop-nav a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: -12px; height: 2px; background: var(--gold); transition: right .25s ease; }
@@ -96,8 +96,9 @@ button { cursor: pointer; }
 .hero-art__halo::before { width: 9px; height: 9px; top: 38px; left: 92px; }
 .hero-art__halo::after { width: 6px; height: 6px; right: 33px; bottom: 126px; }
 @keyframes slow-spin { to { transform: rotate(360deg); } }
-.hero-art > .sacred-mark { position: relative; z-index: 1; width: 315px; border-radius: 34px; box-shadow: 0 18px 44px rgba(0,0,0,.2); }
-.hero-art blockquote { position: absolute; z-index: 2; left: -34px; bottom: 18px; width: 270px; margin: 0; padding: 22px 24px; border-radius: 18px; background: rgba(255,253,248,.96); box-shadow: 0 18px 45px rgba(43,52,49,.16); }
+.hero-art__mark { position: relative; z-index: 1; display: grid; place-items: center; width: 315px; aspect-ratio: 1; padding: 30px; border: 1px solid rgba(255,253,248,.27); border-radius: 34px; background: linear-gradient(145deg, rgba(248,244,234,.44), rgba(232,238,229,.2)); box-shadow: 0 18px 44px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,253,248,.16); -webkit-backdrop-filter: blur(18px) saturate(.7); backdrop-filter: blur(18px) saturate(.7); }
+.hero-art__mark .sacred-mark { width: 100%; filter: drop-shadow(0 4px 8px rgba(8,31,36,.12)); }
+.hero-art blockquote { position: absolute; z-index: 2; left: -34px; bottom: -18px; width: 270px; margin: 0; padding: 22px 24px; border-radius: 18px; background: rgba(255,253,248,.96); box-shadow: 0 18px 45px rgba(43,52,49,.16); }
 .hero-art blockquote svg { color: var(--gold); }
 .hero-art blockquote p { margin: 8px 0 4px; color: var(--teal); font-family: var(--serif); font-size: .96rem; font-weight: 600; line-height: 1.75; }
 .hero-art blockquote cite { color: #7b837f; font-size: .68rem; font-style: normal; }
@@ -343,7 +344,7 @@ button { cursor: pointer; }
 .footer { background: #102f2c; color: rgba(255,255,255,.72); }
 .footer__grid { display: grid; grid-template-columns: 1.45fr 1.25fr .75fr .75fr; gap: 55px; padding-block: 70px 54px; }
 .footer__brand { display: flex; align-items: start; gap: 14px; color: white; }
-.footer__brand .sacred-mark { border: 1px solid rgba(255,255,255,.22); box-shadow: none; }
+.footer__brand .sacred-mark { filter: drop-shadow(0 0 1px rgba(255,253,248,.65)); }
 .footer__brand strong { font-family: var(--serif); font-size: 1.15rem; }
 .footer__brand p { margin: 5px 0; color: var(--gold-light); font-size: .75rem; }
 .footer h2 { margin: 0 0 16px; color: white; font-size: .76rem; letter-spacing: .12em; }
@@ -417,13 +418,13 @@ button { cursor: pointer; }
   .utility-bar a:last-child { display: none; }
   .site-header__inner { gap: 12px; }
   .brand { gap: 10px; }
-  .brand strong { max-width: 160px; line-height: 1.25; }
+  .brand strong { max-width: 180px; line-height: 1.25; text-wrap: balance; }
   .icon-button { display: none; }
   .hero__copy h1 { font-size: 3.15rem; }
   .hero__copy > p { font-size: .94rem; }
   .button-row .button { width: 100%; }
   .hero-art { min-height: 405px; transform: scale(.7); margin: -58px -70px -50px; }
-  .hero-art blockquote { bottom: -5px; }
+  .hero-art blockquote { bottom: -75px; }
   .hero-art__note { right: 20px; }
   .event-feature--primary { flex-direction: column; align-items: start; }
   .section { padding: 68px 0; }

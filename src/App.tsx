@@ -68,9 +68,9 @@ function SacredMark({ compact = false }: { compact?: boolean }) {
   return (
     <img
       className={compact ? 'sacred-mark sacred-mark--compact' : 'sacred-mark'}
-      src="/ccsc-mark.png"
-      width={133}
-      height={124}
+      src="/ccsc-mark.svg"
+      width={108}
+      height={108}
       alt={compact ? '' : '小會識別標誌'}
     />
   )
@@ -240,7 +240,7 @@ function HomePage() {
           </div>
           <div className="hero-art" aria-label="象徵天主聖三與團體共融的圖像">
             <div className="hero-art__halo" />
-            <SacredMark />
+            <div className="hero-art__mark"><SacredMark /></div>
             <blockquote><Quote size={22} /><p>愛是含忍的，愛是慈祥的……愛永存不朽。</p><cite>格林多前書 13:4, 8</cite></blockquote>
             <div className="hero-art__note"><Cross size={18} /><span>奉獻所有<br />神化一切</span></div>
           </div>
