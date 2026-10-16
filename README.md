@@ -34,6 +34,8 @@ npm run verify:build
 
 維護技能的版本來源為 [skills/ccsc-maintenance/SKILL.md](skills/ccsc-maintenance/SKILL.md)，專案指引見 [AGENTS.md](AGENTS.md)。本次協作修改的審核與整理紀錄見 [docs/MAINTENANCE.md](docs/MAINTENANCE.md)。
 
+並行開發請依 [Worktree 協作流程](skills/ccsc-maintenance/references/worktree-collaboration.md)：每項任務獨立分支與工作樹，合併前 rebase 到最新整合提交，由單一整合者依序合併及驗證，再同步 GitHub 與 Sites。GitHub 用於程式碼保存，正式部署使用 Sites，無須為此設定 GitHub Actions 或 CI。
+
 需要按次對齊原官網內容時，使用 [ccsc-content-sync](skills/ccsc-content-sync/SKILL.md)：每次觸發重新查核官網、更新可確認內容、列出待審差異，並同步 GitHub 與 Sites 正式發布。此技能不建立排程；原始抓取資料保留在 `.maintenance/content-sync/`。
 
 最近一次內容對齊見 [2026-10-16 同步紀錄](docs/content-sync/2026-10-16.md)。本輪更新公告、行事曆、默觀月訊、文化福傳與組織介紹；刊物暫緩。網站仍為按次維護的靜態內容，不是即時自動同步。

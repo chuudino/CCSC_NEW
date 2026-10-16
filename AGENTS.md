@@ -8,3 +8,5 @@
 - 全名使用「天主教中華基督神修小會」，簡稱「小會」；已確認的共同成長文案使用「偕行」。史料、引用與英文正式名稱不做機械式替換。
 - 內容修改以 `src/data/site.ts` 為入口，並核對 `CONTENT_NOTES.md` 的待審事項。
 - 發布沿用 `.openai/hosting.json` 的 Sites 專案與既有受眾，將同一提交同步到 GitHub 與 Sites 來源。遵從使用者對本次發布範圍的授權。
+- 並行開發採每任務獨立分支與 Worktree，依維護技能的 `references/worktree-collaboration.md` 執行；合併前 rebase 私人任務至最新整合 HEAD，再由單一整合者依序合併、驗證及發布。不得改寫已共享歷史或強制推送。
+- GitHub 用於程式碼保存，正式部署使用 Sites；除非使用者另有要求，不新增 GitHub Actions 或 CI。
