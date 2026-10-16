@@ -34,6 +34,8 @@ npm run verify:build
 
 維護技能的版本來源為 [skills/ccsc-maintenance/SKILL.md](skills/ccsc-maintenance/SKILL.md)，專案指引見 [AGENTS.md](AGENTS.md)。本次協作修改的審核與整理紀錄見 [docs/MAINTENANCE.md](docs/MAINTENANCE.md)。
 
+需要按次對齊原官網內容時，使用 [ccsc-content-sync](skills/ccsc-content-sync/SKILL.md)：每次觸發重新查核官網、更新可確認內容、列出待審差異，並同步 GitHub 與 Sites 正式發布。此技能不建立排程；原始抓取資料保留在 `.maintenance/content-sync/`。
+
 - 程式碼保存於 [chuudino/CCSC_NEW](https://github.com/chuudino/CCSC_NEW)，正式網站由 [Sites](https://ccsc.chuudino.chatgpt.site) 託管。
 - `.openai/hosting.json` 指向既有 Sites 專案，建置輸出為 `dist/`；發布時保留專案 ID 與目前的公開權限。
 - GitHub 與 Sites 有各自的來源分支。發布時須將相同提交同步到兩者，再保存並部署該提交的建置產物；只推送 GitHub 不代表網站已更新。

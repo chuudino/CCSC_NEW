@@ -1,0 +1,4 @@
+interface:
+  display_name: "小會官網內容對齊"
+  short_description: "每次讀取原官網、核對並更新小會網站內容，同步 GitHub 與 Sites 正式發布"
+  default_prompt: "使用 $ccsc-content-sync 對齊 https://ccsc.org.tw/ 的最新資訊，更新可確認內容、列出疑點並同步 GitHub 與 Sites 正式發布。"
