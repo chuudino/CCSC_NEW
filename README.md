@@ -1,6 +1,6 @@
 # 小會新版官方網站
 
-天主教中華基督神修小會（簡稱「小會」；Chinese Christian Spirit Community）新版網站。以 React、TypeScript 與 Vite 建置，內容來自 2026-09-18 的公開官網快照及舊版專案資料。
+天主教中華基督神修小會（簡稱「小會」；Chinese Christian Spirit Community）新版網站。以 React、TypeScript 與 Vite 建置；初始內容來自 2026-09-18 的公開官網快照及舊版專案資料，後續更新依內容同步紀錄查核。
 
 ## 開發
 
@@ -35,6 +35,8 @@ npm run verify:build
 維護技能的版本來源為 [skills/ccsc-maintenance/SKILL.md](skills/ccsc-maintenance/SKILL.md)，專案指引見 [AGENTS.md](AGENTS.md)。本次協作修改的審核與整理紀錄見 [docs/MAINTENANCE.md](docs/MAINTENANCE.md)。
 
 需要按次對齊原官網內容時，使用 [ccsc-content-sync](skills/ccsc-content-sync/SKILL.md)：每次觸發重新查核官網、更新可確認內容、列出待審差異，並同步 GitHub 與 Sites 正式發布。此技能不建立排程；原始抓取資料保留在 `.maintenance/content-sync/`。
+
+最近一次內容對齊見 [2026-10-16 同步紀錄](docs/content-sync/2026-10-16.md)。本輪更新公告、行事曆、默觀月訊、文化福傳與組織介紹；刊物暫緩。網站仍為按次維護的靜態內容，不是即時自動同步。
 
 - 程式碼保存於 [chuudino/CCSC_NEW](https://github.com/chuudino/CCSC_NEW)，正式網站由 [Sites](https://ccsc.chuudino.chatgpt.site) 託管。
 - `.openai/hosting.json` 指向既有 Sites 專案，建置輸出為 `dist/`；發布時保留專案 ID 與目前的公開權限。

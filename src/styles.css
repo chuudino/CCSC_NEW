@@ -473,3 +473,10 @@ button { cursor: pointer; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+/* 原官網摘要與行事曆來源。 */
+.official-source { margin: 1rem 0; overflow-wrap: anywhere; }
+.source-links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
+.recurring-card { padding: 1.5rem; margin: 1.5rem 0; border: 1px solid var(--line); border-radius: 12px; }
+.recurring-card p, .calendar-note { line-height: 1.8; }
+.calendar-note { font-size: 0.85rem; color: #8b573a; }
+.article-header h1, .article-list h2, .story-grid h2 { overflow-wrap: anywhere; }

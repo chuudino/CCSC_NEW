@@ -1,0 +1,1868 @@
+{
+  "source_root": "https://ccsc.org.tw/",
+  "records": {
+    "notices/official-notice-70786": {
+      "source_key": "notice:70786",
+      "source_url": "https://ccsc.org.tw/?p=70786",
+      "source_fingerprint": "814f2052240b796a5e5395719bd11440cd9c253c789bc9b69f7cd0116aa28736",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/wyd-2027-sponsorship": {
+      "source_key": "notice:70769",
+      "source_url": "https://ccsc.org.tw/?p=70769",
+      "source_fingerprint": "7e274423480f48c2cdba142b41d31869166ece40cc735d542cc6076f53d41600",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl",
+        "links"
+      ]
+    },
+    "notices/official-notice-70698": {
+      "source_key": "notice:70698",
+      "source_url": "https://ccsc.org.tw/?p=70698",
+      "source_fingerprint": "def96ad208bc734aa3b1258eb9cacc9d87f192b82100801fdd66bc81280cc315",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70697": {
+      "source_key": "notice:70697",
+      "source_url": "https://ccsc.org.tw/?p=70697",
+      "source_fingerprint": "87580b949f2ebc4bbac6fa305e5403668a6ec5ab5a7fe457c9627e26f113c892",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70696": {
+      "source_key": "notice:70696",
+      "source_url": "https://ccsc.org.tw/?p=70696",
+      "source_fingerprint": "a608a799449655e0b658afc467d94bf87877646f8f4bd380076386e52bcd13ea",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70682": {
+      "source_key": "notice:70682",
+      "source_url": "https://ccsc.org.tw/?p=70682",
+      "source_fingerprint": "6efeb606ee21d9c1290a9221198dc466a423dd5aa3743638cc3638b6818e0406",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70580": {
+      "source_key": "notice:70580",
+      "source_url": "https://ccsc.org.tw/?p=70580",
+      "source_fingerprint": "3632df7363753069f87d8d979eed4616117cb3f0e8019c6a416a27f2758ed788",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70623": {
+      "source_key": "notice:70623",
+      "source_url": "https://ccsc.org.tw/?p=70623",
+      "source_fingerprint": "25e2ee19ef35d26d1186a659f2fc0ab75fd4240eee78e767450a491b62fd4d13",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70617": {
+      "source_key": "notice:70617",
+      "source_url": "https://ccsc.org.tw/?p=70617",
+      "source_fingerprint": "f51c29795fe27a77a86bbb7c7b8eea403c4ca3c8e6cb5d855d9ecdfa5ebfd574",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/silver-fitness": {
+      "source_key": "notice:70511",
+      "source_url": "https://ccsc.org.tw/?p=70511",
+      "source_fingerprint": "76109096a1012935118c6fcc526ce23ef81326d6be66461fb044e1a7fba88e92",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10176": {
+      "source_key": "notice:10176",
+      "source_url": "https://ccsc.org.tw/?p=10176",
+      "source_fingerprint": "5e491f8a06f4979ad6b327d073de33171af69ed7af375a40c037d63e77de6fbf",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10175": {
+      "source_key": "notice:10175",
+      "source_url": "https://ccsc.org.tw/?p=10175",
+      "source_fingerprint": "876c8a1556bcdd8532743fd53bf7a918627ce56eafcebdcaa8780d02f169b788",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10174": {
+      "source_key": "notice:10174",
+      "source_url": "https://ccsc.org.tw/?p=10174",
+      "source_fingerprint": "469adbec5c32cb0f6e39fe2ca43b587552211e32f6f764e63277960d87698d19",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10173": {
+      "source_key": "notice:10173",
+      "source_url": "https://ccsc.org.tw/?p=10173",
+      "source_fingerprint": "0911f58f51d4078de18ef9be2ff9796bd97247bccd14ec790601be331355f43c",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10138": {
+      "source_key": "notice:10138",
+      "source_url": "https://ccsc.org.tw/?p=10138",
+      "source_fingerprint": "a95b31307e8bcf25fdc981b020c211e1e106fb39464d8075e5163ad8fe36ab86",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10136": {
+      "source_key": "notice:10136",
+      "source_url": "https://ccsc.org.tw/?p=10136",
+      "source_fingerprint": "99e91d0037851b65669512c106e1b513ea690eff9532b10777d5ba7bb192c8ef",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10085": {
+      "source_key": "notice:10085",
+      "source_url": "https://ccsc.org.tw/?p=10085",
+      "source_fingerprint": "3c20fa86a184c4b9da691daa52bf24ff30b910ffbe365ae244cb378bc7e7d80a",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10082": {
+      "source_key": "notice:10082",
+      "source_url": "https://ccsc.org.tw/?p=10082",
+      "source_fingerprint": "29cbda9cea34fee942237cf8ab069b7d5cf6e57afad1ddf87647ab6640d1af63",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/life-in-color-2026": {
+      "source_key": "notice:70515",
+      "source_url": "https://ccsc.org.tw/?p=70515",
+      "source_fingerprint": "08cea862976079f09827cb07ac385c1d43f49cf87f088e8867df541817df289b",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/youth-evangelization-2026": {
+      "source_key": "notice:70454",
+      "source_url": "https://ccsc.org.tw/?p=70454",
+      "source_fingerprint": "40bc72035f98d2a17e3179d86ffc864fc1f39ca43cbe53c5fc1083ce68a006e9",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70448": {
+      "source_key": "notice:70448",
+      "source_url": "https://ccsc.org.tw/?p=70448",
+      "source_fingerprint": "6f5853a03759d78255a6e9c62ca7c09d631d38bdbf86208558d8f9d1d01d2e06",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/trinity-feast-2026": {
+      "source_key": "notice:70443",
+      "source_url": "https://ccsc.org.tw/?p=70443",
+      "source_fingerprint": "bce01ea37c40685bdb34294a9bc22fd6d199ab557b3d3a83d50a62a821bf1f56",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/nangang-art-eco": {
+      "source_key": "notice:70436",
+      "source_url": "https://ccsc.org.tw/?p=70436",
+      "source_fingerprint": "0de0a798eb222637554a28ae2908bf2a79ce7ce376b9fc404f8bdd1e2b153323",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70429": {
+      "source_key": "notice:70429",
+      "source_url": "https://ccsc.org.tw/?p=70429",
+      "source_fingerprint": "ec00bab4b2701e1bced07b3f330df49a3b1b4a5ae09c052a2cfc7cd6290cc530",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10242": {
+      "source_key": "notice:10242",
+      "source_url": "https://ccsc.org.tw/?p=10242",
+      "source_fingerprint": "f544ac374c22fd0ab194b58f2d75159cd8e22bf2f1ef6df7098817e92e4c26fd",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10241": {
+      "source_key": "notice:10241",
+      "source_url": "https://ccsc.org.tw/?p=10241",
+      "source_fingerprint": "6f121ee117cb49c9e6923335483e16310009e5bd83d6c70251406225cde13570",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10240": {
+      "source_key": "notice:10240",
+      "source_url": "https://ccsc.org.tw/?p=10240",
+      "source_fingerprint": "4643ff80159c06ebbdd456434e2d338ccbea23c69ab3b5d58a13f733a6b694ad",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70428": {
+      "source_key": "notice:70428",
+      "source_url": "https://ccsc.org.tw/?p=70428",
+      "source_fingerprint": "c065419f1c330447c1e72b9b23b0157c596f167a22a67f2477d9b36e2aa26a80",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70420": {
+      "source_key": "notice:70420",
+      "source_url": "https://ccsc.org.tw/?p=70420",
+      "source_fingerprint": "f76cb74062671c573d9c2acb822598993589a4ff68622e251959faa9bf909878",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70416": {
+      "source_key": "notice:70416",
+      "source_url": "https://ccsc.org.tw/?p=70416",
+      "source_fingerprint": "0de15b396f81cbc093c769f5c3c3e93b3dc8f81bcf5d61914e1e1c0fcb7f0051",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70413": {
+      "source_key": "notice:70413",
+      "source_url": "https://ccsc.org.tw/?p=70413",
+      "source_fingerprint": "ce892125995c3b9f0b199dd03b980c0504c60897d046875d0e7f88b12c671a1f",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70409": {
+      "source_key": "notice:70409",
+      "source_url": "https://ccsc.org.tw/?p=70409",
+      "source_fingerprint": "44b17cbda04f3edd8fb25269e7361a680710e8064db19df0bea5384ca2e370a3",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10238": {
+      "source_key": "notice:10238",
+      "source_url": "https://ccsc.org.tw/?p=10238",
+      "source_fingerprint": "593047988b97284de0860d6fa6903635a85a256631e492f4f08494f20cca900f",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10237": {
+      "source_key": "notice:10237",
+      "source_url": "https://ccsc.org.tw/?p=10237",
+      "source_fingerprint": "480a2b9749f400162c41400b34441b0a760fb2fc8137c54136b6d67a034b060b",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10230": {
+      "source_key": "notice:10230",
+      "source_url": "https://ccsc.org.tw/?p=10230",
+      "source_fingerprint": "bce28022334b4b69b41be5a55886beb5ff96b851b3623df643addfc682832767",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10250": {
+      "source_key": "notice:10250",
+      "source_url": "https://ccsc.org.tw/?p=10250",
+      "source_fingerprint": "9a204e7cd61c788f8883916c8b9215d1077849b91347feb0a9f8f8cac7f1f220",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10249": {
+      "source_key": "notice:10249",
+      "source_url": "https://ccsc.org.tw/?p=10249",
+      "source_fingerprint": "db3175810b136c871ac542758685b11ebf445b62b3a36f26f4b28a950e6760e0",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10248": {
+      "source_key": "notice:10248",
+      "source_url": "https://ccsc.org.tw/?p=10248",
+      "source_fingerprint": "6060f9b18ff89a9229450888a212121df6039d4c63095fcbad7d7595d1123273",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10246": {
+      "source_key": "notice:10246",
+      "source_url": "https://ccsc.org.tw/?p=10246",
+      "source_fingerprint": "0c6958e502c8b43b663a87aafbe998c92dc806982bd8f2392bbb7b3b58b08d26",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10244": {
+      "source_key": "notice:10244",
+      "source_url": "https://ccsc.org.tw/?p=10244",
+      "source_fingerprint": "e12698e72422cf26853aec60e26c00e1de132f64eb55a2088144fd381d2fbd5b",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70613": {
+      "source_key": "notice:70613",
+      "source_url": "https://ccsc.org.tw/?p=70613",
+      "source_fingerprint": "e4a08663e9b7afef42e554fb03adbdf9353b00a8c7bdfdbead1b8063927c7a5f",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10151": {
+      "source_key": "notice:10151",
+      "source_url": "https://ccsc.org.tw/?p=10151",
+      "source_fingerprint": "44e19e58552d819e3f5f8dcc1a4013b4fa3f2f5cc8a13c5a1638f7602cbf3a94",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10086": {
+      "source_key": "notice:10086",
+      "source_url": "https://ccsc.org.tw/?p=10086",
+      "source_fingerprint": "ca60612f7d35862291883f7dce9385afdc51d64618f7391a22ef0fee0c185d04",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10084": {
+      "source_key": "notice:10084",
+      "source_url": "https://ccsc.org.tw/?p=10084",
+      "source_fingerprint": "aef63e3b96a405c1f0c3252336bb5750cd42ea6bbb48bc63358ad4c71beb9af7",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-10005": {
+      "source_key": "notice:10005",
+      "source_url": "https://ccsc.org.tw/?p=10005",
+      "source_fingerprint": "d7705421a859d04ece5d525737f99c562e66ab3354637c4deeb7ac3fc960b9a9",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "group",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/prayer-2026-10": {
+      "source_key": "notice:70762",
+      "source_url": "https://ccsc.org.tw/?p=70762",
+      "source_fingerprint": "850edc89f20bb1b6970aaaed1c7bad266faa59396083a6f774243f034f298715",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/culture-70272": {
+      "source_key": "culture_entry:70272",
+      "source_url": "https://ccsc.org.tw/?p=70272",
+      "source_fingerprint": "76321fa70970739b37d236fab4f8fd215d7a88eac87ae35a40ccf8b1fd6e133d",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/culture-70271": {
+      "source_key": "culture_entry:70271",
+      "source_url": "https://ccsc.org.tw/?p=70271",
+      "source_fingerprint": "0d1207e8845a15962d8d93b6215a1078558f8b360538323635dfd135da5993c4",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/culture-70270": {
+      "source_key": "culture_entry:70270",
+      "source_url": "https://ccsc.org.tw/?p=70270",
+      "source_fingerprint": "2deb19a174573cfb3144e284d773de37ed567cb641621c0f45e08a2b23392790",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/culture-70269": {
+      "source_key": "culture_entry:70269",
+      "source_url": "https://ccsc.org.tw/?p=70269",
+      "source_fingerprint": "d5a246a55235aa88418e8b423431c3ff2842f9ec85aec4d82a795217f4d183eb",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/culture-70268": {
+      "source_key": "culture_entry:70268",
+      "source_url": "https://ccsc.org.tw/?p=70268",
+      "source_fingerprint": "a8d68558e6c84c2a17b6eda5150913bb31e1d05b1e35e2ede6476f771b56a659",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/culture-70267": {
+      "source_key": "culture_entry:70267",
+      "source_url": "https://ccsc.org.tw/?p=70267",
+      "source_fingerprint": "ad332b824ac3b07cb993c7d44208ef4f71d2ccf86a22c6878f086fe024b03dcf",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/culture-70266": {
+      "source_key": "culture_entry:70266",
+      "source_url": "https://ccsc.org.tw/?p=70266",
+      "source_fingerprint": "74be27e03b250bbe88770411cc21022c2907c3f0cc031e1315b308278498b0a8",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/culture-70265": {
+      "source_key": "culture_entry:70265",
+      "source_url": "https://ccsc.org.tw/?p=70265",
+      "source_fingerprint": "2c225abc4e24c180cb16e46ee29058f5242b10eb1307b8780b87c78e212b7010",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/culture-70264": {
+      "source_key": "culture_entry:70264",
+      "source_url": "https://ccsc.org.tw/?p=70264",
+      "source_fingerprint": "e8c663d050a93b175ad38ccb62af423384fd4ec896862077af52c605af09cab8",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/culture-70263": {
+      "source_key": "culture_entry:70263",
+      "source_url": "https://ccsc.org.tw/?p=70263",
+      "source_fingerprint": "181effaa3efb2bb5755e9476204de38bb9c5b2e822fda0dcdc508466fe3d967b",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/prayer-2026-09": {
+      "source_key": "notice:70588",
+      "source_url": "https://ccsc.org.tw/?p=70588",
+      "source_fingerprint": "45cf01a63c843b27b15e8baac2b4598d0488e70db026fcafb454e20d37b5b916",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/prayer-2026-08": {
+      "source_key": "notice:70587",
+      "source_url": "https://ccsc.org.tw/?p=70587",
+      "source_fingerprint": "2f0e477e4b700c2ab3199a32f9f1c99034cbc6c04fe090c24ca9c413090ae500",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/prayer-2026-07": {
+      "source_key": "notice:70583",
+      "source_url": "https://ccsc.org.tw/?p=70583",
+      "source_fingerprint": "47a1ef1cfff91c897dac3f6427b6accf0de70807b3d521f26561415c7fe2ff74",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/prayer-2026-06": {
+      "source_key": "notice:10251",
+      "source_url": "https://ccsc.org.tw/?p=10251",
+      "source_fingerprint": "2c8a646985a9a7b4052cbdb6d5085e6d2cacc674847288b05e1b0db3bff55c88",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/prayer-2026-05": {
+      "source_key": "notice:10247",
+      "source_url": "https://ccsc.org.tw/?p=10247",
+      "source_fingerprint": "682dc8b61ab1914cdeee43c4862e633744c27246a5af82478db3018ddf06a36c",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/prayer-2026-04": {
+      "source_key": "notice:10243",
+      "source_url": "https://ccsc.org.tw/?p=10243",
+      "source_fingerprint": "dea2d254521cd2335795653cecd16bd70bb23210ff6bf0df2b1c24c96f575631",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/prayer-2026-03": {
+      "source_key": "notice:10239",
+      "source_url": "https://ccsc.org.tw/?p=10239",
+      "source_fingerprint": "1f883ab3894aa446f3981a5d21a4ffe3a2eea9509e1af42919be1545e4e867bc",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/prayer-2026-02": {
+      "source_key": "notice:10236",
+      "source_url": "https://ccsc.org.tw/?p=10236",
+      "source_fingerprint": "d08b3291560fb9dad7ff18be75150896a46748c7032d05d817dc170b6ca85829",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "articles/prayer-2026-01": {
+      "source_key": "notice:10226",
+      "source_url": "https://ccsc.org.tw/?p=10226",
+      "source_fingerprint": "3ceeb90aeca1ee4d609cdc3a056963e48daf8216de33a68d448fb8f17c6bf01d",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "title",
+        "date",
+        "author",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "events/taipei-0118": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taipei-0222": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taipei-0320": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taipei-0418": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taipei-0531": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taipei-0621": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taipei-0726": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taipei-0815": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/tp-0920": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/camp-1023": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/tp-1115": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/tp-1220": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taichung-0118": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taichung-0208": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taichung-0320": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taichung-0419": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taichung-0530": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taichung-0621": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taichung-0719": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/taichung-0823": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/tc-0920": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/tc-1115": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/tc-1220": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0101": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0108": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0115": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0122": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0205": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0226": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0305": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0312": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0319": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0327": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0402": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0409": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0423": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0507": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0514": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0521": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0604": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0611": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0723": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0828": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-0924": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-1001": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-1008": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-1105": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-1112": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-1119": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-1204": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-1210": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-1217": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "events/north-america-1231": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "date",
+        "endDate",
+        "title",
+        "group",
+        "location",
+        "speaker",
+        "host",
+        "sourceDateLabel",
+        "note"
+      ]
+    },
+    "recurring/na-weekday": {
+      "source_key": "page:65000",
+      "source_url": "https://ccsc.org.tw/?page_id=65000",
+      "source_fingerprint": "c17422ddc3ffbf6c0eb82757b37e4c2d9cf2494a6332bf00dd8fe81a396e2c97",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "schedule",
+        "hosts"
+      ]
+    },
+    "about/identity": {
+      "source_key": "page:50001",
+      "source_url": "https://ccsc.org.tw/?page_id=50001",
+      "source_fingerprint": "01848322b4c9ee3c5124b1d4f38fd93564b60520fe1c2dd01e921156ce14685f",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "summary",
+        "sourceUrl"
+      ]
+    },
+    "about/principles": {
+      "source_key": "page:50002",
+      "source_url": "https://ccsc.org.tw/?page_id=50002",
+      "source_fingerprint": "768fa19b23841d78554f2111c9f92924815e0c9a3c7a7cf3955aae237f6c0e15",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "mission",
+        "attitudes",
+        "sourceUrl"
+      ]
+    },
+    "about/history": {
+      "source_key": "page:50003",
+      "source_url": "https://ccsc.org.tw/?page_id=50003",
+      "source_fingerprint": "43a9fdacc2464ead409a6c6060b20e24879e4b6a6e3d89252ee3cad529393434",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "sourceUrl",
+        "historical-conflict-note"
+      ]
+    },
+    "timeline": {
+      "source_key": "page:50004",
+      "source_url": "https://ccsc.org.tw/?page_id=50004",
+      "source_fingerprint": "6a0001d8f157730e38d24b9b80c5a7044b79b128c763efe758e007e5135d3ce6",
+      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "fields": [
+        "selected-summary",
+        "sourceUrl"
+      ]
+    }
+  }
+}
