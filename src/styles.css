@@ -493,3 +493,14 @@ button:disabled { opacity:.5;cursor:not-allowed; }
 .editor-layout label {display:grid;gap:.5rem;margin:1rem 0;}
 .editor-layout input,.editor-layout textarea,select {padding:.75rem;border:1px solid #80948c;border-radius:6px;color:var(--ink);background:white;max-width:100%;}
 @media(max-width:750px){.editor-layout{grid-template-columns:1fr}.editor-layout aside{max-height:250px}.editor-layout form{padding:1rem}}
+
+.content-filters { display:flex; flex-wrap:wrap; gap:1rem 1.5rem; align-items:end; margin:1.5rem 0; }
+.content-filters > label { display:grid; gap:.5rem; min-width:min(100%,180px); font-weight:600; }
+.content-tags { display:flex; flex-wrap:wrap; gap:.5rem; }
+.content-tabs button[aria-pressed="true"], .editor-layout aside button[aria-pressed="true"] { background:var(--teal); color:white; }
+.group-choices { border:1px solid var(--line); border-radius:8px; padding:1rem; margin:1.5rem 0; }
+.group-choices legend { padding:0 .4rem; font-weight:600; }
+.editor-layout .group-choices label { display:flex; align-items:center; gap:.75rem; margin:.3rem 0; padding:.5rem; cursor:pointer; }
+.group-choices input[type="checkbox"] { width:1.15rem; height:1.15rem; padding:0; margin:0; accent-color:var(--teal); flex-shrink:0; }
+.group-choices p { margin:.5rem; font-size:.9rem; }
+@media(max-width:560px){.content-filters > label{width:100%}.content-filters select{width:100%}}

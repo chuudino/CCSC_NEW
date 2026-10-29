@@ -5,13 +5,20 @@ export function validate(d,approve=false){
  if(!d||typeof d!=='object')throw Error('請填寫活動內容');
  for(const key of ['title','date','endDate','location','body'])if(d[key]!==undefined&&typeof d[key]!=='string')throw Error('內容欄位格式不正確');
  if(!['upcoming','record','plan'].includes(d.kind))throw Error('請選擇內容類別');
+ if(!Array.isArray(d.groupIds)||!d.groupIds.length||d.groupIds.length>GROUP_IDS.length||d.groupIds.some(id=>typeof id!=='string'||!GROUP_IDS.includes(id))||new Set(d.groupIds).size!==d.groupIds.length)throw Error('請選擇有效的所屬單位（可複選）');
  if(typeof d.title!=='string'||!d.title.trim()||d.title.length>180)throw Error('標題必填，最多180字');
  if(!/^\d{4}-\d{2}-\d{2}$/.test(d.date)||!Number.isFinite(Date.parse(d.date))||new Date(d.date).toISOString().slice(0,10)!==d.date)throw Error('請填寫有效活動日期');
  if(d.endDate&&(!/^\d{4}-\d{2}-\d{2}$/.test(d.endDate)||!Number.isFinite(Date.parse(d.endDate))||new Date(d.endDate).toISOString().slice(0,10)!==d.endDate||d.endDate<d.date))throw Error('結束日期不能早於開始日期');
  if((d.body||'').length>20000||(d.location||'').length>300)throw Error('內容過長');
  if(approve&&d.kind==='upcoming'&&(d.endDate||d.date)<today())throw Error('活動已結束，請另建立活動記錄');
  if(approve&&d.kind==='record'&&d.date>today())throw Error('尚未發生的活動不可核定為活動記錄');
- return {kind:d.kind,title:d.title.trim(),date:d.date,endDate:d.endDate||'',location:d.location||'',body:d.body||''};
+ return {kind:d.kind,groupIds:[...d.groupIds],title:d.title.trim(),date:d.date,endDate:d.endDate||'',location:d.location||'',body:d.body||''};
+}
+// Older saved items retain their content and workflow state; only known plan IDs recover source units.
+export function withGroups(state){
+ const seedById=new Map(SEED.map(item=>[item.id,item]));
+ const normalize=(value,seed)=>value?{...value,groupIds:value.groupIds??seed?.groupIds??[]}:value;
+ return {...state,items:state.items.map(item=>{const seed=seedById.get(item.id);return {...item,draft:normalize(item.draft,seed?.draft),...(item.published?{published:normalize(item.published,seed?.published)}:{})};})};
 }
 export default {async fetch(req,env){
  const url=new URL(req.url), path=url.pathname;
@@ -23,7 +30,7 @@ export default {async fetch(req,env){
    if(req.method!=='GET'&&!owner)return json({error:'無權編輯或核定'},403);
    if(!env.BUCKET)return json({error:'內容儲存服務尚未就緒'},503);
    const obj=await env.BUCKET.get(KEY);
-   const state=obj?await obj.json():{revision:0,items:structuredClone(SEED)};
+   const state=withGroups(obj?await obj.json():{revision:0,items:structuredClone(SEED)});
    if(req.method==='GET')return json(admin?state:{items:state.items.filter(x=>x.published).map(x=>({id:x.id,...x.published}))});
    if(req.method!=='POST')return json({error:'不支援此操作'},405);
    if(req.headers.get('Origin')!==url.origin)return json({error:'請從本站操作'},403);
