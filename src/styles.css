@@ -504,3 +504,10 @@ button:disabled { opacity:.5;cursor:not-allowed; }
 .group-choices input[type="checkbox"] { width:1.15rem; height:1.15rem; padding:0; margin:0; accent-color:var(--teal); flex-shrink:0; }
 .group-choices p { margin:.5rem; font-size:.9rem; }
 @media(max-width:560px){.content-filters > label{width:100%}.content-filters select{width:100%}}
+
+.activity-excerpt { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; white-space:pre-line; }
+.activity-detail { max-width:850px; padding-top:3rem; padding-bottom:4rem; }
+.activity-detail .content-body { line-height:1.95; }
+.managed-grid h2 a { text-decoration:none; }
+.managed-grid h2 a:hover { text-decoration:underline; }
+.content-filters input { padding:.75rem; border:1px solid #80948c; border-radius:6px; max-width:100%; }

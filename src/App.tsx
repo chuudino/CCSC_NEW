@@ -1,4 +1,4 @@
-import ContentManager, { ManagedPage } from './ContentManager'
+import ContentManager, { ManagedArticle, ManagedPage, activityLabel, activityPath, usePublishedContent } from './ContentManager'
 import { FormEvent, ReactNode, useEffect, useMemo, useState } from 'react'
 import {
   ArrowRight,
@@ -37,9 +37,7 @@ import {
   articles,
   aboutContent,
   contentSource,
-  events,
   groups,
-  notices,
   principles,
   publications,
   timeline,
@@ -54,11 +52,7 @@ const navItems = [
   { label: '默觀祈禱', to: '/prayer' },
 ]
 
-const groupName = (slug: string) => groups.find((group) => group.slug === slug)?.name ?? slug
-
 const taipeiToday = () => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Asia/Taipei' }).format(new Date())
-const eventInGroup = (event: typeof events[number], group: string) => event.group === group || event.relatedGroups?.includes(group)
-const upcomingEvents = () => events.filter((event) => (event.endDate ?? event.date) >= taipeiToday()).sort((a, b) => a.date.localeCompare(b.date))
 
 function OfficialSource({ url, label = '閱讀原官網完整內容' }: { url?: string; label?: string }) {
   return url ? <a className="text-link official-source" href={url} target="_blank" rel="noreferrer">{label} <ExternalLink size={15} /></a> : null
@@ -277,19 +271,8 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="section section--paper">
-        <div className="shell">
-          <SectionHeading eyebrow="原官網資料" title="既有公告摘要" action={<Link className="text-link" to="/announcements">瀏覽全部 <ArrowRight size={16} /></Link>} />
-          <div className="notice-grid">
-            {notices.slice(0, 3).map((notice, index) => (
-              <article className={index === 0 ? 'notice-card notice-card--featured' : 'notice-card'} key={notice.slug}>
-                <div className="notice-card__visual"><span>{notice.group}</span><Feather /></div>
-                <div className="notice-card__body"><time>{formatDate(notice.date)}</time><h3>{notice.title}</h3><p>{notice.excerpt}</p><Link to={`/article/${notice.slug}`}>閱讀消息 <ArrowRight size={15} /></Link></div>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+      <ManagedPage kind="record" compact />
+      <ManagedPage kind="notice" compact />
 
       <section className="section publication-band">
         <div className="shell publication-band__grid">
@@ -357,18 +340,14 @@ function AboutPage() {
   )
 }
 
-function AnnouncementsPage() {
-  return <><PageHero eyebrow="原官網公開資料" title="既有公告摘要" text="保留已查核的原官網公告；發文日期不作為活動日期，活動預告、活動記錄與年度計劃分開管理。" icon={<Feather />} /><section className="section section--paper"><div className="shell"><div className="content-tabs"><Link to="/activities">將到來的活動</Link><Link to="/records">活動記錄</Link><Link to="/calendar">年度活動計劃</Link></div><div className="article-list">{[...notices].sort((a,b)=>b.date.localeCompare(a.date)).map(x=><article key={x.slug}><time>{formatDate(x.date)}</time><div><h2>{x.title}</h2><p>{x.excerpt}</p></div><Link to={`/article/${x.slug}`} aria-label={`閱讀${x.title}`}><ArrowRight /></Link></article>)}</div></div></section></>
-}
-
 function ActivitiesPage() { return <ManagedPage kind="upcoming" /> }
 
 function GroupPage() {
   const { slug } = useParams()
   const group = groups.find((item) => item.slug === slug)
+  const { items } = usePublishedContent()
   if (!group) return <NotFound />
-  const groupEvents = upcomingEvents().filter((event) => eventInGroup(event, group.slug))
-  const groupNotices = notices.filter((notice) => notice.groupSlug === group.slug || notice.group === group.name)
+  const groupEvents = items.filter(x => x.kind === 'plan' && x.groupIds.includes(group.slug) && (x.endDate || x.date) >= taipeiToday()).sort((a, b) => a.date.localeCompare(b.date))
   return (
     <>
       <PageHero eyebrow="Local Community" title={group.name} text={group.description} icon={<Globe2 />} />
@@ -376,7 +355,8 @@ function GroupPage() {
         <div><span className="eyebrow">團體節奏</span><h2>{group.rhythm}</h2><p className="large-copy">我們在固定相聚中祈禱、學習與分享生命，也透過服務與文化活動，將信仰帶進真實世界。</p><div className="contact-strip"><MapPin /><span><strong>聚會地區</strong>{group.location}</span></div></div>
         <div className="upcoming-panel"><h2>年度活動計劃</h2>{groupEvents.length ? groupEvents.map((event) => <div key={event.id}><time>{formatDate(event.date, false)}</time><strong>{event.title}</strong><span>{event.location}</span></div>) : <p>最新聚會資訊整理中，歡迎聯絡總會。</p>}<Link className="button button--primary" to={`/calendar?group=${group.slug}`}>完整行事曆 <ArrowRight size={17} /></Link></div>
       </div></section>
-      <section className="section section--mist"><div className="shell"><SectionHeading eyebrow={group.name} title="既有公告資料" /><OfficialSource url={group.sourceUrl} label="瀏覽原官網分會資訊" /><div className="article-list">{groupNotices.map((notice) => <article key={notice.slug}><time>{formatDate(notice.date)}</time><div><h2>{notice.title}</h2><p>{notice.excerpt}</p></div><Link to={`/article/${notice.slug}`} aria-label={`閱讀${notice.title}`}><ArrowRight /></Link></article>)}{group.slug === 'contemplation' && <Link className="text-link" to="/prayer">閱讀最新默觀月訊 <ArrowRight size={15} /></Link>}</div></div></section>
+      <ManagedPage kind="record" groupId={group.slug} compact />
+      <ManagedPage kind="notice" groupId={group.slug} compact />
     </>
   )
 }
@@ -428,29 +408,30 @@ function PrayerPage() {
 }
 
 const searchIndex = [
-  ...notices.map((item) => ({ title: item.title, text: `${item.excerpt} ${item.group}`, to: `/article/${item.slug}`, type: '活動消息' })),
   ...articles.map((item) => ({ title: item.title, text: `${item.excerpt} ${item.author}`, to: `/article/${item.slug}`, type: item.category })),
   ...groups.map((item) => ({ title: item.name, text: `${item.description} ${item.location}`, to: `/groups/${item.slug}`, type: '分會' })),
   ...publications.map((item) => ({ title: `${item.series} ${item.issue}`, text: item.description, to: '/publications', type: '小會刊物' })),
-  ...events.map((item) => ({ title: item.title, text: `${item.location} ${groupName(item.group)} ${item.description ?? ''}`, to: '/calendar', type: '行事曆' })),
 ]
 
 function SearchPage() {
+  const { items, loaded, error } = usePublishedContent()
   const [params, setParams] = useSearchParams()
   const initial = params.get('q') ?? ''
   const [query, setQuery] = useState(initial)
   useEffect(() => setQuery(initial), [initial])
   const results = useMemo(() => {
     const keyword = initial.trim().toLocaleLowerCase('zh-TW')
-    if (!keyword) return searchIndex
-    return searchIndex.filter((item) => `${item.title} ${item.text} ${item.type}`.toLocaleLowerCase('zh-TW').includes(keyword))
-  }, [initial])
+    const index = [...searchIndex, ...items.map(item => ({ title: item.title, text: `${item.body} ${item.groupIds.map(id => groups.find(x => x.slug === id)?.name || id).join('、')}`, to: activityPath(item), type: activityLabel(item.kind) }))]
+    if (!keyword) return index
+    return index.filter((item) => `${item.title} ${item.text} ${item.type}`.toLocaleLowerCase('zh-TW').includes(keyword))
+  }, [initial, items])
   function submit(event: FormEvent) { event.preventDefault(); setParams(query.trim() ? { q: query.trim() } : {}) }
   return (
     <>
       <PageHero eyebrow="Search" title="搜尋小會網站" text="從活動、分會、刊物與文章中，找到你正在尋找的內容。" icon={<Search />} />
       <section className="section section--paper"><div className="shell search-page">
         <form onSubmit={submit}><Search /><input autoFocus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="輸入關鍵字" aria-label="搜尋關鍵字" /><button className="button button--primary">搜尋</button></form>
+        {!loaded && <p role="status">活動資料載入中…</p>}{error && <p role="alert">{error}</p>}
         <p className="result-count">{initial ? `「${initial}」共找到 ${results.length} 筆結果` : `瀏覽全部 ${results.length} 筆內容`}</p>
         <div className="search-results">{results.map((item, index) => <Link to={item.to} key={`${item.to}-${index}`}><span className="tag">{item.type}</span><div><h2>{item.title}</h2><p>{item.text}</p></div><ArrowUpRight /></Link>)}{results.length === 0 && <div className="empty-state"><Search /><h2>沒有找到相符內容</h2><p>試試較短的關鍵字，或瀏覽活動與刊物。</p></div>}</div>
       </div></section>
@@ -460,13 +441,12 @@ function SearchPage() {
 
 function ArticlePage() {
   const { slug } = useParams()
-  const notice = notices.find((item) => item.slug === slug)
   const article = articles.find((item) => item.slug === slug)
-  const item = notice ? { ...notice, category: notice.group, author: '天主教中華基督神修小會' } : article
-  if (!item) return <NotFound />
+  const item = article
+  if (!item) return <ManagedArticle legacySlug={slug} />
   return (
     <article className="article-page">
-      <header><div className="shell article-header"><Link to={notice ? '/announcements' : '/culture'}>← 返回{notice ? '活動消息' : '文章列表'}</Link><span className="tag">{item.category}</span><h1>{item.title}</h1><div><time>{item.date}</time><span>{item.author}</span></div></div></header>
+      <header><div className="shell article-header"><Link to={item.category === '默觀月訊' ? '/prayer' : '/culture'}>← 返回文章列表</Link><span className="tag">{item.category}</span><h1>{item.title}</h1><div><time>{item.date}</time><span>{item.author}</span></div></div></header>
       <div className="shell article-body"><aside><SacredMark compact /><span>在基督的愛內<br />共同成長</span></aside><div className="prose"><p className="source-note">發布日期：{formatDate(item.date)}；活動日期請依內文與行事曆查閱。</p>{item.content.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{item.links?.map((link) => <p key={link.url}><OfficialSource url={link.url} label={link.label} /></p>)}<hr /><p className="source-note">本頁為原官網公開內容的新版摘要。歷史資料、活動細節及完整影像以小會正式公告為準。</p><OfficialSource url={item.sourceUrl} /></div></div>
     </article>
   )
@@ -485,7 +465,9 @@ export default function App() {
         <Route path="/activities" element={<ActivitiesPage />} />
         <Route path="/groups/:slug" element={<GroupPage />} />
         <Route path="/admin" element={<ContentManager />} />
-        <Route path="/announcements" element={<AnnouncementsPage />} />
+        <Route path="/announcements" element={<ManagedPage kind="notice" />} />
+        <Route path="/activity-notices" element={<ManagedPage kind="notice" />} />
+        <Route path="/activity/:id" element={<ManagedArticle />} />
         <Route path="/records" element={<ManagedPage kind="record" />} />
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/publications" element={<PublicationsPage />} />

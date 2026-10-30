@@ -1,5 +1,5 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
-const source=fs.readFileSync('worker/index.js','utf8');const mod=await import('data:text/javascript;base64,'+Buffer.from('const OWNER="owner@test.com";const GROUP_IDS=["headquarters","taipei","taichung","kaohsiung","north-america","contemplation"];const SEED=[];const ASSETS={};'+source).toString('base64'));const worker=mod.default;
+const source=fs.readFileSync('worker/index.js','utf8');const mod=await import('data:text/javascript;base64,'+Buffer.from('const OWNER="owner@test.com";const GROUP_IDS=["headquarters","taipei","taichung","kaohsiung","north-america","contemplation"];const SEED=[];const ARCHIVE_SEED=[];const CATEGORY_IDS=["other","formation","retreat","celebration","service","culture","affairs"];const ASSETS={};'+source).toString('base64'));const worker=mod.default;
 const origin='https://test.local';let saved=null,etag=0;
 const env={BUCKET:{async get(){return saved?{etag:String(etag),json:async()=>structuredClone(saved)}:null},async put(key,value,options){if(saved&&options.onlyIf.etagMatches!==String(etag))return null;saved=JSON.parse(value);etag++;return {etag:String(etag)}}}};
 function req(input,owner=true){return new Request(origin+'/api/content',{method:'POST',headers:{'Content-Type':'application/json',Origin:origin,...(owner?{'oai-authenticated-user-id':'test-owner','oai-authenticated-user-email':'owner@test.com'}:{})},body:JSON.stringify(input)})}
@@ -47,7 +47,7 @@ test('unit changes remain drafts until approval, including joint activities',asy
 
 test('old stored plans recover source units without replacing saved content or state',async()=>{
  const seed=[{id:'plan-known',draft:{groupIds:['headquarters','taipei','taichung']},published:{groupIds:['headquarters','taipei','taichung']}}];
- const legacyMod=await import('data:text/javascript;base64,'+Buffer.from('const OWNER="owner@test.com";const GROUP_IDS=["headquarters","taipei","taichung"];const SEED='+JSON.stringify(seed)+';const ASSETS={};'+source).toString('base64'));
+ const legacyMod=await import('data:text/javascript;base64,'+Buffer.from('const OWNER="owner@test.com";const GROUP_IDS=["headquarters","taipei","taichung"];const SEED='+JSON.stringify(seed)+';const ARCHIVE_SEED=[];const CATEGORY_IDS=["other"];const ASSETS={};'+source).toString('base64'));
  const legacy={revision:42,items:[
   {id:'plan-known',version:8,approvedVersion:7,draft:{kind:'plan',title:'已修改的草稿'},published:{kind:'plan',title:'保留公開內容'}},
   {id:'custom-unknown',version:3,draft:{kind:'record',title:'未發佈舊草稿'}},

@@ -1887,3 +1887,433 @@ export const contentSource = {
   "checkedAt": "2026-10-16",
   "calendarYear": 2026
 }
+
+// 已公開的45則公告歸檔對照；日期只採既有標題或內文，不以發文日補活動日。
+export const activityCategories = [
+  { id: 'formation', name: '靈修培育' }, { id: 'retreat', name: '避靜與共融' },
+  { id: 'celebration', name: '節慶與紀念' }, { id: 'service', name: '關懷與服務' },
+  { id: 'culture', name: '文化與生活' }, { id: 'affairs', name: '會務與公告' },
+  { id: 'other', name: '其他活動' },
+]
+export const noticeArchive = {
+  "official-notice-70786": {
+    "kind": "record",
+    "category": "celebration",
+    "groupIds": [
+      "taipei"
+    ],
+    "date": "2026-09",
+    "datePrecision": "month"
+  },
+  "wyd-2027-sponsorship": {
+    "kind": "notice",
+    "category": "affairs",
+    "groupIds": [
+      "headquarters"
+    ],
+    "date": "",
+    "datePrecision": "unknown",
+    "dateNote": "申請已於2026/10/18截止；2027為世青日年度，非本次甄選活動日期。"
+  },
+  "official-notice-70698": {
+    "kind": "record",
+    "category": "retreat",
+    "groupIds": [
+      "kaohsiung"
+    ],
+    "date": "2026-08-08",
+    "datePrecision": "day"
+  },
+  "official-notice-70697": {
+    "kind": "record",
+    "category": "service",
+    "groupIds": [
+      "kaohsiung"
+    ],
+    "date": "2026-07-18",
+    "datePrecision": "day"
+  },
+  "official-notice-70696": {
+    "kind": "record",
+    "category": "service",
+    "groupIds": [
+      "kaohsiung"
+    ],
+    "date": "2026-06-20",
+    "datePrecision": "day"
+  },
+  "official-notice-70682": {
+    "kind": "record",
+    "category": "celebration",
+    "groupIds": [
+      "kaohsiung",
+      "taichung"
+    ],
+    "date": "2026-05-30",
+    "datePrecision": "day"
+  },
+  "official-notice-70580": {
+    "kind": "record",
+    "category": "formation",
+    "groupIds": [
+      "kaohsiung"
+    ],
+    "date": "2026-05-02",
+    "datePrecision": "day"
+  },
+  "official-notice-70623": {
+    "kind": "record",
+    "category": "celebration",
+    "groupIds": [
+      "taichung"
+    ],
+    "date": "2026-09-12",
+    "datePrecision": "day"
+  },
+  "official-notice-70617": {
+    "kind": "record",
+    "category": "culture",
+    "groupIds": [
+      "taichung"
+    ],
+    "date": "2026-08",
+    "datePrecision": "month"
+  },
+  "official-notice-70613": {
+    "kind": "record",
+    "category": "retreat",
+    "groupIds": [
+      "north-america"
+    ],
+    "date": "2026-08-28",
+    "datePrecision": "day",
+    "endDate": "2026-08-31",
+    "location": "西雅圖 Archbishop Brunett Retreat Center"
+  },
+  "life-in-color-2026": {
+    "kind": "record",
+    "category": "formation",
+    "groupIds": [
+      "taipei"
+    ],
+    "date": "2026-08",
+    "datePrecision": "month"
+  },
+  "silver-fitness": {
+    "kind": "upcoming",
+    "category": "service",
+    "groupIds": [
+      "headquarters"
+    ],
+    "date": "2026-10-01",
+    "datePrecision": "day",
+    "endDate": "2026-12-31",
+    "location": "長安天主堂二樓、瑪利亞方濟各修女院",
+    "dateNote": "兩據點課程分別至12月28日與31日；週四時段待確認。"
+  },
+  "youth-evangelization-2026": {
+    "kind": "record",
+    "category": "formation",
+    "groupIds": [
+      "taipei"
+    ],
+    "date": "2026-07",
+    "datePrecision": "month"
+  },
+  "official-notice-70448": {
+    "kind": "record",
+    "category": "formation",
+    "groupIds": [
+      "taipei"
+    ],
+    "date": "2026-06",
+    "datePrecision": "month"
+  },
+  "trinity-feast-2026": {
+    "kind": "record",
+    "category": "celebration",
+    "groupIds": [
+      "taipei"
+    ],
+    "date": "2026-05",
+    "datePrecision": "month"
+  },
+  "nangang-art-eco": {
+    "kind": "record",
+    "category": "culture",
+    "groupIds": [
+      "taipei"
+    ],
+    "date": "2026-04",
+    "datePrecision": "month"
+  },
+  "official-notice-70429": {
+    "kind": "record",
+    "category": "retreat",
+    "groupIds": [
+      "taipei"
+    ],
+    "date": "2026-03",
+    "datePrecision": "month"
+  },
+  "official-notice-70428": {
+    "kind": "record",
+    "category": "culture",
+    "groupIds": [
+      "taichung"
+    ],
+    "date": "2026-07",
+    "datePrecision": "month"
+  },
+  "official-notice-70420": {
+    "kind": "record",
+    "category": "culture",
+    "groupIds": [
+      "taichung"
+    ],
+    "date": "2026-06",
+    "datePrecision": "month"
+  },
+  "official-notice-70416": {
+    "kind": "record",
+    "category": "celebration",
+    "groupIds": [
+      "taichung",
+      "kaohsiung"
+    ],
+    "date": "2026-05",
+    "datePrecision": "month"
+  },
+  "official-notice-70413": {
+    "kind": "record",
+    "category": "affairs",
+    "groupIds": [
+      "taichung"
+    ],
+    "date": "2026-04",
+    "datePrecision": "month"
+  },
+  "official-notice-70409": {
+    "kind": "record",
+    "category": "retreat",
+    "groupIds": [
+      "taichung"
+    ],
+    "date": "2026-03",
+    "datePrecision": "month"
+  },
+  "official-notice-10250": {
+    "kind": "record",
+    "category": "culture",
+    "groupIds": [
+      "kaohsiung"
+    ],
+    "date": "2026-03-28",
+    "datePrecision": "day"
+  },
+  "official-notice-10249": {
+    "kind": "record",
+    "category": "retreat",
+    "groupIds": [
+      "kaohsiung"
+    ],
+    "date": "2026-03-21",
+    "datePrecision": "day",
+    "endDate": "2026-03-22"
+  },
+  "official-notice-10248": {
+    "kind": "record",
+    "category": "affairs",
+    "groupIds": [
+      "kaohsiung"
+    ],
+    "date": "2026-02-07",
+    "datePrecision": "day"
+  },
+  "official-notice-10246": {
+    "kind": "record",
+    "category": "affairs",
+    "groupIds": [
+      "kaohsiung"
+    ],
+    "date": "2026",
+    "datePrecision": "year",
+    "dateNote": "2026年上半年分會報告，未載單一活動日。"
+  },
+  "official-notice-10244": {
+    "kind": "record",
+    "category": "culture",
+    "groupIds": [
+      "kaohsiung"
+    ],
+    "date": "2026-01-10",
+    "datePrecision": "day"
+  },
+  "official-notice-10242": {
+    "kind": "record",
+    "category": "affairs",
+    "groupIds": [
+      "taipei"
+    ],
+    "date": "2026-02",
+    "datePrecision": "month"
+  },
+  "official-notice-10241": {
+    "kind": "record",
+    "category": "service",
+    "groupIds": [
+      "taipei"
+    ],
+    "date": "2026-02",
+    "datePrecision": "month"
+  },
+  "official-notice-10240": {
+    "kind": "record",
+    "category": "culture",
+    "groupIds": [
+      "taipei"
+    ],
+    "date": "2026-01",
+    "datePrecision": "month"
+  },
+  "official-notice-10238": {
+    "kind": "record",
+    "category": "culture",
+    "groupIds": [
+      "taichung"
+    ],
+    "date": "2026-02",
+    "datePrecision": "month"
+  },
+  "official-notice-10237": {
+    "kind": "record",
+    "category": "formation",
+    "groupIds": [
+      "taichung"
+    ],
+    "date": "2026-01",
+    "datePrecision": "month"
+  },
+  "official-notice-10230": {
+    "kind": "record",
+    "category": "retreat",
+    "groupIds": [
+      "taichung"
+    ],
+    "date": "2025-10",
+    "datePrecision": "month"
+  },
+  "official-notice-10176": {
+    "kind": "record",
+    "category": "retreat",
+    "groupIds": [
+      "north-america"
+    ],
+    "date": "2024-09",
+    "datePrecision": "month"
+  },
+  "official-notice-10175": {
+    "kind": "record",
+    "category": "retreat",
+    "groupIds": [
+      "headquarters"
+    ],
+    "date": "2024-08-16",
+    "datePrecision": "day",
+    "endDate": "2024-08-18"
+  },
+  "official-notice-10174": {
+    "kind": "record",
+    "category": "affairs",
+    "groupIds": [
+      "headquarters"
+    ],
+    "date": "2024-08-10",
+    "datePrecision": "day"
+  },
+  "official-notice-10173": {
+    "kind": "record",
+    "category": "retreat",
+    "groupIds": [
+      "headquarters"
+    ],
+    "date": "2024-04-15",
+    "datePrecision": "day",
+    "endDate": "2024-04-18"
+  },
+  "official-notice-10151": {
+    "kind": "notice",
+    "category": "retreat",
+    "groupIds": [
+      "north-america"
+    ],
+    "date": "2024-09",
+    "datePrecision": "month"
+  },
+  "official-notice-10138": {
+    "kind": "notice",
+    "category": "affairs",
+    "groupIds": [
+      "headquarters"
+    ],
+    "date": "",
+    "datePrecision": "unknown",
+    "dateNote": "「2023屆」為屆別；未確認會議日期。"
+  },
+  "official-notice-10136": {
+    "kind": "record",
+    "category": "affairs",
+    "groupIds": [
+      "headquarters"
+    ],
+    "date": "2023-11-18",
+    "datePrecision": "day",
+    "dateNote": "標題年度為2024，括號記載會議日期為2023/11/18，兩者分別保留。"
+  },
+  "official-notice-10086": {
+    "kind": "record",
+    "category": "retreat",
+    "groupIds": [
+      "north-america"
+    ],
+    "date": "2021",
+    "datePrecision": "year"
+  },
+  "official-notice-10085": {
+    "kind": "notice",
+    "category": "retreat",
+    "groupIds": [
+      "headquarters"
+    ],
+    "date": "2021",
+    "datePrecision": "year"
+  },
+  "official-notice-10084": {
+    "kind": "notice",
+    "category": "retreat",
+    "groupIds": [
+      "north-america"
+    ],
+    "date": "2021",
+    "datePrecision": "year"
+  },
+  "official-notice-10082": {
+    "kind": "notice",
+    "category": "celebration",
+    "groupIds": [
+      "headquarters"
+    ],
+    "date": "",
+    "datePrecision": "unknown"
+  },
+  "official-notice-10005": {
+    "kind": "notice",
+    "category": "affairs",
+    "groupIds": [
+      "north-america"
+    ],
+    "date": "",
+    "datePrecision": "unknown",
+    "dateNote": "家書日期與發文日期保留於標題及來源資訊，不當作活動日。"
+  }
+} as const
