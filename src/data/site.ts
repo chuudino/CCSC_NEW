@@ -1420,6 +1420,32 @@ export const notices: Notice[] = [
   }
 ]
 
+export const wellspringDriveFolderId = '11JN4xCs2UIGoLpoGILrw_GuPKbciyJwk'
+
+// Public issues verified in the shared Drive folder, in descending issue order.
+export const wellspringIssues = [
+  { issue: 103, title: "我是葡萄樹 你們是枝條", fileId: '18QGM64clpI4mm1_4N7zsSjqLARUSbvS0' },
+  { issue: 102, title: "地上的鹽 世界的光", fileId: '1LmgpsOR02GYB_B0Vb-or4pR00xdP2bw6' },
+  { issue: 101, title: "福傳・靈修・陪伴", fileId: '16GKxVHM_DZ9ohblXZUbvr5rDbD_yy0wd' },
+  { issue: 100, title: "心泉100", fileId: '10fCTfAXrmfKv4Qq-dZc-TpbH3X2HT-kM' },
+  { issue: 99, title: "靈修‧陪伴‧服務", fileId: '1IDpjkxrJm_X54Gl7eQfOLT48Wz9zBsEE' },
+  { issue: 98, title: "信仰是禮物、選擇、熱忱", fileId: '1aRaKeax2_aqSbQYSnPIyf7sjoADjZDXS' },
+  { issue: 97, title: "靈修與福傳", fileId: '1QROXqIxwiln9KwuB5gkvjuXq3JsQZcUv' },
+  { issue: 96, title: "靈修與福傳", fileId: '1Pc16mgT0xM6zTjOS_tEsfdAP4tX9hZpv' },
+  { issue: 95, title: "基督信仰的在地化現代化", fileId: '1yiFg-B4z3qR8OI0vAGpp1-BTNuaxZRRO' },
+  { issue: 94, title: "重燃傳教的心火", fileId: '1_sziqZ6NAehgi8cKpig0h7bAYerNk0fL' },
+  { issue: 93, title: "活出福音的慈悲", fileId: '14fmqbcrv3A767qE4zxhe6dAxnHy94BXA' },
+  { issue: 92, title: "向下位移 走向群眾", fileId: '1tIq_4bfhGHncX23bWODFHUEjvLdq3dxE' },
+  { issue: 91, title: "向下位移、走向群眾", fileId: '1fm5Dxuslbjz4OSRw4WwmXwZPShWsVXKe' },
+  { issue: 90, title: "罪過與補贖、 善果與道路", fileId: '1eGiIGpuYph_Rv9xcXDQiG-UGpxM76e7-' },
+  { issue: 89, title: "神修起步．錨定福傳", fileId: '1OUVvXWr23JtGRWkvT22idEezjRSeZbBj' },
+  { issue: 88, title: "以信德裝備 以愛德行動", fileId: '1UkP_N0sd40ABduWTDb4iLBaEWEu15Ykg' },
+  { issue: 87, title: "以信德交託 以愛德分享", fileId: '1uJixVfNC7qXCdxXSTFq6wBs5Dfhxleed' },
+  { issue: 65, title: "回歸父家", fileId: '1IukThP1m4sSXKHpMmJZ6IWfXcTfgzCTo' },
+  { issue: 25, title: "當代在俗中國基督徒完整人格的培養與維護", fileId: '1EOJzM8rDLMaNR6K8ZJxKmea-1UlPOUjZ' },
+  { issue: 24, title: "人生旅途中的分辨與抉擇", fileId: '1VuG_O8YHH6SNDv0XmlQlSx6EwbxxFeR3' },
+]
+
 export const publications: Publication[] = [
   { slug: 'fountain-104', series: '心泉', issue: '第 104 期', date: '2026', description: '季刊・靈修、信仰與生命分享。讓不同世代的生命故事匯成一股清泉。', accent: 'teal' },
   { slug: 'seed-71', series: '芥子', issue: '第 71 期', date: '2021', description: '半年刊・神學思想與文化省思。從微小種子展開信仰與世界的對話。', accent: 'gold' },

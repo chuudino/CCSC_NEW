@@ -270,6 +270,12 @@ button { cursor: pointer; }
 .library-item h2 { margin: 10px 0 0; color: var(--teal); font-family: var(--serif); font-size: 1.7rem; }
 .library-item time { color: var(--gold); font-size: .72rem; }
 .library-item p { max-width: 640px; color: #69746f; }
+.wellspring-reader { display: grid; justify-items: start; gap: 16px; margin-top: 28px; }
+.wellspring-reader h2 { margin: 0; color: var(--teal); font-family: var(--serif); font-size: 1.7rem; }
+.wellspring-reader p { margin: 0; color: #69746f; }
+.wellspring-reader select { max-width: 100%; min-height: 44px; padding: 8px 12px; font: inherit; color: var(--teal); border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+.wellspring-reader__links { display: flex; flex-wrap: wrap; column-gap: 24px; row-gap: 12px; }
+.wellspring-reader__frame { display: block; width: 100%; height: clamp(24rem, 65vh, 40rem); border: 1px solid var(--line); border-radius: 16px; background: #fff; }
 
 .featured-story { display: grid; grid-template-columns: 1.05fr .95fr; gap: 64px; align-items: center; margin-bottom: 100px; padding: 34px; border-radius: 28px; background: #e7eee9; }
 .featured-story__art { min-height: 390px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; border-radius: 20px; background: radial-gradient(circle at 70% 30%, #e6c271, transparent 18%), linear-gradient(145deg, #274f49, #153934); color: white; }

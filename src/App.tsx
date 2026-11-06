@@ -41,6 +41,8 @@ import {
   principles,
   publications,
   timeline,
+  wellspringDriveFolderId,
+  wellspringIssues,
 } from './data/site'
 
 const navItems = [
@@ -370,7 +372,54 @@ function PublicationsPage() {
       <section className="section section--paper"><div className="shell">
         <div className="publication-intro"><div><span className="eyebrow">閱讀室</span><h2>一篇文章，一段偕行的路</h2></div><p>《心泉》是小會的生命記錄與靈修分享；《芥子》由北美分會持續耕耘，讓微小的信仰種子在文化中生長。</p></div>
         <div className="library-grid">
-          {publications.map((publication) => <article key={publication.slug} className={`library-item library-item--${publication.accent}`}><div className="book-cover"><span>小會</span><strong>{publication.series}</strong><i /><small>{publication.issue}</small></div><div><span className="tag">{publication.series}</span><h2>{publication.issue}</h2><time>{publication.date}</time><p>{publication.description}</p><button className="text-link" type="button">本期目錄整理中 <ArrowRight size={15} /></button></div></article>)}
+          {publications.map((publication) => (
+            <article key={publication.slug} className={`library-item library-item--${publication.accent}`}>
+              <div className="book-cover"><span>小會</span><strong>{publication.series}</strong><i /><small>{publication.issue}</small></div>
+              <div>
+                <span className="tag">{publication.series}</span><h2>{publication.issue}</h2><time>{publication.date}</time><p>{publication.description}</p>
+                {publication.series === '心泉' ? (
+                  <Link className="text-link" to="/publications/wellspring">閱讀《心泉》歷期 PDF <ArrowRight size={15} /></Link>
+                ) : (
+                  <button className="text-link" type="button">本期目錄整理中 <ArrowRight size={15} /></button>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div></section>
+    </>
+  )
+}
+
+function WellspringPage() {
+  const [fileId, setFileId] = useState(wellspringIssues[0].fileId)
+  const selected = wellspringIssues.find((issue) => issue.fileId === fileId) ?? wellspringIssues[0]
+  const folderUrl = `https://drive.google.com/drive/folders/${wellspringDriveFolderId}`
+  const fileUrl = `https://drive.google.com/file/d/${selected.fileId}`
+
+  return (
+    <>
+      <PageHero eyebrow="Wellspring" title="《心泉》歷期 PDF" text="閱讀小會的靈修、信仰與生命分享。" icon={<BookOpen />} />
+      <section className="section section--paper"><div className="shell">
+        <Link className="text-link" to="/publications">返回小會刊物</Link>
+        <div className="wellspring-reader">
+          <h2>選擇期數</h2>
+          <label htmlFor="wellspring-issue">《心泉》期數</label>
+          <select id="wellspring-issue" value={selected.fileId} onChange={(event) => setFileId(event.target.value)}>
+            {wellspringIssues.map((issue) => <option key={issue.fileId} value={issue.fileId}>第 {issue.issue} 期｜{issue.title}</option>)}
+          </select>
+          <div className="wellspring-reader__links">
+            <a className="text-link" href={`${fileUrl}/view`} target="_blank" rel="noreferrer">在新分頁開啟 PDF <ArrowUpRight size={15} /></a>
+            <a className="text-link" href={folderUrl} target="_blank" rel="noreferrer">瀏覽 Google 雲端硬碟完整清單 <ArrowUpRight size={15} /></a>
+          </div>
+          <p>如果瀏覽器無法顯示下方預覽，可以在新分頁閱讀。</p>
+          <iframe
+            className="wellspring-reader__frame"
+            title={`《心泉》第 ${selected.issue} 期 PDF 預覽`}
+            src={`${fileUrl}/preview`}
+            loading="lazy"
+            referrerPolicy="no-referrer"
+          />
         </div>
       </div></section>
     </>
@@ -471,6 +520,7 @@ export default function App() {
         <Route path="/records" element={<ManagedPage kind="record" />} />
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/publications" element={<PublicationsPage />} />
+        <Route path="/publications/wellspring" element={<WellspringPage />} />
         <Route path="/culture" element={<CulturePage />} />
         <Route path="/prayer" element={<PrayerPage />} />
         <Route path="/search" element={<SearchPage />} />
