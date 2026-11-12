@@ -60,25 +60,36 @@ export function ManagedPage({ kind, compact = false, groupId }: { kind: Kind; co
   const group = !['all', 'unassigned', ...groups.map(x => x.slug)].includes(requestedGroup) ? 'all' : requestedGroup
   const requestedCategory = params.get('category') || 'all'
   const category = compact || !['all', ...activityCategories.map(x => x.id)].includes(requestedCategory) ? 'all' : requestedCategory
-  const year = params.get('year') || today().slice(0, 4)
+  const currentDate = today()
+  const currentDay = Date.parse(currentDate)
+  const year = params.get('year') || currentDate.slice(0, 4)
+  const startDistance = (date: string) => {
+    const startDay = Date.parse(date)
+    return Number.isNaN(startDay) ? Infinity : Math.abs(startDay - currentDay)
+  }
   const filter = (key: string, value: string) => {
     const next = new URLSearchParams(params)
     if (value === 'all') next.delete(key); else next.set(key, value)
     setParams(next)
   }
-  const rows = items.filter(x => x.kind === kind && inGroup(x.groupIds, group) && (category === 'all' || (x.category || 'other') === category) && (kind === 'upcoming' ? (x.endDate || x.date) >= today() : kind === 'record' ? !x.date || x.date <= today().slice(0, x.date.length) : kind === 'plan' ? x.date.startsWith(year) : true))
-    .sort((a, b) => ['record', 'notice'].includes(kind) ? sortDate(b).localeCompare(sortDate(a)) : sortDate(a).localeCompare(sortDate(b)))
+  const rows = items.filter(x => x.kind === kind && inGroup(x.groupIds, group) && (category === 'all' || (x.category || 'other') === category) && (kind === 'upcoming' ? (x.endDate || x.date) >= currentDate : kind === 'record' ? !x.date || x.date <= currentDate.slice(0, x.date.length) : kind === 'plan' ? x.date.startsWith(year) : true))
+    .sort((a, b) => {
+      if (kind === 'upcoming') {
+        return startDistance(a.date) - startDistance(b.date) || b.date.localeCompare(a.date)
+      }
+      return ['record', 'notice'].includes(kind) ? sortDate(b).localeCompare(sortDate(a)) : sortDate(a).localeCompare(sortDate(b))
+    })
   const visible = compact ? rows.slice(0, 3) : rows
   const recurring = kind === 'plan' && category === 'all' ? recurringEvents.filter(x => inGroup([x.group], group)) : []
   const Heading = compact ? 'h2' : 'h1'
   const query = group === 'all' ? '' : `?group=${encodeURIComponent(group)}`
   return <section className="section section--paper"><div className="shell">
     <span className="eyebrow">{kind === 'plan' ? '全年規劃' : '小會偕行'}</span><Heading>{labels[kind]}</Heading>
-    {!compact && <><p>{kind === 'plan' ? '年度活動計劃獨立管理，計劃不等於已公告或已舉行的活動。' : kind === 'record' ? '保存相聚、學習與服務的足跡；只載明月份或年份的資料，依原有資訊呈現。' : kind === 'notice' ? '甄選、會議通知與會務分享；發文日期與活動日期分別記錄，歷年公告一併保存。' : '已核定的活動訊息，依活動日期由近到遠排列；活動結束後不會自動轉成活動記錄。'}</p>
+    {!compact && <><p>{kind === 'plan' ? '年度活動計劃獨立管理，計劃不等於已公告或已舉行的活動。' : kind === 'record' ? '保存相聚、學習與服務的足跡；只載明月份或年份的資料，依原有資訊呈現。' : kind === 'notice' ? '甄選、會議通知與會務分享；發文日期與活動日期分別記錄，歷年公告一併保存。' : '已核定且尚未結束的活動，依開始日期距今天的遠近排列。'}</p>
       <ContentTabs group={group} category={category} /><div className="content-filters">
         <GroupFilter value={group} onChange={value => filter('group', value)} unassigned={group === 'unassigned' || items.some(x => x.kind === kind && !x.groupIds?.length)} />
         <CategoryFilter value={category} onChange={value => filter('category', value)} />
-        {kind === 'plan' && <label>年度<select value={year} onChange={e => filter('year', e.target.value)}>{Array.from(new Set([today().slice(0, 4), year, ...items.filter(x => x.kind === 'plan').map(x => x.date.slice(0, 4))])).sort().map(y => <option key={y}>{y}</option>)}</select></label>}
+        {kind === 'plan' && <label>年度<select value={year} onChange={e => filter('year', e.target.value)}>{Array.from(new Set([currentDate.slice(0, 4), year, ...items.filter(x => x.kind === 'plan').map(x => x.date.slice(0, 4))])).sort().map(y => <option key={y}>{y}</option>)}</select></label>}
       </div></>}
     {recurring.map(x => <article className="recurring-card" key={x.id}><span className="tag">{groupNames([x.group])}</span><h2>{x.title}（固定安排）</h2><p>{x.schedule}</p><p>{x.hosts.join('、')}</p><a href={x.sourceUrl} target="_blank" rel="noreferrer">查看原官網安排</a></article>)}
     {error && <p role="alert">{error}</p>}{!loaded && <p role="status">載入中…</p>}
