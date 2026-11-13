@@ -69,11 +69,46 @@ export function withArchive(state){
  const missing=ARCHIVE_SEED.filter(x=>!ids.has(x.id)&&!x.draft.sourceKeys.some(key=>sources.has(key))&&!x.draft.legacySlugs.some(slug=>slugs.has(slug)));
  return missing.length?{...state,revision:state.revision+1,items:[...state.items,...structuredClone(missing)]}:state;
 }
+// Apply the reviewed source details to the existing public activity once.
+export function withApprovedContentUpdate(state, update) {
+  if (!update || state.appliedContentUpdates?.includes(update.sourceKey)) return state;
+
+  const item = state.items.find(({ id }) => id === update.id);
+  const published = item?.published;
+  if (!published || !Object.entries(update.expected).every(([key, value]) => published[key] === value)) {
+    return state;
+  }
+
+  const attachments = published.attachments ?? [];
+  const alreadyAttached = attachments.some(({ url }) => URL.canParse(url) && new URL(url).href === update.attachment.url);
+  if (!alreadyAttached && attachments.length >= 10) return state;
+  const nextPublished = {
+    ...published,
+    ...validate({
+      ...published,
+      ...update.details,
+      sourceKeys: [...new Set([...(published.sourceKeys ?? []), update.sourceKey])],
+      attachments: alreadyAttached ? attachments : [...attachments, update.attachment],
+    }),
+  };
+  const nextItem = item.version === item.approvedVersion
+    ? { ...item, published: nextPublished, draft: structuredClone(nextPublished), version: item.version + 1, approvedVersion: item.version + 1 }
+    : { ...item, published: nextPublished };
+
+  return {
+    ...state,
+    items: state.items.map(entry => entry.id === item.id ? nextItem : entry),
+    appliedContentUpdates: [...(state.appliedContentUpdates ?? []), update.sourceKey],
+    revision: state.revision + 1,
+  };
+}
+
 async function readState(bucket){
  for(let attempt=0;attempt<3;attempt++){
   const obj=await bucket.get(KEY);
   const current=withGroups(obj?await obj.json():{revision:0,items:structuredClone(SEED)});
-  const state=withArchive(current);
+  const archived=withArchive(current);
+  const state=withApprovedContentUpdate(archived, APPROVED_CONTENT_UPDATE);
   if(state===current)return {state,obj};
   // A deployment migration uses the same compare-and-swap as editor writes.
   const result=await bucket.put(KEY,JSON.stringify(state),{onlyIf:obj?{etagMatches:obj.etag}:{etagDoesNotMatch:'*'},httpMetadata:{contentType:'application/json'}});

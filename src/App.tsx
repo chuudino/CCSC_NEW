@@ -384,7 +384,7 @@ function PublicationsPage() {
                 {publication.series === '心泉' ? (
                   <Link className="text-link" to="/publications/wellspring">閱讀《心泉》歷期 PDF <ArrowRight size={15} /></Link>
                 ) : (
-                  <button className="text-link" type="button">本期目錄整理中 <ArrowRight size={15} /></button>
+                  <OfficialSource url={publication.sourceUrl} label="閱讀原官網本期目錄" />
                 )}
               </div>
             </article>

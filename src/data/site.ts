@@ -48,6 +48,7 @@ export type Publication = {
   date: string
   description: string
   accent: string
+  sourceUrl?: string
 }
 
 export type Article = {
@@ -730,6 +731,26 @@ export const recurringEvents: RecurringEvent[] = [
 ]
 
 export const notices: Notice[] = [
+  {
+    "slug": "official-notice-70918",
+    "date": "2026-11-10",
+    "title": "2026 靜山共融營剪影",
+    "group": "總會",
+    "groupSlug": "headquarters",
+    "excerpt": "總會分享 2026 年靜山共融營的影音剪影。",
+    "content": [
+      "可由下方連結觀看 YouTube 影片，或前往原官網查看公告。"
+    ],
+    "sourceKey": "notice:70918",
+    "sourceUrl": "https://ccsc.org.tw/?p=70918",
+    "sourceKind": "video",
+    "links": [
+      {
+        "label": "觀看靜山共融營剪影",
+        "url": "https://youtu.be/7FCfp4gA22U?si=3PNM_Aio-ElIHEvH"
+      }
+    ]
+  },
   {
     "slug": "official-notice-70786",
     "date": "2026-10-12",
@@ -1448,11 +1469,28 @@ export const wellspringIssues = [
 
 export const publications: Publication[] = [
   { slug: 'fountain-104', series: '心泉', issue: '第 104 期', date: '2026', description: '季刊・靈修、信仰與生命分享。讓不同世代的生命故事匯成一股清泉。', accent: 'teal' },
-  { slug: 'seed-71', series: '芥子', issue: '第 71 期', date: '2021', description: '半年刊・神學思想與文化省思。從微小種子展開信仰與世界的對話。', accent: 'gold' },
-  { slug: 'seed-73', series: '芥子', issue: '第 73 期', date: '2026-10-31', description: '北美分會網路刊物，延續跨地域的靈修書寫與文化交流。', accent: 'indigo' },
+  { slug: 'seed-73', series: '芥子', issue: '第 73 期', date: '2026-10-31', description: '北美分會網路刊物，延續跨地域的靈修書寫與文化交流。', accent: 'indigo', sourceUrl: 'https://ccsc.org.tw/?p=70595' },
+  { slug: 'seed-72', series: '芥子', issue: '第 72 期', date: '2026-04-30', description: '本期收錄四旬期避靜、聖經導讀，以及數位時代的信仰與福傳省思。', accent: 'indigo', sourceUrl: 'https://ccsc.org.tw/?p=20174' },
+  { slug: 'seed-71', series: '芥子', issue: '第 71 期', date: '2025-10-30', description: '半年刊・神學思想與文化省思。從微小種子展開信仰與世界的對話。', accent: 'gold', sourceUrl: 'https://ccsc.org.tw/?p=20175' },
 ]
 
 export const articles: Article[] = [
+  {
+    "slug": "prayer-2026-11",
+    "category": "默觀月訊",
+    "title": "神修默觀祈禱小組2026年11月訊《Jean Lafrance 向隱密中的天父祈禱》－ 得救之道",
+    "author": "神修默觀祈禱小組",
+    "date": "2026-11-06",
+    "excerpt": "11 月月訊由徐琪提供，延續 Jean Lafrance 的「得救之道」，默想天主如何以愛看待每個人，並邀請人回應。",
+    "content": [
+      "本期選讀 Jean Lafrance《向隱密中的天父祈禱》。徐琪以歐瑟亞、依撒意亞與其他經文，帶領讀者默想天主如慈親般照顧人、安慰人。",
+      "選讀聚焦於天主渴望與人共融。祂的愛使人看見自身的可能，也邀請人在祈禱和日常生活中回應。",
+      "完整經文與選讀請見原文。"
+    ],
+    "sourceKey": "notice:70911",
+    "sourceUrl": "https://ccsc.org.tw/?p=70911",
+    "sourceKind": "text"
+  },
   {
     "slug": "prayer-2026-10",
     "category": "默觀月訊",
@@ -1849,11 +1887,11 @@ export const timeline = [
   ],
   [
     "2025",
-    "台北、台中與高雄三分會聯合辦理「與小會偕行」線上陶成活動。"
+    "4 月，台北、台中與高雄三分會聯合辦理第一期「與小會偕行」線上陶成活動。"
   ],
   [
     "2026",
-    "原官網年表記載三分會聯合辦理「與小會偕行」線上陶成活動；期別仍待確認。"
+    "4 月，台北、台中與高雄三分會聯合辦理第二期「與小會偕行」線上陶成活動。"
   ]
 ]
 
@@ -1914,14 +1952,21 @@ export const contentSource = {
   "calendarYear": 2026
 }
 
-// 已公開的45則公告歸檔對照；日期只採既有標題或內文，不以發文日補活動日。
 export const activityCategories = [
   { id: 'formation', name: '靈修培育' }, { id: 'retreat', name: '避靜與共融' },
   { id: 'celebration', name: '節慶與紀念' }, { id: 'service', name: '關懷與服務' },
   { id: 'culture', name: '文化與生活' }, { id: 'affairs', name: '會務與公告' },
   { id: 'other', name: '其他活動' },
 ]
+// 已公開來源的活動歸檔對照。活動日期只採有來源支持的日期。
 export const noticeArchive = {
+  "official-notice-70918": {
+    "kind": "record",
+    "category": "retreat",
+    "groupIds": ["headquarters"],
+    "date": "",
+    "datePrecision": "unknown"
+  },
   "official-notice-70786": {
     "kind": "record",
     "category": "celebration",
@@ -2343,3 +2388,27 @@ export const noticeArchive = {
     "dateNote": "家書日期與發文日期保留於標題及來源資訊，不當作活動日。"
   }
 } as const
+
+// 經審核後補齊既有公開活動的資訊。
+export const lectureDetails20261115 = {
+  "id": "8ce1252a-3bdb-4e35-837f-faa7c569cf48",
+  "expected": {
+    "title": "由依納爵神操的原則與基礎談起",
+    "kind": "upcoming",
+    "date": "2026-11-15",
+    "location": "長安天主堂",
+    "body": ""
+  },
+  "details": {
+    "title": "由依納爵神操的原則與基礎談起 – 尹美琪修女",
+    "location": "長安天主堂二樓（台北市林森北路 73 號）",
+    "body": "主講：尹美琪修女。台北分會 11 月例會，由文化組服務。\n\n14:55–15:00　會前禱\n15:00–16:30　靈修講座\n16:30–17:00　交流時間\n17:00　感恩聖祭\n18:00　共融晚餐與慶生會",
+    "sourceUrl": "https://ccsc.org.tw/?p=70908"
+  },
+  "sourceKey": "notice:70908",
+  "attachment": {
+    "label": "尹美琪修女靈修講座海報（PDF）",
+    "url": "https://ccsc.org.tw/wp-content/uploads/2026/11/%E5%B0%B9%E7%BE%8E%E7%90%AA%E4%BF%AE%E5%A5%B3%E5%88%86%E4%BA%AB_A4%E6%B5%B7%E5%A0%B1_%E5%A3%93%E7%B8%AE%E7%89%88-1.pdf",
+    "kind": "file"
+  }
+}

@@ -1857,10 +1857,84 @@
     "timeline": {
       "source_key": "page:50004",
       "source_url": "https://ccsc.org.tw/?page_id=50004",
-      "source_fingerprint": "6a0001d8f157730e38d24b9b80c5a7044b79b128c763efe758e007e5135d3ce6",
-      "last_applied_at": "2026-10-16T07:27:50.058323+00:00",
+      "source_fingerprint": "2045e9b75d59d4dc7ac5c6da3b22bd6cbd0b452a37db2fe2dfbad243a3881ebc",
+      "last_applied_at": "2026-11-13T02:52:08.596346+00:00",
       "fields": [
         "selected-summary",
+        "sourceUrl"
+      ]
+    },
+    "activities/8ce1252a-3bdb-4e35-837f-faa7c569cf48": {
+      "source_key": "notice:70908",
+      "source_url": "https://ccsc.org.tw/?p=70908",
+      "source_fingerprint": "b67d1e68c25b7b9f9ad44a63dbbad404343fcea6ad384848166b4aab67dbed66",
+      "last_applied_at": "2026-11-13T02:52:08.596346+00:00",
+      "fields": [
+        "title",
+        "location",
+        "body",
+        "attachments",
+        "sourceUrl"
+      ]
+    },
+    "articles/prayer-2026-11": {
+      "source_key": "notice:70911",
+      "source_url": "https://ccsc.org.tw/?p=70911",
+      "source_fingerprint": "00cf3f2146bbf1d72f77536a923562fff64e4cd7bc38484659c459b80c66edba",
+      "last_applied_at": "2026-11-13T02:52:08.596346+00:00",
+      "fields": [
+        "title",
+        "date",
+        "excerpt",
+        "content",
+        "sourceUrl"
+      ]
+    },
+    "notices/official-notice-70918": {
+      "source_key": "notice:70918",
+      "source_url": "https://ccsc.org.tw/?p=70918",
+      "source_fingerprint": "2a194f24280c933cd09fdbf14c85615a33a7d8775254f716e56217caade63539",
+      "last_applied_at": "2026-11-13T02:52:08.596346+00:00",
+      "fields": [
+        "title",
+        "publishedDate",
+        "group",
+        "excerpt",
+        "links",
+        "sourceUrl"
+      ]
+    },
+    "publications/seed-73": {
+      "source_key": "periodical:70595",
+      "source_url": "https://ccsc.org.tw/?p=70595",
+      "source_fingerprint": "de4532d238310b6fdca41c76a32517a767f0ff1608d485208b333de28ac0ce0d",
+      "last_applied_at": "2026-11-13T02:52:08.596346+00:00",
+      "fields": [
+        "issue",
+        "date",
+        "sourceUrl"
+      ]
+    },
+    "publications/seed-72": {
+      "source_key": "periodical:20174",
+      "source_url": "https://ccsc.org.tw/?p=20174",
+      "source_fingerprint": "662908418be92c3e0a4f29c9e9aba6a565921e31ac3af4865c3bd2e37c6ec376",
+      "last_applied_at": "2026-11-13T02:52:08.596346+00:00",
+      "fields": [
+        "issue",
+        "date",
+        "description",
+        "sourceUrl"
+      ]
+    },
+    "publications/seed-71": {
+      "source_key": "periodical:20175",
+      "source_url": "https://ccsc.org.tw/?p=20175",
+      "source_fingerprint": "42e199e7e760a59829c89683850f79f4bd587527daea408383a184753cc0f224",
+      "last_applied_at": "2026-11-13T02:52:08.596346+00:00",
+      "fields": [
+        "issue",
+        "date",
         "sourceUrl"
       ]
     }

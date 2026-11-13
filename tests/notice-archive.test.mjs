@@ -6,16 +6,16 @@ import {buildNoticeArchive} from '../scripts/notice-archive.mjs';
 const data=await import('data:text/javascript;base64,'+Buffer.from(ts.transpileModule(fs.readFileSync('src/data/site.ts','utf8'),{compilerOptions:{module:99,target:9}}).outputText).toString('base64'));
 const archive=buildNoticeArchive(data.notices,data.noticeArchive);
 const source=fs.readFileSync('worker/index.js','utf8');
-const moduleFor=(seed=[])=>import('data:text/javascript;base64,'+Buffer.from('const OWNER="owner@test.com";const GROUP_IDS='+JSON.stringify(data.groups.map(x=>x.slug))+';const CATEGORY_IDS='+JSON.stringify(data.activityCategories.map(x=>x.id))+';const SEED='+JSON.stringify(seed)+';const ARCHIVE_SEED='+JSON.stringify(archive)+';const ASSETS={};'+source).toString('base64'));
+const moduleFor=(seed=[])=>import('data:text/javascript;base64,'+Buffer.from('const OWNER="owner@test.com";const GROUP_IDS='+JSON.stringify(data.groups.map(x=>x.slug))+';const CATEGORY_IDS='+JSON.stringify(data.activityCategories.map(x=>x.id))+';const SEED='+JSON.stringify(seed)+';const ARCHIVE_SEED='+JSON.stringify(archive)+';const ASSETS={};const APPROVED_CONTENT_UPDATE=null;'+source).toString('base64'));
 const mod=await moduleFor();
 const origin='https://test.local';
 const owner={'oai-authenticated-user-id':'owner','oai-authenticated-user-email':'owner@test.com'};
 const request=(input)=>new Request(origin+'/api/content',{method:'POST',headers:{...owner,'Content-Type':'application/json',Origin:origin},body:JSON.stringify(input)});
 function storage(initial=null){let state=structuredClone(initial),etag=initial?1:0,writes=0;return {get state(){return state},get writes(){return writes},BUCKET:{async get(){return state?{etag:String(etag),json:async()=>structuredClone(state)}:null},async put(key,value,opts){if(state?opts.onlyIf.etagMatches!==String(etag):opts.onlyIf.etagDoesNotMatch!=='*')return null;state=JSON.parse(value);etag++;writes++;return {etag:String(etag)}}}}}
 
-test('all 45 sources have stable IDs, real date precision, units and topics',()=>{
- assert.equal(archive.length,45);assert.equal(new Set(archive.map(x=>x.id)).size,45);
- assert.equal(archive.filter(x=>x.draft.kind==='record').length,37);
+test('all 46 sources have stable IDs, real date precision, units and topics',()=>{
+ assert.equal(archive.length,46);assert.equal(new Set(archive.map(x=>x.id)).size,46);
+ assert.equal(archive.filter(x=>x.draft.kind==='record').length,38);
  assert.equal(archive.filter(x=>x.draft.kind==='notice').length,7);
  assert.equal(archive.filter(x=>x.draft.kind==='upcoming').length,1);
  for(const item of archive){assert.doesNotThrow(()=>mod.validate(item.draft));assert.ok(item.draft.body.length);assert.ok(item.draft.sourceUrl);assert.equal(item.draft.legacySlugs.length,1);assert.ok(data.notices.some(x=>x.slug===item.draft.legacySlugs[0]&&x.date===item.draft.publishedDate));}
@@ -34,8 +34,8 @@ test('migration persists once and preserves every saved draft, approval and hidd
  const initial={revision:12,items:[{id:'custom',draft:{kind:'plan',title:'自己的未核定資料',date:'2026-11-02'},version:5},hidden]};
  const env=storage(initial);
  let r=await mod.default.fetch(new Request(origin+'/api/content'),env);let pub=await r.json();
- assert.equal(env.writes,1);assert.equal(env.state.revision,13);assert.equal(env.state.items.length,46);
- assert.equal(pub.items.length,44);assert.ok(!pub.items.some(x=>x.id===hidden.id));
+ assert.equal(env.writes,1);assert.equal(env.state.revision,13);assert.equal(env.state.items.length,47);
+ assert.equal(pub.items.length,45);assert.ok(!pub.items.some(x=>x.id===hidden.id));
  assert.deepEqual(env.state.items[0],{...initial.items[0],draft:{...initial.items[0].draft,groupIds:[]}});
  assert.equal(env.state.items[1].draft.body,'使用者下架後保留的草稿');assert.equal(env.state.items[1].version,8);
  await mod.default.fetch(new Request(origin+'/api/content'),env);assert.equal(env.writes,1);
@@ -54,18 +54,18 @@ test('import edits remain drafts until approved, retain old URLs and links, and 
  pub=await (await mod.default.fetch(new Request(origin+'/api/content'),env)).json();
  const updated=pub.items.find(x=>x.id===id);assert.equal(updated.body,'本站更新內容');assert.equal(updated.category,'service');assert.deepEqual(updated.legacySlugs,['wyd-2027-sponsorship']);assert.equal(updated.links.length,2);
  await mod.default.fetch(request({action:'unpublish',revision:state.revision,id}),env);
- pub=await (await mod.default.fetch(new Request(origin+'/api/content'),env)).json();assert.ok(!pub.items.some(x=>x.id===id));assert.equal(env.state.items.length,45);
+ pub=await (await mod.default.fetch(new Request(origin+'/api/content'),env)).json();assert.ok(!pub.items.some(x=>x.id===id));assert.equal(env.state.items.length,46);
 });
 
 test('migration retries compare-and-swap conflicts and keeps the concurrent edit',async()=>{
  let state={revision:3,items:[]},etag=1,puts=0;
  const env={BUCKET:{async get(){return {etag:String(etag),json:async()=>structuredClone(state)}},async put(key,value,opts){puts++;if(puts===1){state={revision:4,items:[{id:'concurrent',version:9,draft:{title:'另一位管理者剛儲存',groupIds:['taipei']}}]};etag++;return null;}if(opts.onlyIf.etagMatches!==String(etag))return null;state=JSON.parse(value);etag++;return {etag:String(etag)}}}};
  const r=await mod.default.fetch(new Request(origin+'/api/content/admin',{headers:owner}),env);assert.equal(r.status,200);
- const result=await r.json();assert.equal(result.items.length,46);assert.equal(result.revision,5);assert.equal(result.items[0].draft.title,'另一位管理者剛儲存');assert.equal(result.items[0].version,9);assert.equal(puts,2);
+ const result=await r.json();assert.equal(result.items.length,47);assert.equal(result.revision,5);assert.equal(result.items[0].draft.title,'另一位管理者剛儲存');assert.equal(result.items[0].version,9);assert.equal(puts,2);
 });
 
 test('partial dates never invent a day; event previews require full dates and unsafe links fail',()=>{
- const item=archive[0].draft;
+ const item=archive.find(x=>x.id==='archive-notice-70786').draft;
  assert.equal(mod.validate(item,true).date,'2026-09');
  assert.throws(()=>mod.validate({...item,kind:'upcoming'}));
  assert.throws(()=>mod.validate({...item,date:'2026-13'}));
@@ -74,4 +74,38 @@ test('partial dates never invent a day; event previews require full dates and un
  assert.throws(()=>mod.validate({...item,links:[{label:'無效',url:'data:text/html,hi'}]}));
  assert.throws(()=>mod.validate({...item,category:'unknown-topic'}));
  assert.equal(mod.validate({...archive[1].draft,date:'',datePrecision:'unknown'},true).date,'');
+});
+
+test('reviewed lecture update keeps the public route and preserves a pending draft', () => {
+  const update = data.lectureDetails20261115;
+  const published = { ...update.expected, groupIds: ['taipei'], category: 'affairs', publishedDate: '2026-11-08', endDate: '2026-11-15' };
+  const item = { id: update.id, draft: { ...published, body: '待審核稿' }, published, version: 3, approvedVersion: 2 };
+  const unrelated = { id: 'other', draft: { title: '另一筆公告' }, version: 1 };
+  const initial = { revision: 10, items: [item, unrelated] };
+  const result = mod.withApprovedContentUpdate(initial, update);
+  const [updated] = result.items;
+  assert.equal(updated.id, item.id);
+  assert.equal(updated.published.title, update.details.title);
+  assert.equal(updated.published.body, update.details.body);
+  assert.equal(updated.published.publishedDate, published.publishedDate);
+  assert.deepEqual(updated.published.attachments, [update.attachment]);
+  assert.deepEqual(updated.published.sourceKeys, [update.sourceKey]);
+  assert.equal(updated.draft, item.draft);
+  assert.equal(result.items[1], unrelated);
+  assert.equal(result.revision, 11);
+  assert.equal(mod.withApprovedContentUpdate(result, update), result);
+
+  const sameDraft = { revision: 10, items: [{ ...item, draft: published, approvedVersion: 3 }] };
+  const [updatedDraft] = mod.withApprovedContentUpdate(sameDraft, update).items;
+  assert.deepEqual(updatedDraft.draft, updatedDraft.published);
+  assert.equal(updatedDraft.version, 4);
+  assert.equal(updatedDraft.approvedVersion, 4);
+
+  for (const existing of [
+    { ...item, published: undefined },
+    { ...item, published: { ...published, body: '管理者已更新公開內容' } },
+  ]) {
+    const state = { revision: 10, items: [existing] };
+    assert.equal(mod.withApprovedContentUpdate(state, update), state);
+  }
 });
