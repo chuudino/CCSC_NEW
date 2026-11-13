@@ -4,7 +4,8 @@ import { activityCategories, groups, recurringEvents } from './data/site'
 
 export type Kind = 'upcoming' | 'record' | 'plan' | 'notice'
 type Precision = 'day' | 'month' | 'year' | 'unknown'
-type Draft = { kind: Kind; groupIds: string[]; title: string; date: string; endDate: string; location: string; body: string; category?: string; datePrecision?: Precision; dateNote?: string; publishedDate?: string; legacySlugs?: string[]; sourceKeys?: string[]; sourceUrl?: string; links?: { label: string; url: string }[] }
+type Attachment = { label: string; url: string; kind: 'pdf' | 'file'; previewUrl?: string }
+type Draft = { kind: Kind; groupIds: string[]; title: string; date: string; endDate: string; location: string; body: string; category?: string; datePrecision?: Precision; dateNote?: string; publishedDate?: string; legacySlugs?: string[]; sourceKeys?: string[]; sourceUrl?: string; links?: { label: string; url: string }[]; attachments?: Attachment[] }
 type Item = { id: string; draft: Draft; published?: Draft; version: number; approvedVersion?: number }
 type State = { revision: number; items: Item[] }
 export type PublishedContent = Draft & { id: string }
@@ -19,6 +20,7 @@ export const activityLabel = (kind: Kind) => labels[kind]
 const categoryName = (id = 'other') => activityCategories.find(x => x.id === id)?.name || '其他活動'
 const contentDate = (item: Draft) => item.date ? (item.datePrecision === 'month' ? item.date + '（月份）' : item.datePrecision === 'year' ? item.date + ' 年' : item.date) + (item.endDate ? ' 至 ' + item.endDate : '') : '活動日期未載'
 const sortDate = (item: Draft) => item.date || item.publishedDate || ''
+const attachmentLimit = 10
 
 export function usePublishedContent() {
   const [items, setItems] = useState<PublishedContent[]>([])
@@ -117,6 +119,16 @@ export function ManagedArticle({ legacySlug }: { legacySlug?: string }) {
     <div className="content-tags"><span className="tag">{categoryName(item.category)}</span><span className="tag">{groupNames(item.groupIds)}</span></div><h1>{item.title}</h1>
     <p>活動日期：{contentDate(item)}</p>{item.publishedDate && <p>原始發文日期：{item.publishedDate}</p>}{item.dateNote && <p>{item.dateNote}</p>}{item.location && <p>地點：{item.location}</p>}
   </div></header><div className="shell activity-detail"><div className="content-body">{item.body}</div>
+    {!!item.attachments?.length && <section className="activity-attachments" aria-label="附件">
+      <h2>附件</h2>
+      {item.attachments.map((attachment, index) => (
+        <div key={index}>
+          <a className="text-link" href={attachment.url} target="_blank" rel="noreferrer">{attachment.label}（新分頁） ↗</a>
+          {attachment.previewUrl && <iframe className="activity-attachments__preview" src={attachment.previewUrl}
+            title={`${attachment.label} PDF 預覽`} loading="lazy" referrerPolicy="no-referrer" />}
+        </div>
+      ))}
+    </section>}
     {!!item.links?.length && <div className="source-links">{item.links.map(x => <p key={x.url}><a className="text-link" href={x.url} target="_blank" rel="noreferrer">{x.label} ↗</a></p>)}</div>}
     {item.sourceUrl && <p className="source-note"><a href={item.sourceUrl} target="_blank" rel="noreferrer">資料來源與原始影像 ↗</a></p>}
   </div></article>
@@ -158,7 +170,11 @@ export default function ContentManager() {
     if (!canLeave()) return
     setter(value); setId(''); setDraft(empty(kind, setter === setGroup ? value : group)); setDirty(false); setMessage('')
   }
-  const update = (key: keyof Draft, value: string | string[]) => { setDraft({ ...draft, [key]: value }); setDirty(true) }
+  const update = <K extends keyof Draft>(key: K, value: Draft[K]) => { setDraft(current => ({ ...current, [key]: value })); setDirty(true) }
+  const attachments = draft.attachments ?? []
+  const updateAttachment = (index: number, changes: Partial<Attachment>) => {
+    update('attachments', attachments.map((attachment, position) => position === index ? { ...attachment, ...changes } : attachment))
+  }
   const selected = state?.items.find(x => x.id === id)
   const rows = state?.items.filter(x => x.draft.kind === kind && inGroup(x.draft.groupIds, group) && (category === 'all' || (x.draft.category || 'other') === category) && `${x.draft.title} ${x.draft.body}`.includes(query.trim())).sort((a, b) => ['record', 'notice'].includes(kind) ? sortDate(b.draft).localeCompare(sortDate(a.draft)) : sortDate(a.draft).localeCompare(sortDate(b.draft))) || []
   const precision = draft.datePrecision || 'day'
@@ -185,6 +201,23 @@ export default function ContentManager() {
         <label>原始發文日期（選填，與活動日期分開）<input type="date" value={draft.publishedDate || ''} onChange={e => update('publishedDate', e.target.value)} /></label>
         <label>地點<input maxLength={300} value={draft.location} onChange={e => update('location', e.target.value)} /></label>
         <label>內容說明<textarea rows={10} maxLength={20000} value={draft.body} onChange={e => update('body', e.target.value)} /></label>
+        <fieldset className="attachment-editor" disabled={busy}>
+          <legend>附件（選填）</legend>
+          <p>貼上檔案的共用連結。選「Google Drive PDF」可在文章內預覽，也可在新分頁開啟。</p>
+          {attachments.map((attachment, index) => (
+            <div className="attachment-editor__item" key={index}>
+              <label>附件 {index + 1} 名稱<input required maxLength={200} value={attachment.label} onChange={e => updateAttachment(index, { label: e.target.value })} /></label>
+              <label>附件 {index + 1} 共用連結<input required type="url" maxLength={2048} value={attachment.url} onChange={e => updateAttachment(index, { url: e.target.value })} /></label>
+              <label>附件 {index + 1} 類型<select value={attachment.kind} onChange={e => updateAttachment(index, { kind: e.target.value === 'pdf' ? 'pdf' : 'file' })}>
+                <option value="file">檔案連結</option>
+                <option value="pdf">Google Drive PDF</option>
+              </select></label>
+              <button type="button" onClick={() => update('attachments', attachments.filter((_, position) => position !== index))}>移除附件 {index + 1}</button>
+            </div>
+          ))}
+          <button type="button" disabled={attachments.length >= attachmentLimit} onClick={() => update('attachments', [...attachments, { label: '', url: '', kind: 'file' }])}>＋ 新增附件</button>
+          {attachments.length >= attachmentLimit && <p>每篇內容最多可加入 {attachmentLimit} 個附件。</p>}
+        </fieldset>
         {draft.sourceUrl && <p><a href={draft.sourceUrl} target="_blank" rel="noreferrer">查看匯入來源 ↗</a></p>}
         <div className="content-tabs"><button disabled={busy || !draft.groupIds.length} type="submit">儲存草稿</button><button disabled={busy || !id || dirty || !draft.groupIds.length} type="button" onClick={() => void action('approve')}>核定並發佈</button><button disabled={busy || !selected?.published || dirty} type="button" onClick={() => void action('unpublish')}>下架</button></div>{dirty && <p>請先儲存草稿，再核定發佈。</p>}
       </form></div>

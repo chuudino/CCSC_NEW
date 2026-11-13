@@ -1,6 +1,35 @@
 const KEY='ccsc-editor-v1.json';
 const json=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:{'Content-Type':'application/json;charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 const today=()=>new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Taipei'}).format(new Date());
+
+function validateAttachments(attachments = []) {
+  if (!Array.isArray(attachments)) throw Error('附件格式不正確');
+  if (attachments.length > 10) throw Error('每篇內容最多可加入 10 個附件');
+  return attachments.map((attachment, index) => {
+    const number = index + 1;
+    const label = typeof attachment?.label === 'string' ? attachment.label.trim() : '';
+    const url = typeof attachment?.url === 'string' ? attachment.url.trim() : '';
+    const kind = attachment?.kind;
+    if (!label || label.length > 200) throw Error(`請填寫附件 ${number} 的名稱（最多 200 字）`);
+    if (!['pdf', 'file'].includes(kind)) throw Error(`請選擇附件 ${number} 的類型`);
+    const parsed = URL.canParse(url) ? new URL(url) : null;
+    if (!parsed || parsed.protocol !== 'https:' || parsed.username || parsed.password || parsed.href.length > 2048) {
+      throw Error(`請填寫附件 ${number} 的有效 HTTPS 共用連結`);
+    }
+    if (kind === 'file') return { label, url: parsed.href, kind };
+
+    const fileId = parsed.pathname.match(/^\/file\/(?:u\/\d+\/)?d\/([\w-]+)(?:\/|$)/)?.[1]
+      ?? (['/open', '/uc'].includes(parsed.pathname) ? parsed.searchParams.get('id') : null);
+    if (parsed.origin !== 'https://drive.google.com' || !fileId || !/^[\w-]+$/.test(fileId)) {
+      throw Error(`請填寫附件 ${number} 的 Google Drive 共用連結，或選擇「檔案連結」`);
+    }
+    const preview = new URL(`/file/d/${fileId}/preview`, parsed.origin);
+    const resourceKey = parsed.searchParams.get('resourcekey');
+    if (resourceKey) preview.searchParams.set('resourcekey', resourceKey);
+    return { label, url: parsed.href, kind, previewUrl: preview.href };
+  });
+}
+
 export function validate(d,approve=false){
  if(!d||typeof d!=='object')throw Error('請填寫活動內容');
  for(const key of ['title','date','endDate','location','body','category','datePrecision','dateNote','publishedDate','sourceUrl'])if(d[key]!==undefined&&typeof d[key]!=='string')throw Error('內容欄位格式不正確');
@@ -19,11 +48,12 @@ export function validate(d,approve=false){
  const safeUrl=value=>{try{return ['https:','http:'].includes(new URL(value).protocol)}catch{return false}};
  if(d.sourceUrl&&!safeUrl(d.sourceUrl))throw Error('來源網址格式不正確');
  if(d.links!==undefined&&(!Array.isArray(d.links)||d.links.length>20||d.links.some(x=>!x||typeof x.label!=='string'||x.label.length>200||!safeUrl(x.url))))throw Error('參考連結格式不正確');
+ const attachments = validateAttachments(d.attachments);
  for(const key of ['legacySlugs','sourceKeys'])if(d[key]!==undefined&&(!Array.isArray(d[key])||d[key].length>20||d[key].some(x=>typeof x!=='string'||x.length>200||!x)))throw Error('來源識別格式不正確');
  if((d.body||'').length>20000||(d.location||'').length>300)throw Error('內容過長');
  if(approve&&d.kind==='upcoming'&&(d.endDate||d.date)<today())throw Error('活動已結束，請另建立活動記錄');
  if(approve&&d.kind==='record'&&d.date>today().slice(0,d.date.length))throw Error('尚未發生的活動不可核定為活動記錄');
- return {kind:d.kind,groupIds:[...d.groupIds],title:d.title.trim(),date:d.date,endDate:d.endDate||'',location:d.location||'',body:d.body||'',category,datePrecision:precision,dateNote:d.dateNote||'',publishedDate:d.publishedDate||'',...(d.sourceUrl?{sourceUrl:d.sourceUrl}:{}),...(d.links?{links:d.links}:{}),...(d.legacySlugs?{legacySlugs:d.legacySlugs}:{}),...(d.sourceKeys?{sourceKeys:d.sourceKeys}:{})};
+ return {kind:d.kind,groupIds:[...d.groupIds],title:d.title.trim(),date:d.date,endDate:d.endDate||'',location:d.location||'',body:d.body||'',category,datePrecision:precision,dateNote:d.dateNote||'',publishedDate:d.publishedDate||'',...(d.sourceUrl?{sourceUrl:d.sourceUrl}:{}),...(d.links?{links:d.links}:{}),...(attachments.length?{attachments}:{}),...(d.legacySlugs?{legacySlugs:d.legacySlugs}:{}),...(d.sourceKeys?{sourceKeys:d.sourceKeys}:{})};
 }
 // Older saved items retain their content and workflow state; only known plan IDs recover source units.
 export function withGroups(state){

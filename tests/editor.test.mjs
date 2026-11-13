@@ -25,6 +25,50 @@ test('admin requires ChatGPT identity and uses supported return path',async()=>{
 });
 test('invalid field types rejected',()=>{assert.throws(()=>mod.validate({...draft,title:123}));assert.throws(()=>mod.validate({...draft,body:{}}));});
 
+test('attachments follow draft approval and can be removed without losing existing links', async () => {
+ const pdf = { label: ' 活動簡章 ', url: 'https://drive.google.com/file/d/sample-id/view?resourcekey=0-demo', kind: 'pdf' };
+ const file = { label: '報名表', url: 'https://example.com/form.docx', kind: 'file' };
+ const links = [{ label: '原始來源', url: 'https://example.com/source' }];
+ const pdfPreview = 'https://drive.google.com/file/d/sample-id/preview?resourcekey=0-demo';
+ let value = null;
+ const env = { BUCKET: {
+  async get() { return value ? { etag: 'current', json: async () => structuredClone(value) } : null; },
+  async put(key, data) { value = JSON.parse(data); return { etag: 'current' }; },
+ } };
+ const write = async input => {
+  const response = await worker.fetch(req(input), env);
+  assert.equal(response.status, 200);
+  return response.json();
+ };
+ const publicItems = async () => (await (await worker.fetch(new Request(origin + '/api/content'), env)).json()).items;
+
+ const state = await write({ action: 'save', revision: 0, draft: { ...draft, links, attachments: [pdf, file] } });
+ const id = state.items[0].id;
+ assert.deepEqual(await publicItems(), []);
+ await write({ action: 'approve', revision: 1, id });
+ assert.deepEqual((await publicItems())[0].attachments, [{ ...pdf, label: '活動簡章', previewUrl: pdfPreview }, file]);
+ await write({ action: 'save', revision: 2, id, draft: { ...draft, links, attachments: [] } });
+ assert.equal((await publicItems())[0].attachments.length, 2);
+ await write({ action: 'approve', revision: 3, id });
+ const [published] = await publicItems();
+ assert.equal(published.attachments, undefined);
+ assert.deepEqual(published.links, links);
+});
+
+test('attachment validation accepts only HTTPS links and constructs trusted PDF previews', () => {
+ const pdf = { label: '活動簡章', url: 'https://drive.google.com/open?id=sample-id', kind: 'pdf' };
+ const result = mod.validate({ ...draft, attachments: [{ ...pdf, previewUrl: 'https://example.com/' }] });
+ assert.equal(result.attachments[0].previewUrl, 'https://drive.google.com/file/d/sample-id/preview');
+ for (const attachment of [
+  { ...pdf, kind: 'file', url: 'javascript:alert(1)' },
+  { ...pdf, url: 'https://drive.google.com.evil.test/file/d/sample-id/view' },
+  { ...pdf, url: 'https://drive.google.com/drive/folders/sample-id' },
+  { ...pdf, url: 'https://name:password@drive.google.com/file/d/sample-id/view' },
+  { ...pdf, label: ' ' },
+ ]) assert.throws(() => mod.validate({ ...draft, attachments: [attachment] }));
+ assert.throws(() => mod.validate({ ...draft, attachments: Array(11).fill(pdf) }));
+});
+
 test('unit validation rejects unknown, empty and duplicate units',()=>{
  for(const groupIds of [[],['unknown'],['taipei','taipei'],'taipei',[123]])assert.throws(()=>mod.validate({...draft,groupIds}));
  assert.deepEqual(mod.validate({...draft,groupIds:['headquarters','taipei','taichung']}).groupIds,['headquarters','taipei','taichung']);

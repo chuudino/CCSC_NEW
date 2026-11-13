@@ -275,7 +275,7 @@ button { cursor: pointer; }
 .wellspring-reader p { margin: 0; color: #69746f; }
 .wellspring-reader select { max-width: 100%; min-height: 44px; padding: 8px 12px; font: inherit; color: var(--teal); border: 1px solid var(--line); border-radius: 8px; background: #fff; }
 .wellspring-reader__links { display: flex; flex-wrap: wrap; column-gap: 24px; row-gap: 12px; }
-.wellspring-reader__frame { display: block; width: 100%; height: clamp(24rem, 65vh, 40rem); border: 1px solid var(--line); border-radius: 16px; background: #fff; }
+.wellspring-reader__frame, .activity-attachments__preview { display: block; width: 100%; height: clamp(24rem, 65vh, 40rem); border: 1px solid var(--line); border-radius: 16px; background: #fff; }
 
 .featured-story { display: grid; grid-template-columns: 1.05fr .95fr; gap: 64px; align-items: center; margin-bottom: 100px; padding: 34px; border-radius: 28px; background: #e7eee9; }
 .featured-story__art { min-height: 390px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; border-radius: 20px; background: radial-gradient(circle at 70% 30%, #e6c271, transparent 18%), linear-gradient(145deg, #274f49, #153934); color: white; }
@@ -514,6 +514,12 @@ button:disabled { opacity:.5;cursor:not-allowed; }
 .activity-excerpt { display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; white-space:pre-line; }
 .activity-detail { max-width:850px; padding-top:3rem; padding-bottom:4rem; }
 .activity-detail .content-body { line-height:1.95; }
+.activity-attachments { margin: 2rem 0; }
+.activity-attachments > div { margin: 1rem 0; overflow-wrap: anywhere; }
+.activity-attachments__preview { margin-top: .75rem; }
+.attachment-editor { min-width: 0; margin: 1.5rem 0; padding: 1rem; border: 1px solid var(--line); border-radius: 8px; }
+.attachment-editor legend { padding: 0 .4rem; font-weight: 600; }
+.attachment-editor__item { padding-bottom: 1rem; margin-bottom: 1rem; border-bottom: 1px solid var(--line); }
 .managed-grid h2 a { text-decoration:none; }
 .managed-grid h2 a:hover { text-decoration:underline; }
 .content-filters input { padding:.75rem; border:1px solid #80948c; border-radius:6px; max-width:100%; }
