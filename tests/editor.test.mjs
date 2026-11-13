@@ -25,6 +25,25 @@ test('admin requires ChatGPT identity and uses supported return path',async()=>{
 });
 test('invalid field types rejected',()=>{assert.throws(()=>mod.validate({...draft,title:123}));assert.throws(()=>mod.validate({...draft,body:{}}));});
 
+test('editor errors identify the invalid field without saving the draft', async () => {
+ const env = { BUCKET: {
+  async get() { return null; },
+  async put() { assert.fail('Invalid drafts must not be saved'); },
+ } };
+ for (const [fields, field] of [
+  [{ groupIds: [] }, 'editor-group'],
+  [{ kind: 'record', datePrecision: 'month', date: '2026-13' }, 'editor-date'],
+  [{ attachments: [{ label: '附件', url: 'https://example.com/a.pdf', kind: 'pdf' }] }, 'editor-attachment-0-url'],
+ ]) {
+  const response = await worker.fetch(req({ action: 'save', revision: 0, draft: { ...draft, ...fields } }), env);
+  assert.equal(response.status, 400);
+  const error = await response.json();
+  assert.equal(error.field, field);
+  assert.ok(error.error);
+ }
+ assert.equal(mod.validate({ ...draft, kind: 'record', datePrecision: 'month', date: '2026-03' }).date, '2026-03');
+});
+
 test('attachments follow draft approval and can be removed without losing existing links', async () => {
  const pdf = { label: ' 活動簡章 ', url: 'https://drive.google.com/file/d/sample-id/view?resourcekey=0-demo', kind: 'pdf' };
  const file = { label: '報名表', url: 'https://example.com/form.docx', kind: 'file' };

@@ -36,10 +36,11 @@ export default function InstallPrompt() {
   const [dismissed, setDismissed] = useState(wasDismissed)
   const [ready, setReady] = useState(false)
   const [manuallyOpened, setManuallyOpened] = useState(false)
-  const [showAndroidHelp, setShowAndroidHelp] = useState(false)
+  const [canPrompt, setCanPrompt] = useState(false)
   const nativePrompt = useRef<InstallEvent | null>(null)
   const footerButton = useRef<HTMLButtonElement>(null)
   const heading = useRef<HTMLHeadingElement>(null)
+  const closeButton = useRef<HTMLButtonElement>(null)
   const isAdmin = /^\/admin(?:\/|$)/i.test(pathname)
   const available = platform !== null && !installed && !isAdmin
 
@@ -51,9 +52,11 @@ export default function InstallPrompt() {
       if (platform !== 'android' || isInstalledWindow()) return
       event.preventDefault()
       nativePrompt.current = event as InstallEvent
+      setCanPrompt(true)
     }
     const onInstalled = () => {
       nativePrompt.current = null
+      setCanPrompt(false)
       setInstalled(true)
     }
 
@@ -78,9 +81,10 @@ export default function InstallPrompt() {
   }, [manuallyOpened])
 
   function close() {
-    if (manuallyOpened) footerButton.current?.focus({ preventScroll: true })
+    if (manuallyOpened || closeButton.current?.closest('section')?.contains(document.activeElement)) {
+      footerButton.current?.focus()
+    }
     setManuallyOpened(false)
-    setShowAndroidHelp(false)
     setDismissed(true)
     try {
       localStorage.setItem(dismissedUntilKey, String(Date.now() + reminderInterval))
@@ -91,10 +95,7 @@ export default function InstallPrompt() {
 
   async function installOnAndroid() {
     const event = nativePrompt.current
-    if (!event) {
-      setShowAndroidHelp(true)
-      return
-    }
+    if (!event) return
 
     nativePrompt.current = null
     try {
@@ -102,7 +103,9 @@ export default function InstallPrompt() {
       if (outcome === 'accepted') setInstalled(true)
       else close()
     } catch {
-      setShowAndroidHelp(true)
+      heading.current?.focus({ preventScroll: true })
+    } finally {
+      setCanPrompt(false)
     }
   }
 
@@ -131,7 +134,7 @@ export default function InstallPrompt() {
         }}>
           <img src="/pwa/apple-touch-icon.png" alt="" width="44" height="44" />
           <div className="pwa-install__content">
-            <h2 id="pwa-install-title" ref={heading} tabIndex={-1}>安裝神修小會網站</h2>
+            <h2 id="pwa-install-title" ref={heading} tabIndex={-1}>{platform === 'android' && !canPrompt ? '如何加入主畫面' : '安裝神修小會網站'}</h2>
             {platform === 'ios' ? (
               <>
                 {!safari && <p>請先用 Safari 開啟此頁。</p>}
@@ -139,16 +142,16 @@ export default function InstallPrompt() {
               </>
             ) : (
               <>
-                {showAndroidHelp ? (
+                {!canPrompt ? (
                   <p>用 Chrome 開啟此頁，點右上角「⋮」→「安裝應用程式」或「加到主畫面」，再依畫面指示操作。</p>
                 ) : (
                   <p>從手機主畫面直接開啟神修小會網站。</p>
                 )}
-                {!showAndroidHelp && <button type="button" className="button button--primary" onClick={installOnAndroid}>安裝</button>}
+                {canPrompt && <button type="button" className="button button--primary" onClick={installOnAndroid}>安裝</button>}
               </>
             )}
           </div>
-          <button type="button" className="pwa-install__close" onClick={close} aria-label="關閉安裝提示">
+          <button type="button" ref={closeButton} className="pwa-install__close" onClick={close} aria-label="關閉安裝提示">
             <X size={20} aria-hidden="true" />
           </button>
         </section>

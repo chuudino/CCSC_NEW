@@ -1467,8 +1467,11 @@ export const wellspringIssues = [
   { issue: 24, title: "人生旅途中的分辨與抉擇", fileId: '1VuG_O8YHH6SNDv0XmlQlSx6EwbxxFeR3' },
 ]
 
+export const latestWellspringIssue = wellspringIssues[0]
+export const wellspringIssuePath = (issue: number) => `/publications/wellspring?issue=${issue}`
+
 export const publications: Publication[] = [
-  { slug: 'fountain-104', series: '心泉', issue: '第 104 期', date: '2026', description: '季刊・靈修、信仰與生命分享。讓不同世代的生命故事匯成一股清泉。', accent: 'teal' },
+  { slug: `fountain-${latestWellspringIssue.issue}`, series: '心泉', issue: `第 ${latestWellspringIssue.issue} 期`, date: '', description: '季刊・靈修、信仰與生命分享。讓不同世代的生命故事匯成一股清泉。', accent: 'teal' },
   { slug: 'seed-73', series: '芥子', issue: '第 73 期', date: '2026-10-31', description: '北美分會網路刊物，延續跨地域的靈修書寫與文化交流。', accent: 'indigo', sourceUrl: 'https://ccsc.org.tw/?p=70595' },
   { slug: 'seed-72', series: '芥子', issue: '第 72 期', date: '2026-04-30', description: '本期收錄四旬期避靜、聖經導讀，以及數位時代的信仰與福傳省思。', accent: 'indigo', sourceUrl: 'https://ccsc.org.tw/?p=20174' },
   { slug: 'seed-71', series: '芥子', issue: '第 71 期', date: '2025-10-30', description: '半年刊・神學思想與文化省思。從微小種子展開信仰與世界的對話。', accent: 'gold', sourceUrl: 'https://ccsc.org.tw/?p=20175' },

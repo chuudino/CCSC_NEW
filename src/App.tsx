@@ -1,7 +1,7 @@
 import SeedPublication, { seedIssuePath, seedSearchEntries } from './SeedPublication'
 import ContentManager, { ManagedArticle, ManagedPage, activityLabel, activityPath, usePublishedContent } from './ContentManager'
 import InstallPrompt from './InstallPrompt'
-import { FormEvent, ReactNode, useEffect, useMemo, useState } from 'react'
+import { FormEvent, ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import {
   ArrowRight,
   ArrowUpRight,
@@ -45,6 +45,9 @@ import {
   timeline,
   wellspringDriveFolderId,
   wellspringIssues,
+  latestWellspringIssue,
+  wellspringIssuePath,
+  type Publication,
 } from './data/site'
 
 const navItems = [
@@ -85,12 +88,55 @@ function SacredMark({ compact = false }: { compact?: boolean }) {
   )
 }
 
-function ScrollToTop() {
+const siteTitle = '天主教中華基督神修小會'
+
+function Layout({ children }: { children: ReactNode }) {
   const { pathname } = useLocation()
+  const main = useRef<HTMLElement>(null)
+  const previousPath = useRef(pathname)
+
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' })
+    const content = main.current
+    if (!content) return
+
+    const changed = previousPath.current !== pathname
+    previousPath.current = pathname
+    if (changed) window.scrollTo({ top: 0, behavior: 'instant' })
+
+    const initialHeading = content.querySelector('h1')
+    let moveFocus = changed && !initialHeading
+    const focusHeading = (heading: HTMLHeadingElement) => {
+      heading.tabIndex = -1
+      heading.focus({ preventScroll: true })
+    }
+    if (changed) {
+      if (initialHeading) focusHeading(initialHeading)
+      else content.focus({ preventScroll: true })
+    }
+    const updatePage = () => {
+      const heading = content.querySelector('h1')
+      document.title = pathname === '/' ? `${siteTitle}｜小會` : `${heading?.textContent?.trim() || '載入中'}｜${siteTitle}`
+      if (!heading || !moveFocus) return
+      if (document.activeElement === content || document.activeElement === document.body) focusHeading(heading)
+      moveFocus = false
+    }
+
+    updatePage()
+    const observer = new MutationObserver(updatePage)
+    observer.observe(content, { childList: true, subtree: true, characterData: true })
+    return () => observer.disconnect()
   }, [pathname])
-  return null
+
+  return <>
+    <a className="skip-link" href="#main-content" onClick={(event) => {
+      event.preventDefault()
+      main.current?.focus({ preventScroll: true })
+      main.current?.scrollIntoView({ behavior: 'instant' })
+    }}>跳到主要內容</a>
+    <Header />
+    <main ref={main} id="main-content" tabIndex={-1}>{children}</main>
+    <Footer />
+  </>
 }
 
 function SearchBox({ onSubmit }: { onSubmit?: () => void }) {
@@ -110,6 +156,7 @@ function SearchBox({ onSubmit }: { onSubmit?: () => void }) {
       <label className="sr-only" htmlFor="site-search">搜尋網站內容</label>
       <input
         id="site-search"
+        type="search"
         value={value}
         onChange={(event) => setValue(event.target.value)}
         placeholder="搜尋活動、文章、刊物…"
@@ -121,6 +168,7 @@ function SearchBox({ onSubmit }: { onSubmit?: () => void }) {
 
 function Header() {
   const [open, setOpen] = useState(false)
+  const menuButton = useRef<HTMLButtonElement>(null)
   const { pathname } = useLocation()
 
   useEffect(() => setOpen(false), [pathname])
@@ -136,7 +184,12 @@ function Header() {
           </div>
         </div>
       </div>
-      <header className="site-header">
+      <header className="site-header" onKeyDown={(event) => {
+        if (event.key !== 'Escape' || !open) return
+        event.preventDefault()
+        setOpen(false)
+        menuButton.current?.focus()
+      }}>
         <div className="shell site-header__inner">
           <Link className="brand" to="/" aria-label="天主教中華基督神修小會首頁">
             <SacredMark compact />
@@ -151,21 +204,27 @@ function Header() {
           </nav>
           <div className="header-actions">
             <Link className="icon-button" to="/search" aria-label="搜尋"><Search size={20} /></Link>
-            <button className="menu-button" aria-label={open ? '關閉選單' : '開啟選單'} aria-expanded={open} onClick={() => setOpen(!open)}>
+            <button ref={menuButton} type="button" className="menu-button" aria-label={open ? '關閉選單' : '開啟選單'} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(value => !value)}>
               {open ? <X /> : <Menu />}
             </button>
           </div>
         </div>
-        {open && (
-          <div className="mobile-panel">
+          <div id="mobile-navigation" className="mobile-panel" hidden={!open}>
             <div className="shell">
-              <SearchBox onSubmit={() => setOpen(false)} />
+              <SearchBox onSubmit={() => {
+                setOpen(false)
+                if (pathname === '/search') document.getElementById('search-query')?.focus()
+              }} />
               <nav aria-label="行動版導覽">
-                {navItems.map((item) => <NavLink key={item.to} to={item.to}>{item.label}<ChevronRight size={17} /></NavLink>)}
+                {navItems.map((item) => <NavLink key={item.to} to={item.to} onClick={() => {
+                  if (pathname === item.to) {
+                    setOpen(false)
+                    menuButton.current?.focus()
+                  }
+                }}>{item.label}<ChevronRight size={17} aria-hidden="true" /></NavLink>)}
               </nav>
             </div>
           </div>
-        )}
       </header>
     </>
   )
@@ -205,10 +264,6 @@ function Footer() {
       </div>
     </footer>
   )
-}
-
-function Layout({ children }: { children: ReactNode }) {
-  return <><ScrollToTop /><Header /><main>{children}</main><Footer /></>
 }
 
 function SectionHeading({ eyebrow, title, text, action }: { eyebrow: string; title: string; text?: string; action?: ReactNode }) {
@@ -291,8 +346,8 @@ function HomePage() {
           </div>
           <div className="publication-covers">
             {publications.slice(0, 2).map((publication) => (
-              <Link className={`mini-cover mini-cover--${publication.accent}`} to={publication.series === '芥子' ? seedIssuePath(publication.slug) : '/publications'} key={publication.slug}>
-                <span>{publication.series}</span><i /><strong>{publication.issue}</strong><small>{publication.date}</small>
+              <Link className={`mini-cover mini-cover--${publication.accent}`} to={publication.series === '芥子' ? seedIssuePath(publication.slug) : wellspringIssuePath(latestWellspringIssue.issue)} key={publication.slug}>
+                <span>{publication.series}</span><i /><strong>{publication.issue}</strong>{publication.date && <small>{publication.date}</small>}
               </Link>
             ))}
           </div>
@@ -370,35 +425,47 @@ function GroupPage() {
 
 function CalendarPage() { return <ManagedPage kind="plan" /> }
 
+function PublicationCard({ publication }: { publication: Publication }) {
+  const isWellspring = publication.series === '心泉'
+  return <article className={`library-item library-item--${publication.accent}`}>
+    <div className="book-cover" aria-hidden="true"><span>小會</span><strong>{publication.series}</strong><i /><small>{publication.issue}</small></div>
+    <div>
+      <span className="tag">{publication.series}</span><h2>{publication.issue}</h2>
+      {publication.date && <time dateTime={publication.date}>{publication.date}</time>}
+      <p>{publication.description}</p>
+      <Link className="text-link" to={isWellspring ? wellspringIssuePath(latestWellspringIssue.issue) : seedIssuePath(publication.slug)}>
+        {isWellspring ? '閱讀《心泉》歷期 PDF' : `閱讀《芥子》${publication.issue}目錄與文章`} <ArrowRight size={15} aria-hidden="true" />
+      </Link>
+    </div>
+  </article>
+}
+
 function PublicationsPage() {
+  const [latestSeed, ...olderSeeds] = publications.filter(publication => publication.series === '芥子')
+  const featured = publications.filter(publication => publication.series === '心泉' || publication === latestSeed)
   return (
     <>
       <PageHero eyebrow="Publications" title="心泉與芥子" text="保存團體的共同記憶，也讓靈修經驗、神學思想與文化省思持續流動。" icon={<BookOpen />} />
       <section className="section section--paper"><div className="shell">
         <div className="publication-intro"><div><span className="eyebrow">閱讀室</span><h2>一篇文章，一段偕行的路</h2></div><p>《心泉》是小會的生命記錄與靈修分享；《芥子》由北美分會持續耕耘，讓微小的信仰種子在文化中生長。</p></div>
-        <div className="library-grid">
-          {publications.map((publication) => (
-            <article key={publication.slug} className={`library-item library-item--${publication.accent}`}>
-              <div className="book-cover"><span>小會</span><strong>{publication.series}</strong><i /><small>{publication.issue}</small></div>
-              <div>
-                <span className="tag">{publication.series}</span><h2>{publication.issue}</h2><time>{publication.date}</time><p>{publication.description}</p>
-                {publication.series === '心泉' ? (
-                  <Link className="text-link" to="/publications/wellspring">閱讀《心泉》歷期 PDF <ArrowRight size={15} /></Link>
-                ) : (
-                  <Link className="text-link" to={seedIssuePath(publication.slug)}>閱讀本期目錄與文章 <ArrowRight size={15} /></Link>
-                )}
-              </div>
-            </article>
-          ))}
-        </div>
+        <div className="library-grid">{featured.map(publication => <PublicationCard key={publication.slug} publication={publication} />)}</div>
+        {!!olderSeeds.length && <details className="publication-archive">
+          <summary>《芥子》歷期刊物（{olderSeeds.length} 期）</summary>
+          <ul>{olderSeeds.map(publication => <li key={publication.slug}>
+            <Link to={seedIssuePath(publication.slug)}>《芥子》{publication.issue}</Link>
+            {publication.date && <time dateTime={publication.date}>{publication.date}</time>}
+          </li>)}</ul>
+        </details>}
       </div></section>
     </>
   )
 }
 
 function WellspringPage() {
-  const [fileId, setFileId] = useState(wellspringIssues[0].fileId)
-  const selected = wellspringIssues.find((issue) => issue.fileId === fileId) ?? wellspringIssues[0]
+  const [params, setParams] = useSearchParams()
+  const requestedIssue = params.get('issue')
+  const matchingIssue = wellspringIssues.find(({ issue }) => String(issue) === requestedIssue)
+  const selected = matchingIssue ?? latestWellspringIssue
   const folderUrl = `https://drive.google.com/drive/folders/${wellspringDriveFolderId}`
   const fileUrl = `https://drive.google.com/file/d/${selected.fileId}`
 
@@ -410,9 +477,10 @@ function WellspringPage() {
         <div className="wellspring-reader">
           <h2>選擇期數</h2>
           <label htmlFor="wellspring-issue">《心泉》期數</label>
-          <select id="wellspring-issue" value={selected.fileId} onChange={(event) => setFileId(event.target.value)}>
-            {wellspringIssues.map((issue) => <option key={issue.fileId} value={issue.fileId}>第 {issue.issue} 期｜{issue.title}</option>)}
+          <select id="wellspring-issue" value={selected.issue} onChange={(event) => setParams({ issue: event.target.value })}>
+            {wellspringIssues.map((issue) => <option key={issue.issue} value={issue.issue}>第 {issue.issue} 期｜{issue.title}</option>)}
           </select>
+          <p role="status">{requestedIssue && !matchingIssue ? '所選期數暫無可公開閱讀的 PDF。目前顯示' : '目前顯示'}第 {selected.issue} 期。</p>
           <div className="wellspring-reader__links">
             <a className="text-link" href={`${fileUrl}/view`} target="_blank" rel="noreferrer">在新分頁開啟 PDF <ArrowUpRight size={15} /></a>
             <a className="text-link" href={folderUrl} target="_blank" rel="noreferrer">瀏覽 Google 雲端硬碟完整清單 <ArrowUpRight size={15} /></a>
@@ -465,7 +533,8 @@ const searchIndex = [
   ...seedSearchEntries,
   ...articles.map((item) => ({ title: item.title, text: `${item.excerpt} ${item.author}`, to: `/article/${item.slug}`, type: item.category })),
   ...groups.map((item) => ({ title: item.name, text: `${item.description} ${item.location}`, to: `/groups/${item.slug}`, type: '分會' })),
-  ...publications.map((item) => ({ title: `${item.series} ${item.issue}`, text: item.description, to: item.series === '芥子' ? seedIssuePath(item.slug) : '/publications', type: '小會刊物' })),
+  ...publications.filter(item => item.series === '芥子').map((item) => ({ title: `${item.series} ${item.issue}`, text: item.description, to: seedIssuePath(item.slug), type: '小會刊物' })),
+  ...wellspringIssues.map(({ issue, title }) => ({ title: `心泉 第 ${issue} 期`, text: title, to: wellspringIssuePath(issue), type: '小會刊物' })),
 ]
 
 function SearchPage() {
@@ -485,10 +554,10 @@ function SearchPage() {
     <>
       <PageHero eyebrow="Search" title="搜尋小會網站" text="從活動、分會、刊物與文章中，找到你正在尋找的內容。" icon={<Search />} />
       <section className="section section--paper"><div className="shell search-page">
-        <form onSubmit={submit}><Search /><input autoFocus value={query} onChange={(event) => setQuery(event.target.value)} placeholder="輸入關鍵字" aria-label="搜尋關鍵字" /><button className="button button--primary">搜尋</button></form>
-        {!loaded && <p role="status">活動資料載入中…</p>}{error && <p role="alert">{error}</p>}
-        <p className="result-count">{initial ? `「${initial}」共找到 ${results.length} 筆結果` : `瀏覽全部 ${results.length} 筆內容`}</p>
-        <div className="search-results">{results.map((item, index) => <Link to={item.to} key={`${item.to}-${index}`}><span className="tag">{item.type}</span><div><h2>{item.title}</h2><p>{item.text}</p></div><ArrowUpRight /></Link>)}{results.length === 0 && <div className="empty-state"><Search /><h2>沒有找到相符內容</h2><p>試試較短的關鍵字，或瀏覽活動與刊物。</p></div>}</div>
+        <form role="search" aria-label="全站搜尋" onSubmit={submit}><Search aria-hidden="true" /><label className="sr-only" htmlFor="search-query">搜尋關鍵字</label><input id="search-query" type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="輸入關鍵字" /><button type="submit" className="button button--primary">搜尋</button></form>
+        {error && <p role="alert">{error}，目前僅顯示其他網站內容。</p>}
+        <p className="result-count" role="status">{!loaded ? '活動資料載入中…' : initial ? `「${initial}」共找到 ${results.length} 筆結果` : `瀏覽${error ? '目前可用的' : '全部'} ${results.length} 筆內容`}</p>
+        <div className="search-results">{results.map((item, index) => <Link to={item.to} key={`${item.to}-${index}`}><span className="tag">{item.type}</span><div><h2>{item.title}</h2><p>{item.text}</p></div><ArrowUpRight aria-hidden="true" /></Link>)}{loaded && results.length === 0 && <div className="empty-state"><Search aria-hidden="true" /><h2>沒有找到相符內容</h2><p>試試較短的關鍵字，或瀏覽活動與刊物。</p></div>}</div>
       </div></section>
     </>
   )
