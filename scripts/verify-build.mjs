@@ -27,4 +27,23 @@ for (const [, asset] of references) {
   assert.ok(existsSync(assetPath), `Built asset is missing: ${asset}`)
 }
 
-console.log(`Build verified: title, description, vector favicon and logo, and ${references.length} asset references`)
+assert.match(builtHtml, /<link rel="manifest" href="\/manifest\.webmanifest"/)
+assert.match(builtHtml, /<link rel="apple-touch-icon" sizes="180x180" href="\/pwa\/apple-touch-icon\.png"/)
+const manifest = JSON.parse(readFileSync('dist/manifest.webmanifest', 'utf8'))
+assert.equal(manifest.id, '/')
+assert.equal(manifest.start_url, '/')
+assert.equal(manifest.scope, '/')
+assert.equal(manifest.display, 'standalone')
+for (const size of [192, 512]) {
+  assert.ok(manifest.icons.some(({ sizes, purpose }) => sizes === `${size}x${size}` && !purpose))
+}
+for (const { src, sizes } of [...manifest.icons, { src: '/pwa/apple-touch-icon.png', sizes: '180x180' }]) {
+  const [width, height] = sizes.split('x').map(Number)
+  const icon = readFileSync(`dist${src}`)
+  assert.equal(icon.toString('ascii', 12, 16), 'IHDR', `Invalid PNG header: ${src}`)
+  assert.equal(icon.readUInt32BE(16), width, `Invalid icon width: ${src}`)
+  assert.equal(icon.readUInt32BE(20), height, `Invalid icon height: ${src}`)
+}
+assert.ok(readFileSync('public/sw.js').equals(readFileSync('dist/sw.js')))
+
+console.log(`Build verified: title, description, logo, PWA files, and ${references.length} asset references`)

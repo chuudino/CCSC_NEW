@@ -360,6 +360,35 @@ button { cursor: pointer; }
 .footer__grid a:hover { color: var(--gold-light); }
 .footer__bottom { display: flex; justify-content: space-between; align-items: center; min-height: 58px; border-top: 1px solid rgba(255,255,255,.12); font-size: .68rem; }
 .footer__bottom a { display: inline-flex; align-items: center; gap: 5px; }
+.footer__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0 18px; }
+.footer__install { display: inline-flex; align-items: center; gap: 5px; min-height: 36px; padding: 0; border: 0; background: transparent; color: inherit; }
+.footer__install:hover { color: var(--gold-light); }
+
+.pwa-install {
+  position: fixed;
+  z-index: 60;
+  inset-inline-end: max(12px, env(safe-area-inset-right));
+  bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  width: min(400px, calc(100% - 24px));
+  max-height: 65vh;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+  box-shadow: 0 12px 36px rgba(23, 63, 59, .23);
+  color: var(--ink);
+}
+.pwa-install > img { border: 1px solid var(--line); border-radius: 12px; }
+.pwa-install .pwa-install__content h2 { margin: 0; color: var(--teal); font-size: 1rem; letter-spacing: normal; }
+.pwa-install__content p { margin: 3px 0 0; font-size: .85rem; line-height: 1.55; }
+.pwa-install__content p svg { display: inline-block; vertical-align: -.13em; }
+.pwa-install__content .button { min-height: 44px; margin-top: 9px; padding: 4px 18px; }
+.pwa-install__close { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: var(--mist); color: var(--teal); }
 
 @media (max-width: 1120px) {
   .desktop-nav { display: none; }

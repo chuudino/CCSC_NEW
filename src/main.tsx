@@ -11,3 +11,9 @@ createRoot(document.getElementById('root')!).render(
     </BrowserRouter>
   </StrictMode>,
 )
+
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  void navigator.serviceWorker.register('/sw.js').catch((error) => {
+    console.warn('小會網站的 Service Worker 註冊失敗', error)
+  })
+}

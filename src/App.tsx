@@ -1,4 +1,5 @@
 import ContentManager, { ManagedArticle, ManagedPage, activityLabel, activityPath, usePublishedContent } from './ContentManager'
+import InstallPrompt from './InstallPrompt'
 import { FormEvent, ReactNode, useEffect, useMemo, useState } from 'react'
 import {
   ArrowRight,
@@ -196,7 +197,10 @@ function Footer() {
       </div>
       <div className="shell footer__bottom">
         <span>© 2026 天主教中華基督神修小會</span>
-        <a href="https://ccsc.org.tw/" target="_blank" rel="noreferrer">舊版官網 <ExternalLink size={13} /></a>
+        <div className="footer__actions">
+          <InstallPrompt />
+          <a href="https://ccsc.org.tw/" target="_blank" rel="noreferrer">舊版官網 <ExternalLink size={13} /></a>
+        </div>
       </div>
     </footer>
   )
