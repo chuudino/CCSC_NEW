@@ -123,7 +123,7 @@ export default function InstallPrompt() {
           heading.current?.focus({ preventScroll: true })
         }}
       >
-        <Download size={14} aria-hidden="true" /> 安裝小會網站
+        <Download size={14} aria-hidden="true" /> 安裝神修小會網站
       </button>
       {open && (
         <section id="pwa-install" className="pwa-install" aria-labelledby="pwa-install-title" onKeyDown={(event) => {
@@ -131,7 +131,7 @@ export default function InstallPrompt() {
         }}>
           <img src="/pwa/apple-touch-icon.png" alt="" width="44" height="44" />
           <div className="pwa-install__content">
-            <h2 id="pwa-install-title" ref={heading} tabIndex={-1}>安裝小會網站</h2>
+            <h2 id="pwa-install-title" ref={heading} tabIndex={-1}>安裝神修小會網站</h2>
             {platform === 'ios' ? (
               <>
                 {!safari && <p>請先用 Safari 開啟此頁。</p>}
@@ -142,7 +142,7 @@ export default function InstallPrompt() {
                 {showAndroidHelp ? (
                   <p>用 Chrome 開啟此頁，點右上角「⋮」→「安裝應用程式」或「加到主畫面」，再依畫面指示操作。</p>
                 ) : (
-                  <p>從手機主畫面直接開啟小會網站。</p>
+                  <p>從手機主畫面直接開啟神修小會網站。</p>
                 )}
                 {!showAndroidHelp && <button type="button" className="button button--primary" onClick={installOnAndroid}>安裝</button>}
               </>
