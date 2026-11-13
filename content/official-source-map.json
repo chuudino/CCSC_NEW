@@ -1908,34 +1908,1222 @@
       "source_key": "periodical:70595",
       "source_url": "https://ccsc.org.tw/?p=70595",
       "source_fingerprint": "de4532d238310b6fdca41c76a32517a767f0ff1608d485208b333de28ac0ce0d",
-      "last_applied_at": "2026-11-13T02:52:08.596346+00:00",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
       "fields": [
         "issue",
         "date",
-        "sourceUrl"
+        "sourceUrl",
+        "contents"
       ]
     },
     "publications/seed-72": {
       "source_key": "periodical:20174",
       "source_url": "https://ccsc.org.tw/?p=20174",
       "source_fingerprint": "662908418be92c3e0a4f29c9e9aba6a565921e31ac3af4865c3bd2e37c6ec376",
-      "last_applied_at": "2026-11-13T02:52:08.596346+00:00",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
       "fields": [
         "issue",
         "date",
-        "description",
-        "sourceUrl"
+        "sourceUrl",
+        "contents"
       ]
     },
     "publications/seed-71": {
       "source_key": "periodical:20175",
       "source_url": "https://ccsc.org.tw/?p=20175",
       "source_fingerprint": "42e199e7e760a59829c89683850f79f4bd587527daea408383a184753cc0f224",
-      "last_applied_at": "2026-11-13T02:52:08.596346+00:00",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
       "fields": [
         "issue",
         "date",
-        "sourceUrl"
+        "sourceUrl",
+        "contents"
+      ]
+    },
+    "publications/seed-73/70597": {
+      "source_key": "periodical_entry:70597",
+      "source_url": "https://ccsc.org.tw/?p=70597",
+      "source_fingerprint": "18cba7e2f22cc9f1167130637b4be9cddc81ed6de834faaf38a0afebd5997be0",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70792": {
+      "source_key": "periodical_entry:70792",
+      "source_url": "https://ccsc.org.tw/?p=70792",
+      "source_fingerprint": "a7ec604b832244e66f644b0fdbf771fde827bfcd47060debad0eec444f04bab1",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-73/70804": {
+      "source_key": "periodical_entry:70804",
+      "source_url": "https://ccsc.org.tw/?p=70804",
+      "source_fingerprint": "9cc588a16bf1c7bbbceff3bfda7cd8834e7c91e503360c0f500edc25152c61f9",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-73/70806": {
+      "source_key": "periodical_entry:70806",
+      "source_url": "https://ccsc.org.tw/?p=70806",
+      "source_fingerprint": "0e1fd5ff3c6e83d4850d4697c3a372f9b14f88184bb9fe9599244a2387d7d144",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-73/70824": {
+      "source_key": "periodical_entry:70824",
+      "source_url": "https://ccsc.org.tw/?p=70824",
+      "source_fingerprint": "5ced4af9be736035b1d96dbcbe0c48e3ce5592d3f6f9b9371ddf29679e73dcb2",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70810": {
+      "source_key": "periodical_entry:70810",
+      "source_url": "https://ccsc.org.tw/?p=70810",
+      "source_fingerprint": "74c82ccdc683352cf14f93e6f5a6de978bb891145c58e5e04a57acdfbc8a1790",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70807": {
+      "source_key": "periodical_entry:70807",
+      "source_url": "https://ccsc.org.tw/?p=70807",
+      "source_fingerprint": "e3c86a244ced84ba17915af1eb6088133998020c8f24319aea899f71bf8227b7",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70602": {
+      "source_key": "periodical_entry:70602",
+      "source_url": "https://ccsc.org.tw/?p=70602",
+      "source_fingerprint": "3b39713749423d88151debab0d68cdd242f9c7356210d9c330545dae81812d03",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70808": {
+      "source_key": "periodical_entry:70808",
+      "source_url": "https://ccsc.org.tw/?p=70808",
+      "source_fingerprint": "1cdd2e37410991850b7d837b208ff4099b61a8ad1f594f06f4dc28609d6a553b",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70816": {
+      "source_key": "periodical_entry:70816",
+      "source_url": "https://ccsc.org.tw/?p=70816",
+      "source_fingerprint": "68d5fdda528f9076416782c66b7577d9b4e7b4cc4ff3f5b7538d89590a4a18d3",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70817": {
+      "source_key": "periodical_entry:70817",
+      "source_url": "https://ccsc.org.tw/?p=70817",
+      "source_fingerprint": "c7a9890b2c10e5a78af95ff5bbe8f5bdda41ae1ca8714deb8b933ba10bf04e92",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70819": {
+      "source_key": "periodical_entry:70819",
+      "source_url": "https://ccsc.org.tw/?p=70819",
+      "source_fingerprint": "f34763170462aa5df3352dd59b567d35a9a23acc4308a5009e1a98d265e7970e",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70822": {
+      "source_key": "periodical_entry:70822",
+      "source_url": "https://ccsc.org.tw/?p=70822",
+      "source_fingerprint": "a721e54f8c6720ee396cd61182b604bcb39a86a15995845d0e6e34c952681a05",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70825": {
+      "source_key": "periodical_entry:70825",
+      "source_url": "https://ccsc.org.tw/?p=70825",
+      "source_fingerprint": "d40f13672291fb26195e35f9cb7bc275fbea0ac27d074d32cddce363635165e6",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70826": {
+      "source_key": "periodical_entry:70826",
+      "source_url": "https://ccsc.org.tw/?p=70826",
+      "source_fingerprint": "128d6959511107d425e518418083f1207db131e0c606a82d7ba67b61f0cdf9dd",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "content"
+      ]
+    },
+    "publications/seed-73/70827": {
+      "source_key": "periodical_entry:70827",
+      "source_url": "https://ccsc.org.tw/?p=70827",
+      "source_fingerprint": "15ff821615c27de990d45fec42842f08cfce39f42cc39e4b7e2bab143d831ed1",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-73/70843": {
+      "source_key": "periodical_entry:70843",
+      "source_url": "https://ccsc.org.tw/?p=70843",
+      "source_fingerprint": "cf3185ee212eff72dad17786f0e7cf00474956566bfd7602b0a5b42b874c115d",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-73/70870": {
+      "source_key": "periodical_entry:70870",
+      "source_url": "https://ccsc.org.tw/?p=70870",
+      "source_fingerprint": "cc4d2305829f5e9520a9db3e38e3f04fd44eb0cae4a728126811837e8762fead",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70833": {
+      "source_key": "periodical_entry:70833",
+      "source_url": "https://ccsc.org.tw/?p=70833",
+      "source_fingerprint": "d6b0010b19d8181d04cbb9cac4e247cd07c5beaa5590a6775ca284170b394220",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-73/70835": {
+      "source_key": "periodical_entry:70835",
+      "source_url": "https://ccsc.org.tw/?p=70835",
+      "source_fingerprint": "caaa15232faf699f9cb5cfa3af3861aa9704bb985959092308c7dee3d3b3d77c",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-73/70836": {
+      "source_key": "periodical_entry:70836",
+      "source_url": "https://ccsc.org.tw/?p=70836",
+      "source_fingerprint": "69ced95955b816d4dd7c7af1cb0975d08c172f7748431e3290c72c9db0aac50f",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-73/70837": {
+      "source_key": "periodical_entry:70837",
+      "source_url": "https://ccsc.org.tw/?p=70837",
+      "source_fingerprint": "e84401fc5560bbf38dbfac41cc36a984d1f6d3593dd609a14518433a791818bb",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70844": {
+      "source_key": "periodical_entry:70844",
+      "source_url": "https://ccsc.org.tw/?p=70844",
+      "source_fingerprint": "621062722742f5429e4a508fba1df35671ae45b0e1e73ffcff48cdc604550435",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70890": {
+      "source_key": "periodical_entry:70890",
+      "source_url": "https://ccsc.org.tw/?p=70890",
+      "source_fingerprint": "50d80d22a24608db0a1c8e28371af574ccbfe063411ebddd1e3206b0581f6e95",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-73/70891": {
+      "source_key": "periodical_entry:70891",
+      "source_url": "https://ccsc.org.tw/?p=70891",
+      "source_fingerprint": "ce6b8abe29d2ef0df343d8fbfd412b8f1ca37cace7405066bd2c00851400d3c9",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-73/70703": {
+      "source_key": "periodical_entry:70703",
+      "source_url": "https://ccsc.org.tw/?p=70703",
+      "source_fingerprint": "a71fa73700311485337e41e8af1627462b8685d2f0b7793e6a9f5fade65e6ee3",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70874": {
+      "source_key": "periodical_entry:70874",
+      "source_url": "https://ccsc.org.tw/?p=70874",
+      "source_fingerprint": "be5cc38b3cb27576edeb3c8ac83ac2f638ce6d009b82bed63c1bd86680e8abe1",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70876": {
+      "source_key": "periodical_entry:70876",
+      "source_url": "https://ccsc.org.tw/?p=70876",
+      "source_fingerprint": "0d0c2aaa3489b3bf6a7dc14a3caeac48dbb7f0fe532150e42188fabcfd8d3cd3",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-73/70877": {
+      "source_key": "periodical_entry:70877",
+      "source_url": "https://ccsc.org.tw/?p=70877",
+      "source_fingerprint": "33f0461f64b6ba8ef74e71eda7a04b50b5bfada1799bbf1ce100485769a11b30",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70892": {
+      "source_key": "periodical_entry:70892",
+      "source_url": "https://ccsc.org.tw/?p=70892",
+      "source_fingerprint": "91b4914bf079c943fcd650d461f5f47b6eee1b5411b37836f3da6137d72b4e85",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70879": {
+      "source_key": "periodical_entry:70879",
+      "source_url": "https://ccsc.org.tw/?p=70879",
+      "source_fingerprint": "e0f0c2dba79de12061fe4e5eed5a01f332c97f3da9682322f2ed6c610fdba836",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70880": {
+      "source_key": "periodical_entry:70880",
+      "source_url": "https://ccsc.org.tw/?p=70880",
+      "source_fingerprint": "391fcb205c80f7bab7417c32798c4b7ab46c8160f1df25100bb3dcb723791a0d",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70894": {
+      "source_key": "periodical_entry:70894",
+      "source_url": "https://ccsc.org.tw/?p=70894",
+      "source_fingerprint": "e51261ff588b545ca88be26451ace0fdc7c0b67a4c2dca4e7c5854eb534ba04d",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70882": {
+      "source_key": "periodical_entry:70882",
+      "source_url": "https://ccsc.org.tw/?p=70882",
+      "source_fingerprint": "ae3b858c91d714cc128b887557a544fa0c0a2283a5be9f6405013b501b148edb",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70883": {
+      "source_key": "periodical_entry:70883",
+      "source_url": "https://ccsc.org.tw/?p=70883",
+      "source_fingerprint": "199bbf40a560e86f52355972289aeda71436862b5ec8d2ed25b5b52e855178c1",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70884": {
+      "source_key": "periodical_entry:70884",
+      "source_url": "https://ccsc.org.tw/?p=70884",
+      "source_fingerprint": "3042a7fbde774aeb14aa9c728982408e33ccf01580e34eb3b5ecbde999a9bf2a",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70885": {
+      "source_key": "periodical_entry:70885",
+      "source_url": "https://ccsc.org.tw/?p=70885",
+      "source_fingerprint": "2fb6901a4fe2b793418f944631a9f5ebed0da26264d0de24c1869f3c6bfaffd6",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70887": {
+      "source_key": "periodical_entry:70887",
+      "source_url": "https://ccsc.org.tw/?p=70887",
+      "source_fingerprint": "99eb9976395af196334061350437505dd04d60db742ce0217919db9395a6a873",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-73/70897": {
+      "source_key": "periodical_entry:70897",
+      "source_url": "https://ccsc.org.tw/?p=70897",
+      "source_fingerprint": "45aeedf9e3cf0cbc9416a636796d1fc3cae2f4fd908b9bd66e61130c73a7822f",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32944": {
+      "source_key": "periodical_entry:32944",
+      "source_url": "https://ccsc.org.tw/?p=32944",
+      "source_fingerprint": "4ebfeaf51f6d0ce7398e96ea672a92be6588a29b762bcb68938e058afae5d41d",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32914": {
+      "source_key": "periodical_entry:32914",
+      "source_url": "https://ccsc.org.tw/?p=32914",
+      "source_fingerprint": "d993607eca9bf58a36860a321d8851bd2ae05531303e2642664f432253c05525",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-72/32912": {
+      "source_key": "periodical_entry:32912",
+      "source_url": "https://ccsc.org.tw/?p=32912",
+      "source_fingerprint": "b3b50b51fdf307d6924a14c174765fd7bd9c332a2c458c4b961756c593082dd8",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-72/32913": {
+      "source_key": "periodical_entry:32913",
+      "source_url": "https://ccsc.org.tw/?p=32913",
+      "source_fingerprint": "e5ade964bc0cfd0b9b702e3afe42b0515f74433084f5e9aad7e547d3cf8f15cd",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-72/32928": {
+      "source_key": "periodical_entry:32928",
+      "source_url": "https://ccsc.org.tw/?p=32928",
+      "source_fingerprint": "c5eaae745d587cea49e54d91ea84159e4b8764ce5979c3afa9c68109a803817b",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32917": {
+      "source_key": "periodical_entry:32917",
+      "source_url": "https://ccsc.org.tw/?p=32917",
+      "source_fingerprint": "69b849aec82e99326dcb1afbce24ef4894cc0715de98724c410c98b31d6d7869",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32926": {
+      "source_key": "periodical_entry:32926",
+      "source_url": "https://ccsc.org.tw/?p=32926",
+      "source_fingerprint": "79b819439110d56a87f543843673a529d3edc4a54422e4ec34a16ccfd6e1bd36",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32939": {
+      "source_key": "periodical_entry:32939",
+      "source_url": "https://ccsc.org.tw/?p=32939",
+      "source_fingerprint": "e50ae3fcb2e0885faa167aadd372162170b06f0f5ca6e6e0c672ca1f9e74d7a0",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32915": {
+      "source_key": "periodical_entry:32915",
+      "source_url": "https://ccsc.org.tw/?p=32915",
+      "source_fingerprint": "a4e470f3c0f78a6ea90813a8dbde41432e9785778119436f2ca64e1aa3bf311f",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32918": {
+      "source_key": "periodical_entry:32918",
+      "source_url": "https://ccsc.org.tw/?p=32918",
+      "source_fingerprint": "6a40acfd1ebee704071441789f86f32815ead7d112882c7a73fa49d5ae3b45cf",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32919": {
+      "source_key": "periodical_entry:32919",
+      "source_url": "https://ccsc.org.tw/?p=32919",
+      "source_fingerprint": "e5771b9e1c864db32a120de4aa87b0644b094ca36348134ad257476cfb2d49f2",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32940": {
+      "source_key": "periodical_entry:32940",
+      "source_url": "https://ccsc.org.tw/?p=32940",
+      "source_fingerprint": "bdb3cf1072006aa86ea4b7e154908294e7408a054b06f3173a3eb13499c3376a",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32937": {
+      "source_key": "periodical_entry:32937",
+      "source_url": "https://ccsc.org.tw/?p=32937",
+      "source_fingerprint": "13d678efb8fe495c2a665329ff97f67075ce340ec402f3b3f9cd99e851534768",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-72/32938": {
+      "source_key": "periodical_entry:32938",
+      "source_url": "https://ccsc.org.tw/?p=32938",
+      "source_fingerprint": "3f3c2f91b25c8364de8c611d16795e0de698e2e201015211cb60b1baf37ac254",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-72/32927": {
+      "source_key": "periodical_entry:32927",
+      "source_url": "https://ccsc.org.tw/?p=32927",
+      "source_fingerprint": "c8d9615668f2f02362719d261ce41ce3f597f47e743dfdb38e702cf8eca5fcba",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "publisher",
+        "summary"
+      ]
+    },
+    "publications/seed-72/32924": {
+      "source_key": "periodical_entry:32924",
+      "source_url": "https://ccsc.org.tw/?p=32924",
+      "source_fingerprint": "c3d6c47190f708ecde5ef73bbd7c92ec883c5e4304cf9983fae81b16775bb670",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32929": {
+      "source_key": "periodical_entry:32929",
+      "source_url": "https://ccsc.org.tw/?p=32929",
+      "source_fingerprint": "a837db4da0858fadbd5dd1d4fded613cbf658e46909078f054985006f2edb386",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32925": {
+      "source_key": "periodical_entry:32925",
+      "source_url": "https://ccsc.org.tw/?p=32925",
+      "source_fingerprint": "57fd84879c3629c646c012ca33e10c39f25f8d3c35bf54935ce04cc540f96ec2",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32922": {
+      "source_key": "periodical_entry:32922",
+      "source_url": "https://ccsc.org.tw/?p=32922",
+      "source_fingerprint": "bb31fcdd6fa52cb0b3c12a1ed7cf74bfb8774fb535f27c5316ba921199b88f80",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32936": {
+      "source_key": "periodical_entry:32936",
+      "source_url": "https://ccsc.org.tw/?p=32936",
+      "source_fingerprint": "02ae0be9aeeb1e5a2383bffa54c766046d5cb9cf817f9d10efc90784750f358e",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32935": {
+      "source_key": "periodical_entry:32935",
+      "source_url": "https://ccsc.org.tw/?p=32935",
+      "source_fingerprint": "408173dd02e7a06bcea82ca59fc4c0ac3505bab60e7d02ce6636c6557ab1c996",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32920": {
+      "source_key": "periodical_entry:32920",
+      "source_url": "https://ccsc.org.tw/?p=32920",
+      "source_fingerprint": "b6a8d1b0278b912aa23e3d6be08f7e06b5ec9d25fc9fa4ab36dd1ba6e2195e06",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32943": {
+      "source_key": "periodical_entry:32943",
+      "source_url": "https://ccsc.org.tw/?p=32943",
+      "source_fingerprint": "b1e5b6a131bd3c647cca288376cce505e3e59c5b16e1317152beeaa0d4a3525e",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32923": {
+      "source_key": "periodical_entry:32923",
+      "source_url": "https://ccsc.org.tw/?p=32923",
+      "source_fingerprint": "3a0d4e89eed437bf754a7ac4f19a585e57809dfa8d1dda02425d766d00dea29e",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32930": {
+      "source_key": "periodical_entry:32930",
+      "source_url": "https://ccsc.org.tw/?p=32930",
+      "source_fingerprint": "4ed29fda5f0092ece2ebe6ff8654174d006b153125097d625e99f9ae1cfa5916",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32931": {
+      "source_key": "periodical_entry:32931",
+      "source_url": "https://ccsc.org.tw/?p=32931",
+      "source_fingerprint": "703b97186e0ef57d09b6853d66effdb0582a31e252b83bff86feb88ff473067c",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32933": {
+      "source_key": "periodical_entry:32933",
+      "source_url": "https://ccsc.org.tw/?p=32933",
+      "source_fingerprint": "6366f68b46a534b8ea85d0e09c7d8eb0bbec8592b5ff7f2b62b04bbd24028196",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32934": {
+      "source_key": "periodical_entry:32934",
+      "source_url": "https://ccsc.org.tw/?p=32934",
+      "source_fingerprint": "2238063291a012cfee02fdf6d2a7c9d94d0bee13ef7fbcc2d63104865b5d32fd",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32941": {
+      "source_key": "periodical_entry:32941",
+      "source_url": "https://ccsc.org.tw/?p=32941",
+      "source_fingerprint": "bd1e871e0ba0853858634f6822e6663ad4d801de24378258457aa6f48220129d",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32942": {
+      "source_key": "periodical_entry:32942",
+      "source_url": "https://ccsc.org.tw/?p=32942",
+      "source_fingerprint": "e598b32f94d20d33f77805d6dd040f37aefd5fc5a543081c5781bca5687fa4b5",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-72/32932": {
+      "source_key": "periodical_entry:32932",
+      "source_url": "https://ccsc.org.tw/?p=32932",
+      "source_fingerprint": "3a8f26c39502891a376dd2a22b062b50fbaf543527f3a1684954521b85385e88",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32879": {
+      "source_key": "periodical_entry:32879",
+      "source_url": "https://ccsc.org.tw/?p=32879",
+      "source_fingerprint": "255e26304922cbcfe9f4df9ec16cf62fd37f80b0f8cfa6a705c1ff2efe9623cd",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32880": {
+      "source_key": "periodical_entry:32880",
+      "source_url": "https://ccsc.org.tw/?p=32880",
+      "source_fingerprint": "c6647faa5f267aa247efce1acb1fbfd634d41ab9a41cd0ddf36491b8d11ca52a",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32881": {
+      "source_key": "periodical_entry:32881",
+      "source_url": "https://ccsc.org.tw/?p=32881",
+      "source_fingerprint": "03cadcfc9b34ee947064b3550c654c375f2e7be481654b78376fa4cafdef65c4",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32882": {
+      "source_key": "periodical_entry:32882",
+      "source_url": "https://ccsc.org.tw/?p=32882",
+      "source_fingerprint": "249949559d05779f99d21d5e58976cd547b05e272d7aaefdc3860f3a86e2f7c2",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32883": {
+      "source_key": "periodical_entry:32883",
+      "source_url": "https://ccsc.org.tw/?p=32883",
+      "source_fingerprint": "c22d2c34f8199fb7a2b995623553a67724d4db04a395b13890df45fe6304b2e9",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32884": {
+      "source_key": "periodical_entry:32884",
+      "source_url": "https://ccsc.org.tw/?p=32884",
+      "source_fingerprint": "2ea766adad46be2952ab2fed2c1e55c2e3023cff00dc5bfe355e57220d424ce9",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32885": {
+      "source_key": "periodical_entry:32885",
+      "source_url": "https://ccsc.org.tw/?p=32885",
+      "source_fingerprint": "036556e700f478ec0df5dbf4f088c402e2537a1858d40d713ce286fc22022599",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32886": {
+      "source_key": "periodical_entry:32886",
+      "source_url": "https://ccsc.org.tw/?p=32886",
+      "source_fingerprint": "f66dce5d7d0894fd4d2240d7aa656e5a669ce936f052fe3811f8a340ec5681b5",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32887": {
+      "source_key": "periodical_entry:32887",
+      "source_url": "https://ccsc.org.tw/?p=32887",
+      "source_fingerprint": "fc9ffa54c12c99b8476f785cec08c20115eedb5fc7ef5eeec5916ec24dadc6f5",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32888": {
+      "source_key": "periodical_entry:32888",
+      "source_url": "https://ccsc.org.tw/?p=32888",
+      "source_fingerprint": "250943d1bf11655bf17e8e7c1e211a97caf52f65e0c3d5c5485db71002fef0af",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32889": {
+      "source_key": "periodical_entry:32889",
+      "source_url": "https://ccsc.org.tw/?p=32889",
+      "source_fingerprint": "aacd543c302f66b4843e9dea3b155854af77dd9f3bedce6bd5ed8df352c58a59",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32890": {
+      "source_key": "periodical_entry:32890",
+      "source_url": "https://ccsc.org.tw/?p=32890",
+      "source_fingerprint": "dbd468169f26dac5bc6b2320f58dc662b0d4033f87cfef4ad39962914328cbaa",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32891": {
+      "source_key": "periodical_entry:32891",
+      "source_url": "https://ccsc.org.tw/?p=32891",
+      "source_fingerprint": "ede46f9f50c3156827b9ec71a5d720992ad177c4603cb3d09b1904c48c11bca6",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32892": {
+      "source_key": "periodical_entry:32892",
+      "source_url": "https://ccsc.org.tw/?p=32892",
+      "source_fingerprint": "26100184f0abbb87498630a374aad360b21bac8cae6bda686e786af07611d503",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32893": {
+      "source_key": "periodical_entry:32893",
+      "source_url": "https://ccsc.org.tw/?p=32893",
+      "source_fingerprint": "3dcacdebb50df3e1a10da8577bdf2d60c2afd54100947409492cc2d2bc3787de",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32894": {
+      "source_key": "periodical_entry:32894",
+      "source_url": "https://ccsc.org.tw/?p=32894",
+      "source_fingerprint": "8be718655d64bb7d96377ff8d48b9a251a27c94b8a59646218fdb12cebf00655",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32895": {
+      "source_key": "periodical_entry:32895",
+      "source_url": "https://ccsc.org.tw/?p=32895",
+      "source_fingerprint": "fb7514e398af5fb5d0011cd9d9ce7318640fc31afad8ec1989366b274d0dbbba",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32896": {
+      "source_key": "periodical_entry:32896",
+      "source_url": "https://ccsc.org.tw/?p=32896",
+      "source_fingerprint": "30243fb75ff5b7c30c6535fd6d2a87781b318c692d0471febdb73646fa1199f7",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32897": {
+      "source_key": "periodical_entry:32897",
+      "source_url": "https://ccsc.org.tw/?p=32897",
+      "source_fingerprint": "7ecff9be9a6f166bfa0e23558d64e307f94d6233946e5dd62a7adf2ef54021e3",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32898": {
+      "source_key": "periodical_entry:32898",
+      "source_url": "https://ccsc.org.tw/?p=32898",
+      "source_fingerprint": "9b67517ee116fd51ce8be90a65b850400e5efab44e63e033a2a3ab2bea5f906d",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32899": {
+      "source_key": "periodical_entry:32899",
+      "source_url": "https://ccsc.org.tw/?p=32899",
+      "source_fingerprint": "d9bbe39c134af4d056ddc6c7a4679390f481ce8bf15ccb77bc098ddf9732d5b3",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32900": {
+      "source_key": "periodical_entry:32900",
+      "source_url": "https://ccsc.org.tw/?p=32900",
+      "source_fingerprint": "21436f9578e4638462a246a3be9022ae5e7534f88c0b797f014868c3a5d2367b",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32901": {
+      "source_key": "periodical_entry:32901",
+      "source_url": "https://ccsc.org.tw/?p=32901",
+      "source_fingerprint": "b8e25f223f09beeac3df1f680937acff0015caa3b42ed86cb65c3c094380dcb2",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32904": {
+      "source_key": "periodical_entry:32904",
+      "source_url": "https://ccsc.org.tw/?p=32904",
+      "source_fingerprint": "4c1bfe81ee0659710ad3a54e803d57ce14a67348c049bde7596b2b0dd5680fd6",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32905": {
+      "source_key": "periodical_entry:32905",
+      "source_url": "https://ccsc.org.tw/?p=32905",
+      "source_fingerprint": "7571ef61122f5c6201d4f685e24ff5acead849537a9c22aeb39ac764d2a3dddd",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32906": {
+      "source_key": "periodical_entry:32906",
+      "source_url": "https://ccsc.org.tw/?p=32906",
+      "source_fingerprint": "bd2c12dd5bc5236e5e1869a2dbd6a5f3c9312595db57c39e0a47fdced0d18563",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32907": {
+      "source_key": "periodical_entry:32907",
+      "source_url": "https://ccsc.org.tw/?p=32907",
+      "source_fingerprint": "f15c71447e45eb64f539577340c4d08a9bceb452acf9f416bb399ad99cc8bf5f",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
+      ]
+    },
+    "publications/seed-71/32902": {
+      "source_key": "periodical_entry:32902",
+      "source_url": "https://ccsc.org.tw/?p=32902",
+      "source_fingerprint": "05fa04dcc718da3c705e9fc2ed69c7bcadb966c95f42d46cff2e214e72dfb539",
+      "last_applied_at": "2026-11-13T03:11:01.588564+00:00",
+      "fields": [
+        "title",
+        "sourceUrl",
+        "author",
+        "content"
       ]
     }
   }

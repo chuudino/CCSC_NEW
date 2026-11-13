@@ -1,3 +1,4 @@
+import SeedPublication, { seedIssuePath, seedSearchEntries } from './SeedPublication'
 import ContentManager, { ManagedArticle, ManagedPage, activityLabel, activityPath, usePublishedContent } from './ContentManager'
 import InstallPrompt from './InstallPrompt'
 import { FormEvent, ReactNode, useEffect, useMemo, useState } from 'react'
@@ -290,7 +291,7 @@ function HomePage() {
           </div>
           <div className="publication-covers">
             {publications.slice(0, 2).map((publication) => (
-              <Link className={`mini-cover mini-cover--${publication.accent}`} to="/publications" key={publication.slug}>
+              <Link className={`mini-cover mini-cover--${publication.accent}`} to={publication.series === '芥子' ? seedIssuePath(publication.slug) : '/publications'} key={publication.slug}>
                 <span>{publication.series}</span><i /><strong>{publication.issue}</strong><small>{publication.date}</small>
               </Link>
             ))}
@@ -384,7 +385,7 @@ function PublicationsPage() {
                 {publication.series === '心泉' ? (
                   <Link className="text-link" to="/publications/wellspring">閱讀《心泉》歷期 PDF <ArrowRight size={15} /></Link>
                 ) : (
-                  <OfficialSource url={publication.sourceUrl} label="閱讀原官網本期目錄" />
+                  <Link className="text-link" to={seedIssuePath(publication.slug)}>閱讀本期目錄與文章 <ArrowRight size={15} /></Link>
                 )}
               </div>
             </article>
@@ -461,9 +462,10 @@ function PrayerPage() {
 }
 
 const searchIndex = [
+  ...seedSearchEntries,
   ...articles.map((item) => ({ title: item.title, text: `${item.excerpt} ${item.author}`, to: `/article/${item.slug}`, type: item.category })),
   ...groups.map((item) => ({ title: item.name, text: `${item.description} ${item.location}`, to: `/groups/${item.slug}`, type: '分會' })),
-  ...publications.map((item) => ({ title: `${item.series} ${item.issue}`, text: item.description, to: '/publications', type: '小會刊物' })),
+  ...publications.map((item) => ({ title: `${item.series} ${item.issue}`, text: item.description, to: item.series === '芥子' ? seedIssuePath(item.slug) : '/publications', type: '小會刊物' })),
 ]
 
 function SearchPage() {
@@ -524,6 +526,8 @@ export default function App() {
         <Route path="/records" element={<ManagedPage kind="record" />} />
         <Route path="/calendar" element={<CalendarPage />} />
         <Route path="/publications" element={<PublicationsPage />} />
+        <Route path="/publications/seed/:issue" element={<SeedPublication />} />
+        <Route path="/publications/seed/:issue/:articleId" element={<SeedPublication />} />
         <Route path="/publications/wellspring" element={<WellspringPage />} />
         <Route path="/culture" element={<CulturePage />} />
         <Route path="/prayer" element={<PrayerPage />} />
