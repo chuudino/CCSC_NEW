@@ -77,6 +77,10 @@ button { cursor: pointer; }
 .header-actions { display: flex; flex-shrink: 0; align-items: center; gap: 7px; }
 .icon-button, .menu-button { width: 42px; height: 42px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--teal); }
 .menu-button { display: none; }
+.pwa-refresh-menu { width: 100%; margin-top: 12px; }
+.pwa-pull-to-refresh { overscroll-behavior-y: none; }
+.pwa-refresh-feedback { position: absolute; inset: calc(100% + 8px) 0 auto; display: grid; justify-items: center; pointer-events: none; }
+.pwa-refresh-feedback > span { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border: 1px solid var(--line); border-radius: 999px; background: var(--white); color: var(--teal); font-size: .875rem; font-weight: 700; box-shadow: 0 4px 14px rgba(23, 63, 59, .15); }
 .mobile-panel { display: none; max-height: calc(100vh - var(--header-height)); max-height: calc(100dvh - var(--header-height)); overflow-y: auto; border-top: 1px solid var(--line); background: var(--paper); padding: 18px 0 28px; }
 .mobile-panel nav { display: grid; margin-top: 16px; }
 .mobile-panel nav a { display: flex; justify-content: space-between; align-items: center; padding: 13px 2px; border-bottom: 1px solid var(--line); color: var(--teal); font-family: var(--serif); font-weight: 600; }
@@ -399,6 +403,7 @@ button { cursor: pointer; }
 @media (max-width: 1120px) {
   .desktop-nav { display: none; }
   .menu-button { display: grid; }
+  .pwa-refresh-desktop { display: none; }
   .mobile-panel:not([hidden]) { display: block; }
   .hero__grid { grid-template-columns: 1fr .82fr; gap: 30px; }
   .hero-art { transform: scale(.88); transform-origin: center right; }

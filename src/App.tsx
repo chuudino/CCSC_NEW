@@ -1,6 +1,8 @@
 import SeedPublication, { seedIssuePath, seedSearchEntries } from './SeedPublication'
 import ContentManager, { ManagedArticle, ManagedPage, activityLabel, activityPath, usePublishedContent } from './ContentManager'
 import InstallPrompt from './InstallPrompt'
+import PwaRefresh from './PwaRefresh'
+import { isInstalledWindow, mobilePlatform } from './pwa'
 import { FormEvent, ReactNode, useEffect, useMemo, useRef, useState } from 'react'
 import {
   ArrowRight,
@@ -21,6 +23,7 @@ import {
   Phone,
   PlayCircle,
   Quote,
+  RotateCw,
   Search,
   Sparkles,
   Users,
@@ -170,8 +173,9 @@ function SearchBox({ onSubmit }: { onSubmit?: () => void }) {
 function Header() {
   const [open, setOpen] = useState(false)
   const menuButton = useRef<HTMLButtonElement>(null)
-  const { pathname } = useLocation()
+  const { key, pathname } = useLocation()
   const navigate = useNavigate()
+  const canRefresh = mobilePlatform() === 'ios' && isInstalledWindow() && !/^\/admin(?:\/|$)/i.test(pathname)
   // BrowserRouter starts each new site visit at index 0, even with an external page behind it.
   const canGoBack = window.history.state?.idx > 0
 
@@ -219,6 +223,11 @@ function Header() {
             ))}
           </nav>
           <div className="header-actions">
+            {canRefresh && (
+              <button type="button" className="icon-button pwa-refresh-desktop" aria-label="重新整理" onClick={() => window.location.reload()}>
+                <RotateCw size={18} aria-hidden="true" />
+              </button>
+            )}
             <Link className="icon-button" to="/search" aria-label="搜尋"><Search size={20} /></Link>
             <button ref={menuButton} type="button" className="menu-button" aria-label={open ? '關閉選單' : '開啟選單'} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(value => !value)}>
               {open ? <X /> : <Menu />}
@@ -231,6 +240,11 @@ function Header() {
                 setOpen(false)
                 if (pathname === '/search') document.getElementById('search-query')?.focus()
               }} />
+              {canRefresh && (
+                <button type="button" className="button button--ghost pwa-refresh-menu" onClick={() => window.location.reload()}>
+                  <RotateCw size={18} aria-hidden="true" /> 重新整理
+                </button>
+              )}
               <nav aria-label="行動版導覽">
                 {navItems.map((item) => <NavLink key={item.to} to={item.to} onClick={() => {
                   if (pathname === item.to) {
@@ -241,6 +255,7 @@ function Header() {
               </nav>
             </div>
           </div>
+        {canRefresh && !open && <PwaRefresh key={key} />}
       </header>
     </>
   )
