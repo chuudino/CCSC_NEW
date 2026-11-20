@@ -7,6 +7,7 @@ import {
   ArrowUpRight,
   BookOpen,
   CalendarDays,
+  ChevronLeft,
   ChevronRight,
   Clock3,
   Cross,
@@ -194,9 +195,21 @@ function Header() {
         menuButton.current?.focus()
       }}>
         <div className="shell site-header__inner">
-          <Link className="brand" to="/" aria-label="天主教中華基督神修小會首頁">
+          {canGoBack ? (
+            <button type="button" className="mobile-page-back" aria-label="返回上一頁" onClick={() => {
+              setOpen(false)
+              navigate(-1)
+            }}><ChevronLeft size={16} aria-hidden="true" />上一頁</button>
+          ) : pathname !== '/' && (
+            <Link className="mobile-page-back" to="/" replace>回到首頁</Link>
+          )}
+          <Link className="brand" to="/" aria-label={`${siteTitle}首頁`}>
             <SacredMark compact />
-            <span><strong>天主教中華基督神修小會</strong><small>Chinese Christian Spirit Community</small></span>
+            <span>
+              <strong className="brand__full-name">{siteTitle}</strong>
+              <strong className="brand__mobile-name">神修小會</strong>
+              <small>Chinese Christian Spirit Community</small>
+            </span>
           </Link>
           <nav className="desktop-nav" aria-label="主要導覽">
             {navItems.map((item) => (
@@ -212,18 +225,6 @@ function Header() {
             </button>
           </div>
         </div>
-        {(canGoBack || pathname !== '/') && (
-          <div className="shell mobile-page-back">
-            {canGoBack ? (
-              <button type="button" className="button button--ghost" onClick={() => {
-                setOpen(false)
-                navigate(-1)
-              }}>返回上一頁</button>
-            ) : (
-              <Link className="button button--ghost" to="/" replace>回到首頁</Link>
-            )}
-          </div>
-        )}
           <div id="mobile-navigation" className="mobile-panel" hidden={!open}>
             <div className="shell">
               <SearchBox onSubmit={() => {
