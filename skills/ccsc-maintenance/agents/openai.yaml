@@ -1,4 +1,4 @@
 interface:
   display_name: "小會網站維護"
-  short_description: "小會網站 UI 元件研究、Worktree 協作與 GitHub／Sites 同步發布"
-  default_prompt: "使用 $ccsc-maintenance 維護小會網站，新增 UI 元件前查核現行標準與維護狀態，並依 Worktree 流程驗證、整合及同步發布。"
+  short_description: "小會網站改版先提 UI／UX 方案與 HTML 預覽，選定後實作與發布"
+  default_prompt: "使用 $ccsc-maintenance 維護小會網站。外觀與互動調整先提供方案、推薦及 HTML 預覽，等我選定後再實作。"
