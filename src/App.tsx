@@ -170,6 +170,9 @@ function Header() {
   const [open, setOpen] = useState(false)
   const menuButton = useRef<HTMLButtonElement>(null)
   const { pathname } = useLocation()
+  const navigate = useNavigate()
+  // BrowserRouter starts each new site visit at index 0, even with an external page behind it.
+  const canGoBack = window.history.state?.idx > 0
 
   useEffect(() => setOpen(false), [pathname])
 
@@ -209,6 +212,18 @@ function Header() {
             </button>
           </div>
         </div>
+        {(canGoBack || pathname !== '/') && (
+          <div className="shell mobile-page-back">
+            {canGoBack ? (
+              <button type="button" className="button button--ghost" onClick={() => {
+                setOpen(false)
+                navigate(-1)
+              }}>返回上一頁</button>
+            ) : (
+              <Link className="button button--ghost" to="/" replace>回到首頁</Link>
+            )}
+          </div>
+        )}
           <div id="mobile-navigation" className="mobile-panel" hidden={!open}>
             <div className="shell">
               <SearchBox onSubmit={() => {

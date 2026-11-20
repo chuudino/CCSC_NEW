@@ -61,6 +61,8 @@ button { cursor: pointer; }
 .utility-bar a:hover { color: white; }
 .site-header { position: sticky; top: 0; z-index: 50; background: rgba(251,248,241,.94); border-bottom: 1px solid rgba(31,62,57,.09); backdrop-filter: blur(14px); }
 .site-header__inner { height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 22px; }
+.mobile-page-back { display: none; }
+.mobile-page-back :where(.button) { background: transparent; padding: 6px 16px; }
 .brand { display: flex; align-items: center; gap: 12px; min-width: 276px; color: var(--teal); }
 .brand > span { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
 .brand strong { font-family: var(--serif); font-size: 1.04rem; letter-spacing: .04em; }
@@ -415,11 +417,13 @@ button { cursor: pointer; }
 
 @media (max-width: 820px) {
   :root { --header-height: 71px; }
+  :root:has(.mobile-page-back) { --header-height: 127px; }
   .shell { width: min(100% - 32px, 680px); }
   .utility-bar__inner > span { display: none; }
   .utility-bar__inner { justify-content: center; }
   .utility-bar__inner > div { gap: 14px; }
   .site-header__inner { height: 70px; }
+  .mobile-page-back { display: block; padding-block: 4px; }
   .brand { min-width: 0; }
   .brand small { display: none; }
   .brand strong { font-size: .92rem; }
