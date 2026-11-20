@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { ArrowLeft, ChevronRight, ExternalLink } from 'lucide-react'
+import { ChevronRight, ExternalLink } from 'lucide-react'
 import { Link, useParams } from 'react-router-dom'
 import { publications } from './data/site'
 import index from './data/seed/index.json'
@@ -71,14 +71,13 @@ export default function SeedPublication() {
   const entry = articleId ? articles?.find(item => String(item.id) === articleId) : undefined
 
   if (!issue || !publication || !articles || (articleId && !entry)) {
-    return <section className="not-found"><h1>找不到這一期或文章</h1><Link className="text-link" to="/publications">返回小會刊物</Link></section>
+    return <section className="not-found"><h1>找不到這一期或文章</h1><Link className="text-link" to="/publications">瀏覽小會刊物</Link></section>
   }
 
   const issueName = '《芥子》' + publication.issue
   if (!entry) {
     return <article className="article-page">
       <header><div className="shell article-header">
-        <Link to="/publications"><ArrowLeft size={14} aria-hidden="true" /> 返回小會刊物</Link>
         <h1>{issueName}</h1>
         <div><time dateTime={publication.date}>{publication.date}</time><span>共 {articles.length} 篇</span></div>
       </div></header>
@@ -101,7 +100,6 @@ export default function SeedPublication() {
 
   return <article className="article-page">
     <header><div className="shell article-header">
-      <Link to={seedIssuePath(publication.slug)}><ArrowLeft size={14} aria-hidden="true" /> 返回{issueName}目錄</Link>
       <span className="tag">{issueName}</span>
       <h1>{entry.title}</h1>
       {entry.author && <div>{entry.author}</div>}

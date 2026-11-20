@@ -340,7 +340,6 @@ button { cursor: pointer; }
 
 .article-page > header { background: linear-gradient(125deg, #e9e0d2, #e4ede7); }
 .article-header { max-width: 900px; padding-block: 70px 80px; text-align: center; }
-.article-header > a { display: block; margin-bottom: 35px; color: var(--teal); font-size: .75rem; font-weight: 700; }
 .article-header .tag { margin: auto; }
 .article-header h1 { margin: 20px 0; color: var(--teal); font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 4.4rem); font-weight: 600; line-height: 1.35; letter-spacing: -.035em; }
 .article-header > div { display: flex; justify-content: center; gap: 22px; color: #78827e; font-size: .75rem; }
@@ -353,7 +352,6 @@ button { cursor: pointer; }
 .not-found .sacred-mark { width: 150px; color: var(--teal); opacity: .25; }
 .not-found h1 { margin: 12px 0 4px; color: var(--teal); font-family: var(--serif); font-size: 2.5rem; }
 .not-found p { color: #737d79; }
-.not-found .button { margin-top: 18px; }
 
 .footer { background: #102f2c; color: rgba(255,255,255,.72); }
 .footer__grid { display: grid; grid-template-columns: 1.45fr 1.25fr .75fr .75fr; gap: 55px; padding-block: 70px 54px; }

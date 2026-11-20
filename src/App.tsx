@@ -489,7 +489,6 @@ function WellspringPage() {
     <>
       <PageHero eyebrow="Wellspring" title="《心泉》歷期 PDF" text="閱讀小會的靈修、信仰與生命分享。" icon={<BookOpen />} />
       <section className="section section--paper"><div className="shell">
-        <Link className="text-link" to="/publications">返回小會刊物</Link>
         <div className="wellspring-reader">
           <h2>選擇期數</h2>
           <label htmlFor="wellspring-issue">《心泉》期數</label>
@@ -586,14 +585,14 @@ function ArticlePage() {
   if (!item) return <ManagedArticle legacySlug={slug} />
   return (
     <article className="article-page">
-      <header><div className="shell article-header"><Link to={item.category === '默觀月訊' ? '/prayer' : '/culture'}>← 返回文章列表</Link><span className="tag">{item.category}</span><h1>{item.title}</h1><div><time>{item.date}</time><span>{item.author}</span></div></div></header>
+      <header><div className="shell article-header"><span className="tag">{item.category}</span><h1>{item.title}</h1><div><time>{item.date}</time><span>{item.author}</span></div></div></header>
       <div className="shell article-body"><aside><SacredMark compact /><span>在基督的愛內<br />共同成長</span></aside><div className="prose"><p className="source-note">發布日期：{formatDate(item.date)}；活動日期請依內文與行事曆查閱。</p>{item.content.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{item.links?.map((link) => <p key={link.url}><OfficialSource url={link.url} label={link.label} /></p>)}<hr /><p className="source-note">本頁為原官網公開內容的新版摘要。歷史資料、活動細節及完整影像以小會正式公告為準。</p><OfficialSource url={item.sourceUrl} /></div></div>
     </article>
   )
 }
 
 function NotFound() {
-  return <section className="not-found"><SacredMark /><span className="eyebrow">404</span><h1>這一頁暫時找不到</h1><p>也許內容正在整理，或網址已經更新。</p><Link className="button button--primary" to="/">回到首頁 <ArrowRight size={17} /></Link></section>
+  return <section className="not-found"><SacredMark /><span className="eyebrow">404</span><h1>這一頁暫時找不到</h1><p>也許內容正在整理，或網址已經更新。</p></section>
 }
 
 export default function App() {

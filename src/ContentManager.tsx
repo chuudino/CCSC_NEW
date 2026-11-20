@@ -115,8 +115,8 @@ export function ManagedArticle({ legacySlug }: { legacySlug?: string }) {
   const item = items.find(x => legacySlug ? x.legacySlugs?.includes(legacySlug) : x.id === id)
   if (error) return <section className="section shell"><p role="alert">{error}</p></section>
   if (!loaded) return <section className="section shell"><p role="status">載入中…</p></section>
-  if (!item) return <section className="section shell"><h1>這筆內容尚未公開或已下架</h1><Link to="/activities">返回活動區域</Link></section>
-  return <article className="article-page"><header><div className="shell article-header"><Link to={paths[item.kind]}>← 返回{labels[item.kind]}</Link>
+  if (!item) return <section className="section shell"><h1>這筆內容尚未公開或已下架</h1><Link to="/activities">瀏覽活動與分會</Link></section>
+  return <article className="article-page"><header><div className="shell article-header">
     <div className="content-tags"><span className="tag">{categoryName(item.category)}</span><span className="tag">{groupNames(item.groupIds)}</span></div><h1>{item.title}</h1>
     <p>活動日期：{contentDate(item)}</p>{item.publishedDate && <p>原始發文日期：{item.publishedDate}</p>}{item.dateNote && <p>{item.dateNote}</p>}{item.location && <p>地點：{item.location}</p>}
   </div></header><div className="shell activity-detail"><div className="content-body">{item.body}</div>
